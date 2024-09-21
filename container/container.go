@@ -1,8 +1,8 @@
 package container
 
 import (
-	customer "github.com/FACorreiaa/ink-app-backend-protos/modules/customer/generated"
-	"github.com/FACorreiaa/ink-app-backend-protos/utils"
+	customer "github.com/FACorreiaa/fitme-protos/modules/customer/generated"
+	"github.com/FACorreiaa/fitme-protos/utils"
 )
 
 // Brokers is the encapsulation for all grpc clients. We use it this way so

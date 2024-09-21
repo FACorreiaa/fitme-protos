@@ -3,7 +3,7 @@ module github.com/FACorreiaa/fitme-protos
 go 1.23.1
 
 require (
-	github.com/FACorreiaa/ink-app-backend-protos v0.0.0-20240611150132-88ec9e0d3fcd
+	github.com/FACorreiaa/fitme-protos v0.0.0-20240611150132-88ec9e0d3fcd
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.20.4
 	go.opentelemetry.io/otel/trace v1.30.0
@@ -12,7 +12,7 @@ require (
 )
 
 require (
-	github.com/FACorreiaa/ink-app-backend-grpc v0.0.0-20240322231149-49682d8f14a5 // indirect
+	github.com/FACorreiaa/fitme-grpc v0.0.0-20240322231149-49682d8f14a5 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect

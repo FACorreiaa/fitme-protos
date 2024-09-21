@@ -4,9 +4,10 @@ import (
 	"context"
 	"errors"
 
-	"github.com/FACorreiaa/ink-app-backend-protos/modules/user/generated"
-	"github.com/FACorreiaa/ink-app-backend-protos/utils"
 	"google.golang.org/grpc"
+
+	"github.com/FACorreiaa/fitme-protos/modules/user/generated"
+	"github.com/FACorreiaa/fitme-protos/utils"
 )
 
 type Broker struct {
