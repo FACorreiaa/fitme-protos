@@ -8,6 +8,7 @@ import (
 
 	"github.com/FACorreiaa/fitme-protos/core"
 	"github.com/FACorreiaa/fitme-protos/modules/customer/generated"
+	"github.com/FACorreiaa/fitme-protos/utils"
 )
 
 type Broker struct {
