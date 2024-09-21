@@ -2,6 +2,8 @@ package container
 
 import (
 	customer "github.com/FACorreiaa/fitme-protos/modules/customer/generated"
+	user "github.com/FACorreiaa/fitme-protos/modules/user/generated"
+
 	"github.com/FACorreiaa/fitme-protos/utils"
 )
 
@@ -14,8 +16,8 @@ import (
 //
 // Ensure that you're using the interface type here and not the implementation
 type Brokers struct {
-	Customer customer.CustomerClient
-	//Auth           user.AuthClient
+	Customer       customer.CustomerClient
+	Auth           user.AuthClient
 	TransportUtils *utils.TransportUtils
 }
 
