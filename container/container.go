@@ -1,6 +1,8 @@
 package container
 
 import (
+	calculator "github.com/FACorreiaa/fitme-protos/modules/calculator/generated"
+
 	customer "github.com/FACorreiaa/fitme-protos/modules/customer/generated"
 	user "github.com/FACorreiaa/fitme-protos/modules/user/generated"
 
@@ -16,8 +18,9 @@ import (
 //
 // Ensure that you're using the interface type here and not the implementation
 type Brokers struct {
-	Customer       customer.CustomerClient
-	Auth           user.AuthClient
+	Customer       *customer.CustomerClient
+	Auth           *user.AuthClient
+	Calculator     *calculator.CalculatorServiceClient
 	TransportUtils *utils.TransportUtils
 }
 
@@ -29,6 +32,9 @@ func NewBrokers(transportUtils *utils.TransportUtils) *Brokers {
 
 	brokers := new(Brokers)
 	brokers.TransportUtils = transportUtils
+	//brokers.Customer = customer
+	//brokers.Auth = auth
+	//brokers.Calculator = calc
 	utils.Transport = transportUtils
 
 	return brokers
