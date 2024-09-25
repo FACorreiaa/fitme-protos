@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package calculator;
+
+// Message definitions for UserMacroDistribution and other related entities
+message UserMacroDistribution {
+  string id = 1;
+  int32 user_id = 2;
+  uint32 age = 3;
+  uint32 height = 4;
+  uint32 weight = 5;
+  string gender = 6;
+  string system = 7;
+  string activity = 8;
+  string activity_description = 9;
+  string objective = 10;
+  string objective_description = 11;
+  string calories_distribution = 12;
+  string calories_distribution_description = 13;
+  uint32 protein = 14;
+  uint32 fats = 15;
+  uint32 carbs = 16;
+  uint32 bmr = 17;
+  uint32 tdee = 18;
+  uint32 goal = 19;
+  string created_at = 20;
+}
+
+// Request and response messages for the Create operation
+message CreateUserMacroRequest {
+  UserMacroDistribution user_macro = 1;
+}
+
+message CreateUserMacroResponse {
+  UserMacroDistribution user_macro = 1;
+}
+
+// Request and response messages for the GetAll operation
+message GetAllUserMacrosRequest {
+  int32 user_id = 1;
+}
+
+message GetAllUserMacrosResponse {
+  repeated UserMacroDistribution user_macros = 1;
+}
+
+// Request and response messages for the Get operation
+message GetUserMacroRequest {
+  string plan_id = 1;
+}
+
+message GetUserMacroResponse {
+  UserMacroDistribution user_macro = 1;
+}
+
+// Service definition for the calculator
+service CalculatorService {
+  rpc CreateUserMacro(CreateUserMacroRequest) returns (CreateUserMacroResponse);
+  rpc GetAllUserMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
+  rpc GetUserMacro(GetUserMacroRequest) returns (GetUserMacroResponse);
+}
