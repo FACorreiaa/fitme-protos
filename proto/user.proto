@@ -74,15 +74,14 @@ message User {
   bool is_admin = 5;
   string created_at = 6;
   string updated_at = 7;
-  string role = 8;
-//  enum Role {
-//    ROLE_UNSPECIFIED = 0;
-//    ADMIN = 1;
-//    MODERATOR = 2;
-//    COACH = 3;
-//  }
-//
-//  Role role = 8;
+  enum Role {
+    ROLE_UNSPECIFIED = 0;
+    ADMIN = 1;
+    MODERATOR = 2;
+    COACH = 3;
+  }
+
+  Role role = 8;
 }
 
 // Request and response messages for new user-related services
