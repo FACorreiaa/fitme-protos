@@ -57,6 +57,6 @@ func (b *Broker) GetUserMacro(ctx context.Context, in *generated.GetUserMacroReq
 	return b.client.GetUserMacro(ctx, in, opts...)
 }
 
-func (b *Broker) GetAllUserMacros(ctx context.Context, in *generated.GetAllUserMacrosRequest, opts ...grpc.CallOption) (*generated.GetAllUserMacrosResponse, error) {
-	return b.client.GetAllUserMacros(ctx, in, opts...)
+func (b *Broker) GetUsersMacros(ctx context.Context, in *generated.GetAllUserMacrosRequest, opts ...grpc.CallOption) (*generated.GetAllUserMacrosResponse, error) {
+	return b.client.GetUsersMacros(ctx, in, opts...)
 }
