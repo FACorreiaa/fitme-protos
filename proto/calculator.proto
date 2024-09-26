@@ -12,7 +12,7 @@ service Calculator {
 // Message definitions for UserMacroDistribution and other related entities
 message UserMacroDistribution {
   string id = 1;
-  int32 user_id = 2;
+  string user_id = 2;
   uint32 age = 3;
   uint32 height = 4;
   uint32 weight = 5;
@@ -44,7 +44,7 @@ message CreateUserMacroResponse {
 
 // Request and response messages for the GetAll operation
 message GetAllUserMacrosRequest {
-  int32 user_id = 1;
+  string user_id = 1;
 }
 
 message GetAllUserMacrosResponse {
