@@ -2,6 +2,13 @@ syntax = "proto3";
 
 package calculator;
 
+// Service definition for the calculator
+service Calculator {
+  rpc CreateUserMacro(CreateUserMacroRequest) returns (CreateUserMacroResponse);
+  rpc GetUsersMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
+  rpc GetUserMacros(GetUserMacroRequest) returns (GetUserMacroResponse);
+}
+
 // Message definitions for UserMacroDistribution and other related entities
 message UserMacroDistribution {
   string id = 1;
@@ -51,11 +58,4 @@ message GetUserMacroRequest {
 
 message GetUserMacroResponse {
   UserMacroDistribution user_macro = 1;
-}
-
-// Service definition for the calculator
-service CalculatorService {
-  rpc CreateUserMacro(CreateUserMacroRequest) returns (CreateUserMacroResponse);
-  rpc GetUsersMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
-  rpc GetUserMacros(GetUserMacroRequest) returns (GetUserMacroResponse);
 }
