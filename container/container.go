@@ -20,7 +20,7 @@ import (
 type Brokers struct {
 	Customer       customer.CustomerClient
 	Auth           user.AuthClient
-	Calculator     calculator.CalculatorServiceClient
+	Calculator     calculator.CalculatorClient
 	TransportUtils *utils.TransportUtils
 }
 

@@ -14,12 +14,12 @@ import (
 type Broker struct {
 	serverAddr string
 	conn       *grpc.ClientConn
-	client     generated.CalculatorServiceClient
+	client     generated.CalculatorClient
 }
 
 var (
-	_ generated.CalculatorServiceClient = (*Broker)(nil)
-	_ core.Broker                       = (*Broker)(nil)
+	_ generated.CalculatorClient = (*Broker)(nil)
+	_ core.Broker                = (*Broker)(nil)
 )
 
 func NewBroker(serverAddr string) (*Broker, error) {
@@ -40,7 +40,7 @@ func (b *Broker) NewConnection() (*grpc.ClientConn, error) {
 	}
 
 	b.conn = conn
-	b.client = generated.NewCalculatorServiceClient(b.conn)
+	b.client = generated.NewCalculatorClient(b.conn)
 
 	return b.conn, nil
 }
