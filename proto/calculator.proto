@@ -57,5 +57,5 @@ message GetUserMacroResponse {
 service CalculatorService {
   rpc CreateUserMacro(CreateUserMacroRequest) returns (CreateUserMacroResponse);
   rpc GetUsersMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
-  rpc GetUserMacro(GetUserMacroRequest) returns (GetUserMacroResponse);
+  rpc GetUserMacros(GetUserMacroRequest) returns (GetUserMacroResponse);
 }
