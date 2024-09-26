@@ -1,7 +1,7 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
-github.com/FACorreiaa/fitme-grpc v0.0.0-20240926141112-d9e61ab7f900 h1:yGLgQ8iWFA8s3//EsMmWYY8aGizxnmywltJw2LqtYmU=
-github.com/FACorreiaa/fitme-grpc v0.0.0-20240926141112-d9e61ab7f900/go.mod h1:US9Aafz6PCk7NksYxxd1zqakTldj7na/q1a2IlGdwA4=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20240926145859-559cddfde08d h1:Kt0P0bCSn699PKf/gPSlHtTaaoQsHt7pOq6Rr4vOZ9o=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20240926145859-559cddfde08d/go.mod h1:faj1ErmELhnfdAe2dMHFciccbRWOi6VHpoPbOkpcmE8=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
