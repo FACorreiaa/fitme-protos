@@ -56,6 +56,6 @@ message GetUserMacroResponse {
 // Service definition for the calculator
 service CalculatorService {
   rpc CreateUserMacro(CreateUserMacroRequest) returns (CreateUserMacroResponse);
-  rpc GetAllUserMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
+  rpc GetUsersMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
   rpc GetUserMacro(GetUserMacroRequest) returns (GetUserMacroResponse);
 }

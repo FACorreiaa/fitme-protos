@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CalculatorService_CreateUserMacro_FullMethodName  = "/calculator.CalculatorService/CreateUserMacro"
-	CalculatorService_GetAllUserMacros_FullMethodName = "/calculator.CalculatorService/GetAllUserMacros"
-	CalculatorService_GetUserMacro_FullMethodName     = "/calculator.CalculatorService/GetUserMacro"
+	CalculatorService_CreateUserMacro_FullMethodName = "/calculator.CalculatorService/CreateUserMacro"
+	CalculatorService_GetUsersMacros_FullMethodName  = "/calculator.CalculatorService/GetUsersMacros"
+	CalculatorService_GetUserMacro_FullMethodName    = "/calculator.CalculatorService/GetUserMacro"
 )
 
 // CalculatorServiceClient is the client API for CalculatorService service.
@@ -31,7 +31,7 @@ const (
 // Service definition for the calculator
 type CalculatorServiceClient interface {
 	CreateUserMacro(ctx context.Context, in *CreateUserMacroRequest, opts ...grpc.CallOption) (*CreateUserMacroResponse, error)
-	GetAllUserMacros(ctx context.Context, in *GetAllUserMacrosRequest, opts ...grpc.CallOption) (*GetAllUserMacrosResponse, error)
+	GetUsersMacros(ctx context.Context, in *GetAllUserMacrosRequest, opts ...grpc.CallOption) (*GetAllUserMacrosResponse, error)
 	GetUserMacro(ctx context.Context, in *GetUserMacroRequest, opts ...grpc.CallOption) (*GetUserMacroResponse, error)
 }
 
@@ -53,10 +53,10 @@ func (c *calculatorServiceClient) CreateUserMacro(ctx context.Context, in *Creat
 	return out, nil
 }
 
-func (c *calculatorServiceClient) GetAllUserMacros(ctx context.Context, in *GetAllUserMacrosRequest, opts ...grpc.CallOption) (*GetAllUserMacrosResponse, error) {
+func (c *calculatorServiceClient) GetUsersMacros(ctx context.Context, in *GetAllUserMacrosRequest, opts ...grpc.CallOption) (*GetAllUserMacrosResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAllUserMacrosResponse)
-	err := c.cc.Invoke(ctx, CalculatorService_GetAllUserMacros_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CalculatorService_GetUsersMacros_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *calculatorServiceClient) GetUserMacro(ctx context.Context, in *GetUserM
 // Service definition for the calculator
 type CalculatorServiceServer interface {
 	CreateUserMacro(context.Context, *CreateUserMacroRequest) (*CreateUserMacroResponse, error)
-	GetAllUserMacros(context.Context, *GetAllUserMacrosRequest) (*GetAllUserMacrosResponse, error)
+	GetUsersMacros(context.Context, *GetAllUserMacrosRequest) (*GetAllUserMacrosResponse, error)
 	GetUserMacro(context.Context, *GetUserMacroRequest) (*GetUserMacroResponse, error)
 	mustEmbedUnimplementedCalculatorServiceServer()
 }
@@ -95,8 +95,8 @@ type UnimplementedCalculatorServiceServer struct{}
 func (UnimplementedCalculatorServiceServer) CreateUserMacro(context.Context, *CreateUserMacroRequest) (*CreateUserMacroResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUserMacro not implemented")
 }
-func (UnimplementedCalculatorServiceServer) GetAllUserMacros(context.Context, *GetAllUserMacrosRequest) (*GetAllUserMacrosResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllUserMacros not implemented")
+func (UnimplementedCalculatorServiceServer) GetUsersMacros(context.Context, *GetAllUserMacrosRequest) (*GetAllUserMacrosResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUsersMacros not implemented")
 }
 func (UnimplementedCalculatorServiceServer) GetUserMacro(context.Context, *GetUserMacroRequest) (*GetUserMacroResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserMacro not implemented")
@@ -140,20 +140,20 @@ func _CalculatorService_CreateUserMacro_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CalculatorService_GetAllUserMacros_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CalculatorService_GetUsersMacros_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllUserMacrosRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CalculatorServiceServer).GetAllUserMacros(ctx, in)
+		return srv.(CalculatorServiceServer).GetUsersMacros(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CalculatorService_GetAllUserMacros_FullMethodName,
+		FullMethod: CalculatorService_GetUsersMacros_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CalculatorServiceServer).GetAllUserMacros(ctx, req.(*GetAllUserMacrosRequest))
+		return srv.(CalculatorServiceServer).GetUsersMacros(ctx, req.(*GetAllUserMacrosRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -188,8 +188,8 @@ var CalculatorService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CalculatorService_CreateUserMacro_Handler,
 		},
 		{
-			MethodName: "GetAllUserMacros",
-			Handler:    _CalculatorService_GetAllUserMacros_Handler,
+			MethodName: "GetUsersMacros",
+			Handler:    _CalculatorService_GetUsersMacros_Handler,
 		},
 		{
 			MethodName: "GetUserMacro",
