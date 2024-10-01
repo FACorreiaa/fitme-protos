@@ -7,6 +7,7 @@ service Calculator {
   rpc CreateUserMacro(CreateUserMacroRequest) returns (CreateUserMacroResponse);
   rpc GetUsersMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
   rpc GetUserMacros(GetUserMacroRequest) returns (GetUserMacroResponse);
+  rpc CreateOfflineMacroDistribution(CreateUserMacroRequest) returns (CreateUserMacroResponse);
 }
 
 // Message definitions for UserMacroDistribution and other related entities
