@@ -19,10 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Calculator_CreateUserMacro_FullMethodName                = "/calculator.Calculator/CreateUserMacro"
-	Calculator_GetUsersMacros_FullMethodName                 = "/calculator.Calculator/GetUsersMacros"
-	Calculator_GetUserMacros_FullMethodName                  = "/calculator.Calculator/GetUserMacros"
-	Calculator_CreateOfflineMacroDistribution_FullMethodName = "/calculator.Calculator/CreateOfflineMacroDistribution"
+	Calculator_CreateUserMacro_FullMethodName        = "/calculator.Calculator/CreateUserMacro"
+	Calculator_GetUsersMacros_FullMethodName         = "/calculator.Calculator/GetUsersMacros"
+	Calculator_GetUserMacros_FullMethodName          = "/calculator.Calculator/GetUserMacros"
+	Calculator_CreateOfflineUserMacro_FullMethodName = "/calculator.Calculator/CreateOfflineUserMacro"
 )
 
 // CalculatorClient is the client API for Calculator service.
@@ -34,7 +34,7 @@ type CalculatorClient interface {
 	CreateUserMacro(ctx context.Context, in *CreateUserMacroRequest, opts ...grpc.CallOption) (*CreateUserMacroResponse, error)
 	GetUsersMacros(ctx context.Context, in *GetAllUserMacrosRequest, opts ...grpc.CallOption) (*GetAllUserMacrosResponse, error)
 	GetUserMacros(ctx context.Context, in *GetUserMacroRequest, opts ...grpc.CallOption) (*GetUserMacroResponse, error)
-	CreateOfflineMacroDistribution(ctx context.Context, in *CreateOfflineUserMacroRequest, opts ...grpc.CallOption) (*CreateOfflineUserMacroResponse, error)
+	CreateOfflineUserMacro(ctx context.Context, in *CreateOfflineUserMacroRequest, opts ...grpc.CallOption) (*CreateOfflineUserMacroResponse, error)
 }
 
 type calculatorClient struct {
@@ -75,10 +75,10 @@ func (c *calculatorClient) GetUserMacros(ctx context.Context, in *GetUserMacroRe
 	return out, nil
 }
 
-func (c *calculatorClient) CreateOfflineMacroDistribution(ctx context.Context, in *CreateOfflineUserMacroRequest, opts ...grpc.CallOption) (*CreateOfflineUserMacroResponse, error) {
+func (c *calculatorClient) CreateOfflineUserMacro(ctx context.Context, in *CreateOfflineUserMacroRequest, opts ...grpc.CallOption) (*CreateOfflineUserMacroResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateOfflineUserMacroResponse)
-	err := c.cc.Invoke(ctx, Calculator_CreateOfflineMacroDistribution_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Calculator_CreateOfflineUserMacro_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ type CalculatorServer interface {
 	CreateUserMacro(context.Context, *CreateUserMacroRequest) (*CreateUserMacroResponse, error)
 	GetUsersMacros(context.Context, *GetAllUserMacrosRequest) (*GetAllUserMacrosResponse, error)
 	GetUserMacros(context.Context, *GetUserMacroRequest) (*GetUserMacroResponse, error)
-	CreateOfflineMacroDistribution(context.Context, *CreateOfflineUserMacroRequest) (*CreateOfflineUserMacroResponse, error)
+	CreateOfflineUserMacro(context.Context, *CreateOfflineUserMacroRequest) (*CreateOfflineUserMacroResponse, error)
 	mustEmbedUnimplementedCalculatorServer()
 }
 
@@ -114,8 +114,8 @@ func (UnimplementedCalculatorServer) GetUsersMacros(context.Context, *GetAllUser
 func (UnimplementedCalculatorServer) GetUserMacros(context.Context, *GetUserMacroRequest) (*GetUserMacroResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserMacros not implemented")
 }
-func (UnimplementedCalculatorServer) CreateOfflineMacroDistribution(context.Context, *CreateOfflineUserMacroRequest) (*CreateOfflineUserMacroResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateOfflineMacroDistribution not implemented")
+func (UnimplementedCalculatorServer) CreateOfflineUserMacro(context.Context, *CreateOfflineUserMacroRequest) (*CreateOfflineUserMacroResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateOfflineUserMacro not implemented")
 }
 func (UnimplementedCalculatorServer) mustEmbedUnimplementedCalculatorServer() {}
 func (UnimplementedCalculatorServer) testEmbeddedByValue()                    {}
@@ -192,20 +192,20 @@ func _Calculator_GetUserMacros_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Calculator_CreateOfflineMacroDistribution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Calculator_CreateOfflineUserMacro_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateOfflineUserMacroRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CalculatorServer).CreateOfflineMacroDistribution(ctx, in)
+		return srv.(CalculatorServer).CreateOfflineUserMacro(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Calculator_CreateOfflineMacroDistribution_FullMethodName,
+		FullMethod: Calculator_CreateOfflineUserMacro_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CalculatorServer).CreateOfflineMacroDistribution(ctx, req.(*CreateOfflineUserMacroRequest))
+		return srv.(CalculatorServer).CreateOfflineUserMacro(ctx, req.(*CreateOfflineUserMacroRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -230,8 +230,8 @@ var Calculator_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Calculator_GetUserMacros_Handler,
 		},
 		{
-			MethodName: "CreateOfflineMacroDistribution",
-			Handler:    _Calculator_CreateOfflineMacroDistribution_Handler,
+			MethodName: "CreateOfflineUserMacro",
+			Handler:    _Calculator_CreateOfflineUserMacro_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

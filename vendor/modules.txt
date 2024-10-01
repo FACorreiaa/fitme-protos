@@ -1,4 +1,4 @@
-# github.com/FACorreiaa/fitme-grpc v0.0.0-20240926145859-559cddfde08d
+# github.com/FACorreiaa/fitme-grpc v0.0.0-20240926220358-19d654135857
 ## explicit; go 1.23.1
 github.com/FACorreiaa/fitme-grpc/internal/domain
 github.com/FACorreiaa/fitme-grpc/internal/domain/auth
@@ -181,10 +181,10 @@ golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
 golang.org/x/text/width
-# google.golang.org/genproto/googleapis/rpc v0.0.0-20240924160255-9d4c2d233b61
+# google.golang.org/genproto/googleapis/rpc v0.0.0-20240930140551-af27646dc61f
 ## explicit; go 1.21
 google.golang.org/genproto/googleapis/rpc/status
-# google.golang.org/grpc v1.67.0
+# google.golang.org/grpc v1.67.1
 ## explicit; go 1.21
 google.golang.org/grpc
 google.golang.org/grpc/attributes

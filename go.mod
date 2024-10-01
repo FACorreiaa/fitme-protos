@@ -3,12 +3,12 @@ module github.com/FACorreiaa/fitme-protos
 go 1.23.1
 
 require (
-	github.com/FACorreiaa/fitme-grpc v0.0.0-20240926145859-559cddfde08d
+	github.com/FACorreiaa/fitme-grpc v0.0.0-20240926220358-19d654135857
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.20.4
 	go.opentelemetry.io/otel/trace v1.30.0
 	go.uber.org/zap v1.27.0
-	google.golang.org/grpc v1.67.0
+	google.golang.org/grpc v1.67.1
 	google.golang.org/protobuf v1.34.2
 )
 
@@ -43,5 +43,5 @@ require (
 	golang.org/x/sync v0.8.0 // indirect
 	golang.org/x/sys v0.25.0 // indirect
 	golang.org/x/text v0.18.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240924160255-9d4c2d233b61 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240930140551-af27646dc61f // indirect
 )

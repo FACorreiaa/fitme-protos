@@ -60,3 +60,7 @@ func (b *Broker) GetUserMacros(ctx context.Context, in *generated.GetUserMacroRe
 func (b *Broker) GetUsersMacros(ctx context.Context, in *generated.GetAllUserMacrosRequest, opts ...grpc.CallOption) (*generated.GetAllUserMacrosResponse, error) {
 	return b.client.GetUsersMacros(ctx, in, opts...)
 }
+
+func (b *Broker) CreateOfflineUserMacro(ctx context.Context, in *generated.CreateOfflineUserMacroRequest, opts ...grpc.CallOption) (*generated.CreateOfflineUserMacroResponse, error) {
+	return b.client.CreateOfflineUserMacro(ctx, in, opts...)
+}
