@@ -59,3 +59,28 @@ message GetUserMacroRequest {
 message GetUserMacroResponse {
   UserMacroDistribution user_macro = 1;
 }
+
+message OfflineUserMacroDistribution {
+  uint32 age = 1;
+  uint32 height = 2;
+  uint32 weight = 3;
+  string gender = 4;
+  string system = 5;
+  string activity = 6;
+  string activity_description = 7;
+  string objective = 8;
+  string objective_description = 9;
+  string calories_distribution = 10;
+  string calories_distribution_description = 11;
+  uint32 protein = 12;
+  uint32 fats = 13;
+  uint32 carbs = 14;
+  uint32 bmr = 15;
+  uint32 tdee = 16;
+  uint32 goal = 17;
+  string created_at = 18;
+}
+
+message CreateOfflineMacroDistribution {
+  OfflineUserMacroDistribution user_macro = 1;
+}
