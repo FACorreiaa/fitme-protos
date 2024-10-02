@@ -26,26 +26,26 @@ type UserMacroDistribution struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                              string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId                          string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Age                             uint32 `protobuf:"varint,3,opt,name=age,proto3" json:"age,omitempty"`
-	Height                          uint32 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
-	Weight                          uint32 `protobuf:"varint,5,opt,name=weight,proto3" json:"weight,omitempty"`
-	Gender                          string `protobuf:"bytes,6,opt,name=gender,proto3" json:"gender,omitempty"`
-	System                          string `protobuf:"bytes,7,opt,name=system,proto3" json:"system,omitempty"`
-	Activity                        string `protobuf:"bytes,8,opt,name=activity,proto3" json:"activity,omitempty"`
-	ActivityDescription             string `protobuf:"bytes,9,opt,name=activity_description,json=activityDescription,proto3" json:"activity_description,omitempty"`
-	Objective                       string `protobuf:"bytes,10,opt,name=objective,proto3" json:"objective,omitempty"`
-	ObjectiveDescription            string `protobuf:"bytes,11,opt,name=objective_description,json=objectiveDescription,proto3" json:"objective_description,omitempty"`
-	CaloriesDistribution            string `protobuf:"bytes,12,opt,name=calories_distribution,json=caloriesDistribution,proto3" json:"calories_distribution,omitempty"`
-	CaloriesDistributionDescription string `protobuf:"bytes,13,opt,name=calories_distribution_description,json=caloriesDistributionDescription,proto3" json:"calories_distribution_description,omitempty"`
-	Protein                         uint32 `protobuf:"varint,14,opt,name=protein,proto3" json:"protein,omitempty"`
-	Fats                            uint32 `protobuf:"varint,15,opt,name=fats,proto3" json:"fats,omitempty"`
-	Carbs                           uint32 `protobuf:"varint,16,opt,name=carbs,proto3" json:"carbs,omitempty"`
-	Bmr                             uint32 `protobuf:"varint,17,opt,name=bmr,proto3" json:"bmr,omitempty"`
-	Tdee                            uint32 `protobuf:"varint,18,opt,name=tdee,proto3" json:"tdee,omitempty"`
-	Goal                            uint32 `protobuf:"varint,19,opt,name=goal,proto3" json:"goal,omitempty"`
-	CreatedAt                       string `protobuf:"bytes,20,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	Id                              string  `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	UserId                          string  `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Age                             uint32  `protobuf:"varint,3,opt,name=age,proto3" json:"age,omitempty"`
+	Height                          uint32  `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
+	Weight                          float32 `protobuf:"fixed32,5,opt,name=weight,proto3" json:"weight,omitempty"`
+	Gender                          string  `protobuf:"bytes,6,opt,name=gender,proto3" json:"gender,omitempty"`
+	System                          string  `protobuf:"bytes,7,opt,name=system,proto3" json:"system,omitempty"`
+	Activity                        string  `protobuf:"bytes,8,opt,name=activity,proto3" json:"activity,omitempty"`
+	ActivityDescription             string  `protobuf:"bytes,9,opt,name=activity_description,json=activityDescription,proto3" json:"activity_description,omitempty"`
+	Objective                       string  `protobuf:"bytes,10,opt,name=objective,proto3" json:"objective,omitempty"`
+	ObjectiveDescription            string  `protobuf:"bytes,11,opt,name=objective_description,json=objectiveDescription,proto3" json:"objective_description,omitempty"`
+	CaloriesDistribution            string  `protobuf:"bytes,12,opt,name=calories_distribution,json=caloriesDistribution,proto3" json:"calories_distribution,omitempty"`
+	CaloriesDistributionDescription string  `protobuf:"bytes,13,opt,name=calories_distribution_description,json=caloriesDistributionDescription,proto3" json:"calories_distribution_description,omitempty"`
+	Protein                         uint32  `protobuf:"varint,14,opt,name=protein,proto3" json:"protein,omitempty"`
+	Fats                            uint32  `protobuf:"varint,15,opt,name=fats,proto3" json:"fats,omitempty"`
+	Carbs                           uint32  `protobuf:"varint,16,opt,name=carbs,proto3" json:"carbs,omitempty"`
+	Bmr                             uint32  `protobuf:"varint,17,opt,name=bmr,proto3" json:"bmr,omitempty"`
+	Tdee                            uint32  `protobuf:"varint,18,opt,name=tdee,proto3" json:"tdee,omitempty"`
+	Goal                            uint32  `protobuf:"varint,19,opt,name=goal,proto3" json:"goal,omitempty"`
+	CreatedAt                       string  `protobuf:"bytes,20,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 }
 
 func (x *UserMacroDistribution) Reset() {
@@ -108,7 +108,7 @@ func (x *UserMacroDistribution) GetHeight() uint32 {
 	return 0
 }
 
-func (x *UserMacroDistribution) GetWeight() uint32 {
+func (x *UserMacroDistribution) GetWeight() float32 {
 	if x != nil {
 		return x.Weight
 	}
@@ -842,7 +842,7 @@ var file_calculator_proto_rawDesc = []byte{
 	0x64, 0x12, 0x10, 0x0a, 0x03, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x03,
 	0x61, 0x67, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x68, 0x65, 0x69, 0x67, 0x68, 0x74, 0x18, 0x04, 0x20,
 	0x01, 0x28, 0x0d, 0x52, 0x06, 0x68, 0x65, 0x69, 0x67, 0x68, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x77,
-	0x65, 0x69, 0x67, 0x68, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x77, 0x65, 0x69,
+	0x65, 0x69, 0x67, 0x68, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x02, 0x52, 0x06, 0x77, 0x65, 0x69,
 	0x67, 0x68, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x18, 0x06, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x16, 0x0a, 0x06, 0x73,
 	0x79, 0x73, 0x74, 0x65, 0x6d, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x79, 0x73,

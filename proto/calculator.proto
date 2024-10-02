@@ -16,7 +16,7 @@ message UserMacroDistribution {
   string user_id = 2;
   uint32 age = 3;
   uint32 height = 4;
-  uint32 weight = 5;
+  float weight = 5;
   string gender = 6;
   string system = 7;
   string activity = 8;
