@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package calculator;
 
+import "google/protobuf/timestamp.proto";
+
 // Service definition for the calculator
 service Calculator {
   rpc CreateUserMacro(CreateUserMacroRequest) returns (CreateUserMacroResponse);
@@ -10,13 +12,13 @@ service Calculator {
   rpc CreateOfflineUserMacro(CreateOfflineUserMacroRequest) returns (CreateOfflineUserMacroResponse);
 }
 
-// Message definitions for UserMacroDistribution and other related entities
+
 message UserMacroDistribution {
   string id = 1;
   string user_id = 2;
   uint32 age = 3;
   uint32 height = 4;
-  float weight = 5;
+  double weight = 5; // Consider using double for more precision
   string gender = 6;
   string system = 7;
   string activity = 8;
@@ -31,7 +33,7 @@ message UserMacroDistribution {
   uint32 bmr = 17;
   uint32 tdee = 18;
   uint32 goal = 19;
-  string created_at = 20;
+  google.protobuf.Timestamp created_at = 20; // Use Timestamp instead of string
 }
 
 // Request and response messages for the Create operation
