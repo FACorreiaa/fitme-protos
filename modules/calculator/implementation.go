@@ -64,3 +64,7 @@ func (b *Broker) GetUsersMacros(ctx context.Context, in *generated.GetAllUserMac
 func (b *Broker) CreateOfflineUserMacro(ctx context.Context, in *generated.CreateOfflineUserMacroRequest, opts ...grpc.CallOption) (*generated.CreateOfflineUserMacroResponse, error) {
 	return b.client.CreateOfflineUserMacro(ctx, in, opts...)
 }
+
+func (b *Broker) DeleteUserMacro(ctx context.Context, in *generated.DeleteUserMacroRequest, opts ...grpc.CallOption) (*generated.DeleteUserMacroResponse, error) {
+	return b.client.DeleteUserMacro(ctx, in, opts...)
+}
