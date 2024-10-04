@@ -10,6 +10,7 @@ service Calculator {
   rpc GetUsersMacros(GetAllUserMacrosRequest) returns (GetAllUserMacrosResponse);
   rpc GetUserMacros(GetUserMacroRequest) returns (GetUserMacroResponse);
   rpc CreateOfflineUserMacro(CreateOfflineUserMacroRequest) returns (CreateOfflineUserMacroResponse);
+  rpc DeleteUserMacro(DeleteUserMacroRequest) returns (DeleteUserMacroResponse);
 }
 
 
@@ -95,4 +96,14 @@ message OfflineUserMacroDistribution {
 
 message CreateOfflineMacroDistribution {
   OfflineUserMacroDistribution user_macro = 1;
+}
+
+message DeleteUserMacroRequest {
+  string macro_id = 1;  // The ID of the macro to delete
+}
+
+message DeleteUserMacroResponse {
+}
+
+message NilRes {
 }
