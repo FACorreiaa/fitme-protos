@@ -28,7 +28,7 @@ message GetActivityReq {
 message GetActivityRes {
   bool success = 1;
   string message = 2;
-  XActivity activity = 3;
+  repeated XActivity activity = 3;
   BaseResponse response = 100;
 }
 
