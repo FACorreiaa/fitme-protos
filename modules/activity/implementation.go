@@ -103,3 +103,13 @@ func (b *Broker) StopActivityTracker(ctx context.Context, in *generated.StopActi
 	//TODO implement me
 	return b.client.StopActivityTracker(ctx, in, opts...)
 }
+
+func (b *Broker) DeleteExerciseSession(ctx context.Context, in *generated.DeleteExerciseSessionReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+	//TODO implement me
+	return b.client.DeleteExerciseSession(ctx, in, opts...)
+}
+
+func (b *Broker) DeleteAllExercisesSession(ctx context.Context, in *generated.DeleteAllExercisesSessionReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+	//TODO implement me
+	return b.client.DeleteAllExercisesSession(ctx, in, opts...)
+}
