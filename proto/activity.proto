@@ -1,0 +1,219 @@
+syntax = "proto3";
+
+package activity;
+
+import "google/protobuf/timestamp.proto";
+
+service Activity {
+  rpc GetActivity(GetActivityReq) returns (GetActivityRes);
+  rpc GetActivitiesByID(GetActivityIDReq) returns (GetActivityIDRes);
+  rpc GetActivitiesByName(GetActivityNameReq) returns (GetActivityNameRes);
+  rpc GetUserExerciseSession(GetUserExerciseSessionReq) returns (GetUserExerciseSessionRes);
+  rpc GetUserExerciseTotalData(GetUserExerciseTotalDataReq) returns (GetUserExerciseTotalDataRes);
+  rpc GetUserExerciseSessionStats(GetUserExerciseSessionStatsReq) returns (GetUserExerciseSessionStatsRes);
+  rpc GetExerciseSessionStats(GetExerciseSessionStatsOccurrenceReq) returns (GetExerciseSessionStatsOccurrenceRes);
+  rpc StartActivityTracker(StartActivityTrackerReq) returns (StartActivityTrackerRes);
+  rpc PauseActivityTracker(PauseActivityTrackerReq) returns (PauseActivityTrackerRes);
+  rpc ResumeActivityTracker(ResumeActivityTrackerReq) returns (ResumeActivityTrackerRes);
+  rpc StopActivityTracker(StopActivityTrackerReq) returns (StopActivityTrackerRes);
+}
+
+message GetActivityReq {
+  string public_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetActivityRes {
+  bool success = 1;
+  string message = 2;
+  XActivity activity = 3;
+  BaseResponse response = 100;
+}
+
+message GetActivityIDReq {
+  string public_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetActivityIDRes {
+  bool success = 1;
+  string message = 2;
+  XActivity activity = 3;
+  BaseResponse response = 100;
+}
+
+message GetActivityNameReq {
+  string public_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetActivityNameRes {
+  bool success = 1;
+  string message = 2;
+  XActivity activity = 3;
+  BaseResponse response = 100;
+}
+
+message GetUserExerciseSessionReq{
+  string public_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetUserExerciseSessionRes {
+  bool success = 1;
+  string message = 2;
+  XExerciseSession session = 3;
+  BaseResponse response = 100;
+}
+
+message GetUserExerciseTotalDataReq {
+  string public_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetUserExerciseTotalDataRes {
+  bool success = 1;
+  string message = 2;
+  XTotalExerciseSession session = 3;
+  BaseResponse response = 100;
+}
+
+message GetUserExerciseSessionStatsReq {
+  string public_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetUserExerciseSessionStatsRes {
+  bool success = 1;
+  string message = 2;
+  XExerciseCountStats exercise_count = 3;
+  BaseResponse response = 100;
+}
+
+message GetExerciseSessionStatsOccurrenceReq {
+  string public_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetExerciseSessionStatsOccurrenceRes {
+  bool success = 1;
+  string message = 2;
+  XExerciseCountStats exercise_count = 3;
+  BaseResponse response = 100;
+}
+
+message StartActivityTrackerReq {
+  string activity_id = 1;
+  string user_id = 2;
+}
+
+message StartActivityTrackerRes {
+  bool success = 1;
+  string message = 2;
+  XExerciseSession exercise_session = 3;
+}
+
+message PauseActivityTrackerReq {
+  string session_id = 1;
+}
+
+message PauseActivityTrackerRes {
+  bool success = 1;
+  string message = 2;
+}
+
+message ResumeActivityTrackerReq {
+  string session_id = 1;
+}
+
+message ResumeActivityTrackerRes {
+  bool success = 1;
+  string message = 2;
+  XExerciseSession exercise_session = 3;
+}
+
+message StopActivityTrackerReq {
+  string session_id = 1;
+}
+
+message StopActivityTrackerRes {
+  bool success = 1;
+  string message = 2;
+  XExerciseSession exercise_session = 3;
+}
+
+
+message XExerciseCountStats {
+  string exercise_count_id = 1;
+  string activity_id = 2;
+  string user_id = 3;
+  string session_name = 4;
+  uint32 number_of_times = 5;
+  uint32 total_exercise_duration_hours = 6;
+  uint32 total_exercise_duration_minutes = 7;
+  uint32 total_exercise_duration_seconds = 8;
+  uint32 total_exercise_calories_burned = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp updated_at = 11;
+}
+
+message XActivity {
+  string activity_id = 1;
+  string user_id = 2;
+  string name = 3;
+  float calories_per_hour = 4;
+  float duration_in_minutes = 5;
+  float total_calories = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+}
+
+message XExerciseSession {
+  string exercise_session_id = 1;
+  string user_id = 2;
+  string activity_id = 3;
+  string session_name = 4;
+  google.protobuf.Timestamp start_time = 5;
+  google.protobuf.Timestamp end_time = 6;
+  uint32 duration_hours = 7;
+  uint32 duration_minutes = 8;
+  uint32 duration_seconds = 9;
+  uint32 calories_burned = 10;
+  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp updated_at = 12;
+}
+
+message XTotalExerciseSession {
+  string exercise_session_id = 1;
+  string user_id = 2;
+  string activity_id = 3;
+  string session_name = 4;
+  uint32 total_duration_hours = 5;
+  uint32 total_duration_minutes = 6;
+  uint32 total_duration_seconds = 7;
+  uint32 total_calories_burned = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp updated_at = 11;
+}
+
+message XDiff {
+  string field      = 1;
+  string old_value  = 2;
+  string new_value  = 3;
+}
+
+message NilRes {
+}
+
+message BaseRequest {
+  string downstream = 998;
+  string request_id = 999;
+}
+
+message BaseResponse {
+  string upstream = 998;
+  string request_id = 999;
+}
+
+//    Consider adding a more robust error handling mechanism in your responses. Currently, you have a bool success and a string message. While this works, you may want to standardize error codes or use gRPC's built-in error handling more extensively (e.g., using google.rpc.Status to handle errors in a more structured manner).
+
