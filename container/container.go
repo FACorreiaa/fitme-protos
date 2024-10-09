@@ -1,6 +1,7 @@
 package container
 
 import (
+	apb "github.com/FACorreiaa/fitme-protos/modules/activity/generated"
 	calculator "github.com/FACorreiaa/fitme-protos/modules/calculator/generated"
 
 	customer "github.com/FACorreiaa/fitme-protos/modules/customer/generated"
@@ -18,40 +19,42 @@ import (
 //
 // Ensure that you're using the interface type here and not the implementation
 type Brokers struct {
-	Customer       customer.CustomerClient
-	Auth           user.AuthClient
-	Calculator     calculator.CalculatorClient
+	Customer       *customer.CustomerClient
+	Auth           *user.AuthClient
+	Calculator     *calculator.CalculatorClient
+	Activity       *apb.ActivityClient
 	TransportUtils *utils.TransportUtils
 }
 
 // NewBrokers creates a common container instance for use with all cluster sevices
-// func NewBrokers(transportUtils *utils.TransportUtils, auth *user.AuthClient, customer *customer.CustomerClient,
-// 	calc *calculator.CalculatorServiceClient) *Brokers {
-// 	if transportUtils == nil {
-// 		return nil
-// 	}
-
-// 	brokers := new(Brokers)
-// 	brokers.TransportUtils = transportUtils
-// 	brokers.Customer = customer
-// 	brokers.Auth = auth
-// 	brokers.Calculator = calc
-// 	utils.Transport = transportUtils
-
-// 	return brokers
-// }
-
-func NewBrokers(transportUtils *utils.TransportUtils) *Brokers {
+func NewBrokers(transportUtils *utils.TransportUtils, auth *user.AuthClient, customer *customer.CustomerClient,
+	calc *calculator.CalculatorClient, activity *apb.ActivityClient) *Brokers {
 	if transportUtils == nil {
 		return nil
 	}
 
 	brokers := new(Brokers)
 	brokers.TransportUtils = transportUtils
-	//brokers.Customer = customer
-	// brokers.Auth = auth
-	// brokers.Calculator = calc
+	brokers.Customer = customer
+	brokers.Auth = auth
+	brokers.Calculator = calc
+	brokers.Activity = activity
 	utils.Transport = transportUtils
 
 	return brokers
 }
+
+//func NewBrokers(transportUtils *utils.TransportUtils) *Brokers {
+//	if transportUtils == nil {
+//		return nil
+//	}
+//
+//	brokers := new(Brokers)
+//	brokers.TransportUtils = transportUtils
+//	//brokers.Customer = customer
+//	// brokers.Auth = auth
+//	// brokers.Calculator = calc
+//	utils.Transport = transportUtils
+//
+//	return brokers
+//}
