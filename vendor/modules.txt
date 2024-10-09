@@ -1,4 +1,4 @@
-# github.com/FACorreiaa/fitme-grpc v0.0.0-20241004213047-f8f5fc27b4af
+# github.com/FACorreiaa/fitme-grpc v0.0.0-20241004223747-d3069e82b34b
 ## explicit; go 1.23.1
 github.com/FACorreiaa/fitme-grpc/internal/domain
 github.com/FACorreiaa/fitme-grpc/internal/domain/auth
