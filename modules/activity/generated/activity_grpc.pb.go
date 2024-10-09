@@ -30,6 +30,8 @@ const (
 	Activity_PauseActivityTracker_FullMethodName        = "/activity.Activity/PauseActivityTracker"
 	Activity_ResumeActivityTracker_FullMethodName       = "/activity.Activity/ResumeActivityTracker"
 	Activity_StopActivityTracker_FullMethodName         = "/activity.Activity/StopActivityTracker"
+	Activity_DeleteExerciseSession_FullMethodName       = "/activity.Activity/DeleteExerciseSession"
+	Activity_DeleteAllExercisesSession_FullMethodName   = "/activity.Activity/DeleteAllExercisesSession"
 )
 
 // ActivityClient is the client API for Activity service.
@@ -47,6 +49,8 @@ type ActivityClient interface {
 	PauseActivityTracker(ctx context.Context, in *PauseActivityTrackerReq, opts ...grpc.CallOption) (*PauseActivityTrackerRes, error)
 	ResumeActivityTracker(ctx context.Context, in *ResumeActivityTrackerReq, opts ...grpc.CallOption) (*ResumeActivityTrackerRes, error)
 	StopActivityTracker(ctx context.Context, in *StopActivityTrackerReq, opts ...grpc.CallOption) (*StopActivityTrackerRes, error)
+	DeleteExerciseSession(ctx context.Context, in *DeleteExerciseSessionReq, opts ...grpc.CallOption) (*NilRes, error)
+	DeleteAllExercisesSession(ctx context.Context, in *DeleteAllExercisesSessionReq, opts ...grpc.CallOption) (*NilRes, error)
 }
 
 type activityClient struct {
@@ -167,6 +171,26 @@ func (c *activityClient) StopActivityTracker(ctx context.Context, in *StopActivi
 	return out, nil
 }
 
+func (c *activityClient) DeleteExerciseSession(ctx context.Context, in *DeleteExerciseSessionReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, Activity_DeleteExerciseSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityClient) DeleteAllExercisesSession(ctx context.Context, in *DeleteAllExercisesSessionReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, Activity_DeleteAllExercisesSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ActivityServer is the server API for Activity service.
 // All implementations must embed UnimplementedActivityServer
 // for forward compatibility.
@@ -182,6 +206,8 @@ type ActivityServer interface {
 	PauseActivityTracker(context.Context, *PauseActivityTrackerReq) (*PauseActivityTrackerRes, error)
 	ResumeActivityTracker(context.Context, *ResumeActivityTrackerReq) (*ResumeActivityTrackerRes, error)
 	StopActivityTracker(context.Context, *StopActivityTrackerReq) (*StopActivityTrackerRes, error)
+	DeleteExerciseSession(context.Context, *DeleteExerciseSessionReq) (*NilRes, error)
+	DeleteAllExercisesSession(context.Context, *DeleteAllExercisesSessionReq) (*NilRes, error)
 	mustEmbedUnimplementedActivityServer()
 }
 
@@ -224,6 +250,12 @@ func (UnimplementedActivityServer) ResumeActivityTracker(context.Context, *Resum
 }
 func (UnimplementedActivityServer) StopActivityTracker(context.Context, *StopActivityTrackerReq) (*StopActivityTrackerRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StopActivityTracker not implemented")
+}
+func (UnimplementedActivityServer) DeleteExerciseSession(context.Context, *DeleteExerciseSessionReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteExerciseSession not implemented")
+}
+func (UnimplementedActivityServer) DeleteAllExercisesSession(context.Context, *DeleteAllExercisesSessionReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAllExercisesSession not implemented")
 }
 func (UnimplementedActivityServer) mustEmbedUnimplementedActivityServer() {}
 func (UnimplementedActivityServer) testEmbeddedByValue()                  {}
@@ -444,6 +476,42 @@ func _Activity_StopActivityTracker_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Activity_DeleteExerciseSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteExerciseSessionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityServer).DeleteExerciseSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Activity_DeleteExerciseSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityServer).DeleteExerciseSession(ctx, req.(*DeleteExerciseSessionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Activity_DeleteAllExercisesSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAllExercisesSessionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityServer).DeleteAllExercisesSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Activity_DeleteAllExercisesSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityServer).DeleteAllExercisesSession(ctx, req.(*DeleteAllExercisesSessionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Activity_ServiceDesc is the grpc.ServiceDesc for Activity service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -494,6 +562,14 @@ var Activity_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "StopActivityTracker",
 			Handler:    _Activity_StopActivityTracker_Handler,
+		},
+		{
+			MethodName: "DeleteExerciseSession",
+			Handler:    _Activity_DeleteExerciseSession_Handler,
+		},
+		{
+			MethodName: "DeleteAllExercisesSession",
+			Handler:    _Activity_DeleteAllExercisesSession_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

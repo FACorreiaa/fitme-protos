@@ -30,7 +30,7 @@ type UserMacroDistribution struct {
 	UserId                          string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Age                             uint32                 `protobuf:"varint,3,opt,name=age,proto3" json:"age,omitempty"`
 	Height                          uint32                 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"`
-	Weight                          float64                `protobuf:"fixed64,5,opt,name=weight,proto3" json:"weight,omitempty"` // Consider using double for more precision
+	Weight                          float64                `protobuf:"fixed64,5,opt,name=weight,proto3" json:"weight,omitempty"`
 	Gender                          string                 `protobuf:"bytes,6,opt,name=gender,proto3" json:"gender,omitempty"`
 	System                          string                 `protobuf:"bytes,7,opt,name=system,proto3" json:"system,omitempty"`
 	Activity                        string                 `protobuf:"bytes,8,opt,name=activity,proto3" json:"activity,omitempty"`
@@ -835,7 +835,7 @@ type DeleteUserMacroRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	MacroId string `protobuf:"bytes,1,opt,name=macro_id,json=macroId,proto3" json:"macro_id,omitempty"` // The ID of the macro to delete
+	MacroId string `protobuf:"bytes,1,opt,name=macro_id,json=macroId,proto3" json:"macro_id,omitempty"`
 }
 
 func (x *DeleteUserMacroRequest) Reset() {
