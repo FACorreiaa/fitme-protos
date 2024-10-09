@@ -51,7 +51,7 @@ func (b *Broker) GetAddress() string {
 
 func (b *Broker) GetActivity(ctx context.Context, in *generated.GetActivityReq, opts ...grpc.CallOption) (*generated.GetActivityRes, error) {
 	//TODO implement me
-	panic("implement me")
+	return b.client.GetActivity(ctx, in, opts...)
 }
 
 func (b *Broker) GetActivitiesByID(ctx context.Context, in *generated.GetActivityIDReq, opts ...grpc.CallOption) (*generated.GetActivityIDRes, error) {
