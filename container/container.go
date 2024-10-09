@@ -26,35 +26,35 @@ type Brokers struct {
 	TransportUtils *utils.TransportUtils
 }
 
-// NewBrokers creates a common container instance for use with all cluster sevices
-func NewBrokers(transportUtils *utils.TransportUtils, auth user.AuthClient, customer customer.CustomerClient,
-	calc calculator.CalculatorClient, activity apb.ActivityClient) *Brokers {
-	if transportUtils == nil {
-		return nil
-	}
-
-	brokers := new(Brokers)
-	brokers.TransportUtils = transportUtils
-	brokers.Customer = customer
-	brokers.Auth = auth
-	brokers.Calculator = calc
-	brokers.Activity = activity
-	utils.Transport = transportUtils
-
-	return brokers
-}
-
-//func NewBrokers(transportUtils *utils.TransportUtils) *Brokers {
+//func NewBrokers(transportUtils *utils.TransportUtils, auth *user.AuthClient, customer *customer.CustomerClient,
+//	calc *calculator.CalculatorClient, activity *apb.ActivityClient) *Brokers {
 //	if transportUtils == nil {
 //		return nil
 //	}
 //
 //	brokers := new(Brokers)
 //	brokers.TransportUtils = transportUtils
-//	//brokers.Customer = customer
-//	// brokers.Auth = auth
-//	// brokers.Calculator = calc
+//	brokers.Customer = customer
+//	brokers.Auth = auth
+//	brokers.Calculator = calc
+//	brokers.Activity = activity
 //	utils.Transport = transportUtils
 //
 //	return brokers
 //}
+
+// NewBrokers creates a common container instance for use with all cluster sevices
+func NewBrokers(transportUtils *utils.TransportUtils) *Brokers {
+	if transportUtils == nil {
+		return nil
+	}
+
+	brokers := new(Brokers)
+	brokers.TransportUtils = transportUtils
+	//brokers.Customer = customer
+	// brokers.Auth = auth
+	// brokers.Calculator = calc
+	utils.Transport = transportUtils
+
+	return brokers
+}
