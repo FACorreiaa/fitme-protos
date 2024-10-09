@@ -19,7 +19,7 @@ message UserMacroDistribution {
   string user_id = 2;
   uint32 age = 3;
   uint32 height = 4;
-  double weight = 5; // Consider using double for more precision
+  double weight = 5;
   string gender = 6;
   string system = 7;
   string activity = 8;
@@ -99,7 +99,7 @@ message CreateOfflineMacroDistribution {
 }
 
 message DeleteUserMacroRequest {
-  string macro_id = 1;  // The ID of the macro to delete
+  string macro_id = 1;
 }
 
 message DeleteUserMacroResponse {
