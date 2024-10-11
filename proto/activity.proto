@@ -100,7 +100,7 @@ message GetExerciseSessionStatsOccurrenceReq {
 message GetExerciseSessionStatsOccurrenceRes {
   bool success = 1;
   string message = 2;
-  XExerciseCountStats exercise_count = 3;
+  repeated XExerciseCountStats exercise_count = 3;
   BaseResponse response = 100;
 }
 
