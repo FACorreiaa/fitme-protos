@@ -191,8 +191,9 @@ message XExerciseSession {
   uint32 duration_minutes = 8;
   uint32 duration_seconds = 9;
   uint32 calories_burned = 10;
-  google.protobuf.Timestamp created_at = 11;
-  google.protobuf.Timestamp updated_at = 12;
+  string number_of_times = 11;
+  google.protobuf.Timestamp created_at = 12;
+  google.protobuf.Timestamp updated_at = 13;
 }
 
 message XTotalExerciseSession {
