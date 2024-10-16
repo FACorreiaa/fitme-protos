@@ -185,8 +185,8 @@ message XExerciseSession {
   string user_id = 2;
   string activity_id = 3;
   string session_name = 4;
-  string start_time = 5;
-  string end_time = 6;
+  google.protobuf.Timestamp start_time = 5;
+  google.protobuf.Timestamp end_time = 6;
   uint32 duration_hours = 7;
   uint32 duration_minutes = 8;
   uint32 duration_seconds = 9;
