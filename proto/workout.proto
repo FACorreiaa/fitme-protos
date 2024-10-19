@@ -1,0 +1,281 @@
+syntax = "proto3";
+
+package workout;
+
+import "google/protobuf/timestamp.proto";
+
+service Workout {
+  // exercises
+  rpc GetExercises(GetExercisesReq) returns (GetExercisesRes);
+  rpc GetExerciseID(GetExerciseIDReq) returns (GetExerciseIDRes);
+  rpc CreateExercise(CreateExerciseReq) returns (CreateExerciseRes);
+  rpc UpdateExercice(UpdateExerciseReq) returns (UpdateExerciseRes);
+
+  // workout exercises
+  rpc GetWorkoutPlanExercises(GetWorkoutPlanExercisesReq) returns (GetWorkoutPlanExercisesRes);
+  rpc GetExerciseByIdWorkoutPlan(GetExerciseByIdWorkoutPlanReq) returns (GetExerciseByIdWorkoutPlanRes);
+  rpc DeleteExerciseByIdWorkoutPlan(DeleteExerciseByIdWorkoutPlanReq) returns (NilRes);
+  rpc UpdateExerciseByIdWorkoutPlan(UpdateExerciseByIdWorkoutPlanReq) returns (UpdateExerciseByIdWorkoutPlanRes);
+  rpc InsertExerciseWorkoutPlan(InsertExerciseWorkoutPlanReq) returns (NilRes);
+
+  // workouts
+  rpc GetWorkoutPlans(GetWorkoutPlansReq) returns (GetWorkoutPlansRes);
+  rpc GetWorkoutPlan(GetWorkoutPlanReq) returns (GetWorkoutPlanRes);
+  rpc DeleteWorkoutPlan(DeleteWorkoutPlanReq) returns (NilRes);
+  rpc UpdateWorkoutPlan(UpdateWorkoutPlanReq) returns (UpdateWorkoutPlanRes);
+  rpc InsertWorkoutPlan(InsertWorkoutPlanReq) returns (InsertWorkoutPlanRes);
+}
+
+message GetExercisesReq {
+  BaseRequest request = 100;
+}
+
+message GetExercisesRes{
+  bool success = 1;
+  string message = 2;
+  XExercises exercise = 3;
+  BaseResponse response = 100;
+}
+
+message GetExerciseIDReq {
+  string exercise_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetExerciseIDRes {
+  bool success = 1;
+  string message = 2;
+  XExercises exercise = 3;
+  BaseResponse response = 100;
+}
+
+message CreateExerciseReq {
+  XExercises exercise = 1;
+  BaseRequest request = 100;
+}
+
+message CreateExerciseRes {
+  bool success = 1;
+  string message = 2;
+  XExercises exercise = 3;
+  BaseRequest request = 100;
+}
+
+message UpdateExerciseReq {
+  string exercise_id = 1;
+  repeated XDiff updates  = 2;
+  BaseResponse response = 100;
+}
+
+message GetWorkoutPlanExercisesReq {
+  BaseResponse response = 100;
+}
+
+message GetWorkoutPlanExercisesRes {
+  bool success = 1;
+  string message = 2;
+  XWorkoutExerciseDay workout_exercise_day = 3;
+  BaseResponse response = 100;
+}
+
+message GetExerciseByIdWorkoutPlanReq {
+  string exercise_workout_plan  = 1;
+  BaseRequest request = 100;
+}
+
+message GetExerciseByIdWorkoutPlanRes {
+  bool success = 1;
+  string message = 2;
+  XWorkoutExerciseDay workout_exercise_day = 3;
+  BaseResponse response = 100;
+}
+
+message DeleteExerciseByIdWorkoutPlanReq {
+  string exercise_workout_plan  = 1;
+  bool    hard_delete   = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateExerciseByIdWorkoutPlanReq {
+  string workout_plan_id      = 1;
+
+  repeated XDiff updates  = 2;
+
+  string downstream       = 998;
+  string request_id       = 999;
+
+}
+
+message UpdateExerciseByIdWorkoutPlanRes {
+  bool      success     = 1;
+  string    message     = 2;
+
+  XWorkoutExerciseDay workout_exercise_day = 3;
+  BaseResponse response = 100;
+}
+
+message InsertExerciseWorkoutPlanReq {
+  string workout_day = 1;
+  string workout_plan_id = 2;
+  string exercise_id = 3;
+  BaseRequest request = 100;
+}
+
+
+message GetWorkoutPlansReq {
+  BaseRequest request = 100;
+}
+
+message GetWorkoutPlansRes {
+  bool success = 1;
+  string message = 2;
+
+  repeated XWorkoutPlanResponse workout_plan = 3;
+  BaseResponse response = 100;
+}
+
+message GetWorkoutPlanReq{
+  string workout_plan_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetWorkoutPlanRes {
+  bool success = 1;
+  string message = 2;
+
+  XWorkoutPlanResponse workout_plan = 3;
+  BaseResponse response = 100;
+}
+
+message InsertWorkoutPlanReq {
+  XWorkout workout = 1;
+  XPlanDay plan_day = 2;
+  BaseRequest request = 3;
+}
+
+message InsertWorkoutPlanRes {
+  bool success = 1;
+  string message = 2;
+  XWorkout workout = 3;
+  BaseResponse response = 100;
+}
+
+
+message UpdateExerciseRes {
+  bool success = 1;
+  string message = 2;
+  XExercises exercise = 3;
+  BaseResponse response = 100;
+}
+
+
+message UpdateWorkoutPlanReq {
+  string workout_id      = 1;
+
+  repeated XDiff updates  = 2;
+
+  BaseRequest request = 100;
+}
+
+message UpdateWorkoutPlanRes {
+  bool      success     = 1;
+  string    message     = 2;
+
+  XWorkout workout    = 3;
+
+  BaseResponse response = 100;
+}
+
+message DeleteWorkoutPlanReq {
+  string  customer_id   = 1;
+  bool    hard_delete   = 2; // soft delete by default or change later
+
+  BaseRequest request = 100;
+}
+
+message NilRes {
+}
+
+message XDiff {
+  string field      = 1;
+  string old_value  = 2;
+  string new_value  = 3;
+}
+
+message XWorkout {
+  string exercise_id = 1;
+  string user_id = 2;
+  string description = 3;
+  string notes = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  uint32 rating = 7;
+  repeated XWorkoutPlanDay workout_plan_day = 8;
+}
+
+message XWorkoutPlanDay {
+  string day = 1;
+  repeated XExercises exercises = 2;
+}
+
+message XExercises {
+  string exercise_id = 1;
+  string name = 2;
+  string exercise_type = 3;
+  string muscle_group = 4;
+  string equipment = 5;
+  string difficulty = 6;
+  string instruction = 7;
+  string video = 8;
+  bool custom_created = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp updated_at = 11;
+}
+
+message XWorkoutExerciseDay {
+  string workout_exercise_day = 1;
+  string name = 2;
+  string exercise_type = 3;
+  string muscle_group = 4;
+  string equipment = 5;
+  string difficulty = 6;
+  string instruction = 7;
+  string video = 8;
+  string custom_created = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp updated_at = 11;
+  string day = 12;
+}
+
+message XWorkoutPlanResponse {
+  string workout_plan_id = 1;
+  string user_id = 2;
+  string description = 3;
+  repeated WorkoutDayResponse workout_day = 4;
+  string notes = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+  uint32 rating = 8;
+  string day = 9;
+  repeated string exercises = 10;
+}
+
+message BaseRequest {
+  string downstream = 998;
+  string request_id = 999;
+}
+
+message BaseResponse {
+  string upstream = 998;
+  string request_id = 999;
+}
+
+message WorkoutDayResponse {
+  string day = 1;
+  repeated string exercises = 2;
+}
+
+message XPlanDay {
+  string day = 1;
+  repeated string exercise_id = 2;
+}
