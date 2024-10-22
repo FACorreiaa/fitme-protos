@@ -35,3 +35,6 @@ go-lint: ## Runs linter for .go files
 
 update:
 	go get -u
+
+profile:
+	go tool pprof -http=":6969" pprofbin ./cpu.pprof
