@@ -33,7 +33,7 @@ message GetExercisesReq {
 message GetExercisesRes{
   bool success = 1;
   string message = 2;
-  XExercises exercise = 3;
+  repeated XExercises exercise = 3;
   BaseResponse response = 100;
 }
 
