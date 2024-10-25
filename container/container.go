@@ -1,8 +1,9 @@
 package container
 
 import (
-	apb "github.com/FACorreiaa/fitme-protos/modules/activity/generated"
+	activity "github.com/FACorreiaa/fitme-protos/modules/activity/generated"
 	calculator "github.com/FACorreiaa/fitme-protos/modules/calculator/generated"
+	workout "github.com/FACorreiaa/fitme-protos/modules/workout/generated"
 
 	customer "github.com/FACorreiaa/fitme-protos/modules/customer/generated"
 	user "github.com/FACorreiaa/fitme-protos/modules/user/generated"
@@ -22,7 +23,8 @@ type Brokers struct {
 	Customer       customer.CustomerClient
 	Auth           user.AuthClient
 	Calculator     calculator.CalculatorClient
-	Activity       apb.ActivityClient
+	Activity       activity.ActivityClient
+	Workout        workout.WorkoutClient
 	TransportUtils *utils.TransportUtils
 }
 
