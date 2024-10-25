@@ -59,7 +59,7 @@ message CreateExerciseRes {
   bool success = 1;
   string message = 2;
   XExercises exercise = 3;
-  BaseResponse res = 100;
+  BaseResponse response = 100;
 }
 
 message UpdateExerciseReq {
