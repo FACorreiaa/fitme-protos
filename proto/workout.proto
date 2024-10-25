@@ -51,7 +51,7 @@ message GetExerciseIDRes {
 
 message CreateExerciseReq {
   XExercises exercise = 1;
-  string user_id = 4;
+  string user_id = 2;
   BaseRequest request = 100;
 }
 
