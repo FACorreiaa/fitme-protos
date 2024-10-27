@@ -9,7 +9,7 @@ service Workout {
   rpc GetExercises(GetExercisesReq) returns (GetExercisesRes);
   rpc GetExerciseID(GetExerciseIDReq) returns (GetExerciseIDRes);
   rpc CreateExercise(CreateExerciseReq) returns (CreateExerciseRes);
-  rpc UpdateExercice(UpdateExerciseReq) returns (UpdateExerciseRes);
+  rpc UpdateExercise(UpdateExerciseReq) returns (UpdateExerciseRes);
   rpc DeleteExercise(DeleteExerciseReq) returns (NilRes);
   // workout exercises
   rpc GetWorkoutPlanExercises(GetWorkoutPlanExercisesReq) returns (GetWorkoutPlanExercisesRes);
