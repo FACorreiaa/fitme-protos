@@ -23,6 +23,7 @@ const (
 	Workout_GetExerciseID_FullMethodName                 = "/workout.Workout/GetExerciseID"
 	Workout_CreateExercise_FullMethodName                = "/workout.Workout/CreateExercise"
 	Workout_UpdateExercice_FullMethodName                = "/workout.Workout/UpdateExercice"
+	Workout_DeleteExercise_FullMethodName                = "/workout.Workout/DeleteExercise"
 	Workout_GetWorkoutPlanExercises_FullMethodName       = "/workout.Workout/GetWorkoutPlanExercises"
 	Workout_GetExerciseByIdWorkoutPlan_FullMethodName    = "/workout.Workout/GetExerciseByIdWorkoutPlan"
 	Workout_DeleteExerciseByIdWorkoutPlan_FullMethodName = "/workout.Workout/DeleteExerciseByIdWorkoutPlan"
@@ -44,6 +45,7 @@ type WorkoutClient interface {
 	GetExerciseID(ctx context.Context, in *GetExerciseIDReq, opts ...grpc.CallOption) (*GetExerciseIDRes, error)
 	CreateExercise(ctx context.Context, in *CreateExerciseReq, opts ...grpc.CallOption) (*CreateExerciseRes, error)
 	UpdateExercice(ctx context.Context, in *UpdateExerciseReq, opts ...grpc.CallOption) (*UpdateExerciseRes, error)
+	DeleteExercise(ctx context.Context, in *DeleteExerciseReq, opts ...grpc.CallOption) (*NilRes, error)
 	// workout exercises
 	GetWorkoutPlanExercises(ctx context.Context, in *GetWorkoutPlanExercisesReq, opts ...grpc.CallOption) (*GetWorkoutPlanExercisesRes, error)
 	GetExerciseByIdWorkoutPlan(ctx context.Context, in *GetExerciseByIdWorkoutPlanReq, opts ...grpc.CallOption) (*GetExerciseByIdWorkoutPlanRes, error)
@@ -100,6 +102,16 @@ func (c *workoutClient) UpdateExercice(ctx context.Context, in *UpdateExerciseRe
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateExerciseRes)
 	err := c.cc.Invoke(ctx, Workout_UpdateExercice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workoutClient) DeleteExercise(ctx context.Context, in *DeleteExerciseReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, Workout_DeleteExercise_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -215,6 +227,7 @@ type WorkoutServer interface {
 	GetExerciseID(context.Context, *GetExerciseIDReq) (*GetExerciseIDRes, error)
 	CreateExercise(context.Context, *CreateExerciseReq) (*CreateExerciseRes, error)
 	UpdateExercice(context.Context, *UpdateExerciseReq) (*UpdateExerciseRes, error)
+	DeleteExercise(context.Context, *DeleteExerciseReq) (*NilRes, error)
 	// workout exercises
 	GetWorkoutPlanExercises(context.Context, *GetWorkoutPlanExercisesReq) (*GetWorkoutPlanExercisesRes, error)
 	GetExerciseByIdWorkoutPlan(context.Context, *GetExerciseByIdWorkoutPlanReq) (*GetExerciseByIdWorkoutPlanRes, error)
@@ -248,6 +261,9 @@ func (UnimplementedWorkoutServer) CreateExercise(context.Context, *CreateExercis
 }
 func (UnimplementedWorkoutServer) UpdateExercice(context.Context, *UpdateExerciseReq) (*UpdateExerciseRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateExercice not implemented")
+}
+func (UnimplementedWorkoutServer) DeleteExercise(context.Context, *DeleteExerciseReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteExercise not implemented")
 }
 func (UnimplementedWorkoutServer) GetWorkoutPlanExercises(context.Context, *GetWorkoutPlanExercisesReq) (*GetWorkoutPlanExercisesRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWorkoutPlanExercises not implemented")
@@ -368,6 +384,24 @@ func _Workout_UpdateExercice_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkoutServer).UpdateExercice(ctx, req.(*UpdateExerciseReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Workout_DeleteExercise_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteExerciseReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkoutServer).DeleteExercise(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Workout_DeleteExercise_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkoutServer).DeleteExercise(ctx, req.(*DeleteExerciseReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -574,6 +608,10 @@ var Workout_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateExercice",
 			Handler:    _Workout_UpdateExercice_Handler,
+		},
+		{
+			MethodName: "DeleteExercise",
+			Handler:    _Workout_DeleteExercise_Handler,
 		},
 		{
 			MethodName: "GetWorkoutPlanExercises",

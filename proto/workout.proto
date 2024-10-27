@@ -10,7 +10,7 @@ service Workout {
   rpc GetExerciseID(GetExerciseIDReq) returns (GetExerciseIDRes);
   rpc CreateExercise(CreateExerciseReq) returns (CreateExerciseRes);
   rpc UpdateExercice(UpdateExerciseReq) returns (UpdateExerciseRes);
-
+  rpc DeleteExercise(DeleteExerciseReq) returns (NilRes);
   // workout exercises
   rpc GetWorkoutPlanExercises(GetWorkoutPlanExercisesReq) returns (GetWorkoutPlanExercisesRes);
   rpc GetExerciseByIdWorkoutPlan(GetExerciseByIdWorkoutPlanReq) returns (GetExerciseByIdWorkoutPlanRes);
@@ -66,6 +66,11 @@ message UpdateExerciseReq {
   string exercise_id = 1;
   repeated XDiff updates  = 2;
   BaseResponse response = 100;
+}
+
+message DeleteExerciseReq {
+  string exercise_id = 1;
+  BaseRequest request = 100;
 }
 
 message GetWorkoutPlanExercisesReq {

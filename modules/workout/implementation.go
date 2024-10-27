@@ -46,43 +46,47 @@ func (b *Broker) NewConnection() (*grpc.ClientConn, error) {
 }
 
 func (b *Broker) GetExercises(ctx context.Context, in *generated.GetExercisesReq, opts ...grpc.CallOption) (*generated.GetExercisesRes, error) {
-	return b.client.GetExercises(ctx, in)
+	return b.client.GetExercises(ctx, in, opts...)
 }
 
 func (b *Broker) GetExerciseID(ctx context.Context, in *generated.GetExerciseIDReq, opts ...grpc.CallOption) (*generated.GetExerciseIDRes, error) {
-	return b.client.GetExerciseID(ctx, in)
+	return b.client.GetExerciseID(ctx, in, opts...)
 }
 
 func (b *Broker) CreateExercise(ctx context.Context, in *generated.CreateExerciseReq, opts ...grpc.CallOption) (*generated.CreateExerciseRes, error) {
-	return b.client.CreateExercise(ctx, in)
+	return b.client.CreateExercise(ctx, in, opts...)
 }
 
 func (b *Broker) UpdateExercice(ctx context.Context, in *generated.UpdateExerciseReq, opts ...grpc.CallOption) (*generated.UpdateExerciseRes, error) {
-	return b.client.UpdateExercice(ctx, in)
+	return b.client.UpdateExercice(ctx, in, opts...)
+}
+
+func (b *Broker) DeleteExercise(ctx context.Context, in *generated.DeleteExerciseReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+	return b.client.DeleteExercise(ctx, in, opts...)
 }
 
 func (b *Broker) GetWorkoutPlanExercises(ctx context.Context, in *generated.GetWorkoutPlanExercisesReq, opts ...grpc.CallOption) (*generated.GetWorkoutPlanExercisesRes, error) {
-	return b.client.GetWorkoutPlanExercises(ctx, in)
+	return b.client.GetWorkoutPlanExercises(ctx, in, opts...)
 }
 
 func (b *Broker) GetExerciseByIdWorkoutPlan(ctx context.Context, in *generated.GetExerciseByIdWorkoutPlanReq, opts ...grpc.CallOption) (*generated.GetExerciseByIdWorkoutPlanRes, error) {
-	return b.client.GetExerciseByIdWorkoutPlan(ctx, in)
+	return b.client.GetExerciseByIdWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) DeleteExerciseByIdWorkoutPlan(ctx context.Context, in *generated.DeleteExerciseByIdWorkoutPlanReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
-	return b.client.DeleteExerciseByIdWorkoutPlan(ctx, in)
+	return b.client.DeleteExerciseByIdWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) UpdateExerciseByIdWorkoutPlan(ctx context.Context, in *generated.UpdateExerciseByIdWorkoutPlanReq, opts ...grpc.CallOption) (*generated.UpdateExerciseByIdWorkoutPlanRes, error) {
-	return b.client.UpdateExerciseByIdWorkoutPlan(ctx, in)
+	return b.client.UpdateExerciseByIdWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) InsertExerciseWorkoutPlan(ctx context.Context, in *generated.InsertExerciseWorkoutPlanReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
-	return b.client.InsertExerciseWorkoutPlan(ctx, in)
+	return b.client.InsertExerciseWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) GetWorkoutPlans(ctx context.Context, in *generated.GetWorkoutPlansReq, opts ...grpc.CallOption) (*generated.GetWorkoutPlansRes, error) {
-	plans, err := b.client.GetWorkoutPlans(ctx, in)
+	plans, err := b.client.GetWorkoutPlans(ctx, in, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,19 +94,19 @@ func (b *Broker) GetWorkoutPlans(ctx context.Context, in *generated.GetWorkoutPl
 }
 
 func (b *Broker) GetWorkoutPlan(ctx context.Context, in *generated.GetWorkoutPlanReq, opts ...grpc.CallOption) (*generated.GetWorkoutPlanRes, error) {
-	return b.client.GetWorkoutPlan(ctx, in)
+	return b.client.GetWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) DeleteWorkoutPlan(ctx context.Context, in *generated.DeleteWorkoutPlanReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
-	return b.client.DeleteWorkoutPlan(ctx, in)
+	return b.client.DeleteWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) UpdateWorkoutPlan(ctx context.Context, in *generated.UpdateWorkoutPlanReq, opts ...grpc.CallOption) (*generated.UpdateWorkoutPlanRes, error) {
-	return b.client.UpdateWorkoutPlan(ctx, in)
+	return b.client.UpdateWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) InsertWorkoutPlan(ctx context.Context, in *generated.InsertWorkoutPlanReq, opts ...grpc.CallOption) (*generated.InsertWorkoutPlanRes, error) {
-	return b.client.InsertWorkoutPlan(ctx, in)
+	return b.client.InsertWorkoutPlan(ctx, in, opts...)
 }
 
 func (b *Broker) GetAddress() string {
