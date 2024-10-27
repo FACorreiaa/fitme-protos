@@ -57,8 +57,8 @@ func (b *Broker) CreateExercise(ctx context.Context, in *generated.CreateExercis
 	return b.client.CreateExercise(ctx, in, opts...)
 }
 
-func (b *Broker) UpdateExercice(ctx context.Context, in *generated.UpdateExerciseReq, opts ...grpc.CallOption) (*generated.UpdateExerciseRes, error) {
-	return b.client.UpdateExercice(ctx, in, opts...)
+func (b *Broker) UpdateExercise(ctx context.Context, in *generated.UpdateExerciseReq, opts ...grpc.CallOption) (*generated.UpdateExerciseRes, error) {
+	return b.client.UpdateExercise(ctx, in, opts...)
 }
 
 func (b *Broker) DeleteExercise(ctx context.Context, in *generated.DeleteExerciseReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
