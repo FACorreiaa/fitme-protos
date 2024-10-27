@@ -247,7 +247,7 @@ message XWorkoutExerciseDay {
   string difficulty = 6;
   string instruction = 7;
   string video = 8;
-  string custom_created = 9;
+  bool custom_created = 9;
   google.protobuf.Timestamp created_at = 10;
   google.protobuf.Timestamp updated_at = 11;
   string day = 12;
