@@ -80,7 +80,7 @@ message GetWorkoutPlanExercisesReq {
 message GetWorkoutPlanExercisesRes {
   bool success = 1;
   string message = 2;
-  XWorkoutExerciseDay workout_exercise_day = 3;
+  repeated XWorkoutExerciseDay workout_exercise_day = 3;
   BaseResponse response = 100;
 }
 
