@@ -155,7 +155,7 @@ message GetWorkoutPlanRes {
 
 message InsertWorkoutPlanReq {
   XWorkoutPlan workout = 1;
-  XPlanDay plan_day = 2;
+  repeated XPlanDay plan_day = 2;
   BaseRequest request = 3;
 }
 
