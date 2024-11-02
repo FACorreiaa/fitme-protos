@@ -154,7 +154,7 @@ message GetWorkoutPlanRes {
 }
 
 message InsertWorkoutPlanReq {
-  XWorkout workout = 1;
+  XWorkoutPlan workout = 1;
   XPlanDay plan_day = 2;
   BaseRequest request = 3;
 }
@@ -162,7 +162,7 @@ message InsertWorkoutPlanReq {
 message InsertWorkoutPlanRes {
   bool success = 1;
   string message = 2;
-  XWorkout workout = 3;
+  XWorkoutPlan workout = 3;
   BaseResponse response = 100;
 }
 
@@ -187,7 +187,7 @@ message UpdateWorkoutPlanRes {
   bool      success     = 1;
   string    message     = 2;
 
-  XWorkout workout    = 3;
+  XWorkoutPlan workout    = 3;
 
   BaseResponse response = 100;
 }
@@ -208,7 +208,7 @@ message XDiff {
   string new_value  = 3;
 }
 
-message XWorkout {
+message XWorkoutPlan {
   string workout_id = 1;
   string user_id = 2;
   string description = 3;
