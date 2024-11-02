@@ -285,3 +285,20 @@ message XPlanDay {
   string day = 1;
   repeated string exercise_id = 2;
 }
+
+message XWorkoutDay {
+  string workout_day_id = 1;
+  string workout_plan_id = 2;
+  string day = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+  repeated XExercises exercises = 6;
+}
+
+message XWorkoutPlanDetail {
+  string workout_plan_detail_id = 1;
+  string workout_plan_id = 2;
+  string day = 3;
+  repeated string exercises = 4;
+  google.protobuf.Timestamp created_at = 5;
+}
