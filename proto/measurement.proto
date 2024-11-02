@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package measurement;
+
+service Measurements {
+  rpc GetWeights(NilRes) returns (NilRes);
+}
+
+
+message NilRes {
+}

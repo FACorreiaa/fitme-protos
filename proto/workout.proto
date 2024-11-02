@@ -209,7 +209,7 @@ message XDiff {
 }
 
 message XWorkout {
-  string exercise_id = 1;
+  string workout_id = 1;
   string user_id = 2;
   string description = 3;
   string notes = 4;

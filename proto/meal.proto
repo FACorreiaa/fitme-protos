@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package meal_plan;
+
+service MealPlan {
+  rpc GetMealPlan(NilRes) returns (NilRes);
+}
+
+message NilRes {
+}
