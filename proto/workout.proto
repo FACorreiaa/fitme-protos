@@ -74,7 +74,7 @@ message DeleteExerciseReq {
 }
 
 message GetWorkoutPlanExercisesReq {
-  BaseResponse response = 100;
+  BaseRequest request = 100;
 }
 
 message GetWorkoutPlanExercisesRes {
@@ -153,11 +153,7 @@ message GetWorkoutPlanRes {
   BaseResponse response = 100;
 }
 
-message InsertWorkoutPlanReq {
-  XWorkoutPlan workout = 1;
-  repeated XPlanDay plan_day = 2;
-  BaseRequest request = 3;
-}
+
 
 message InsertWorkoutPlanRes {
   bool success = 1;
@@ -270,7 +266,11 @@ message BaseRequest {
   string downstream = 998;
   string request_id = 999;
 }
-
+message InsertWorkoutPlanReq {
+  XWorkoutPlan workout = 1;
+  repeated XPlanDay plan_day = 2;
+  BaseRequest request = 3;
+}
 message BaseResponse {
   string upstream = 998;
   string request_id = 999;
