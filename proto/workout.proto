@@ -189,8 +189,9 @@ message UpdateWorkoutPlanRes {
 }
 
 message DeleteWorkoutPlanReq {
-  string  customer_id   = 1;
-  bool    hard_delete   = 2; // soft delete by default or change later
+  string  user_id   = 1;
+  string workout_plan_id = 2;
+  bool    hard_delete   = 3; // soft delete by default or change later
 
   BaseRequest request = 100;
 }
