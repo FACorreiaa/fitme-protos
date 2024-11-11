@@ -97,8 +97,10 @@ message GetExerciseByIdWorkoutPlanRes {
 }
 
 message DeleteExerciseByIdWorkoutPlanReq {
-  string exercise_workout_plan  = 1;
-  bool    hard_delete   = 2;
+  repeated string exercise_id  = 1;
+  string workout_plan_id = 2;
+  string day = 3;
+  bool    hard_delete   = 4;
   BaseRequest request = 100;
 }
 
