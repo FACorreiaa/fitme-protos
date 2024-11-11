@@ -3,7 +3,7 @@ module github.com/FACorreiaa/fitme-protos
 go 1.23.1
 
 require (
-	github.com/FACorreiaa/fitme-grpc v0.0.0-20241110223432-f2f4a97516a0
+	github.com/FACorreiaa/fitme-grpc v0.0.0-20241111200821-5f8c197c7fb0
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.20.5
 	go.opentelemetry.io/otel/trace v1.32.0
