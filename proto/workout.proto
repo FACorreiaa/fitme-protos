@@ -109,8 +109,7 @@ message UpdateExerciseByIdWorkoutPlanReq {
 
   repeated XDiff updates  = 2;
 
-  string downstream       = 998;
-  string request_id       = 999;
+  BaseRequest request = 100;
 
 }
 
