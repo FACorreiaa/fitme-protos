@@ -1,4 +1,4 @@
-package measurementpackage
+package measurement
 
 import (
 	"context"
