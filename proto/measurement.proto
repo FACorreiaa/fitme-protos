@@ -2,10 +2,239 @@ syntax = "proto3";
 
 package measurement;
 
-service Measurements {
-  rpc GetWeights(NilRes) returns (NilRes);
+import "google/protobuf/timestamp.proto";
+
+service UserMeasurements {
+  // weight
+  rpc CreateWeight(CreateWeightReq) returns (CreateWeightRes);
+  rpc GetWeights(GetWeightsReq) returns (GetWeightsRes);
+  rpc GetWeight(GetWeightReq) returns (GetWeightRes);
+  rpc DeleteWeight(DeleteWeightReq) returns (NilRes);
+  rpc UpdateWeight(UpdateWeightReq) returns (UpdateWeightRes);
+
+  // waterIntake
+  rpc CreateWaterMeasurement(CreateWaterIntakeReq) returns (CreateWaterIntakeRes);
+  rpc GetWaterMeasurements(GetWaterIntakesReq) returns (GetWaterIntakesRes);
+  rpc GetWaterMeasurement(GetWaterIntakeReq) returns (GetWaterIntakeRes);
+  rpc DeleteWaterMeasurement(DeleteWaterIntakeReq) returns (NilRes);
+  rpc UpdateWaterMeasurement(UpdateWaterIntakeReq) returns (UpdateWaterIntakeRes);
+
+  // wasteline
+  rpc CreateWasteLineMeasurement(CreateWasteLineReq) returns (CreateWasteLineRes);
+  rpc GetWasteLineMeasurements(GetWasteLinesReq) returns (GetWasteLinesRes);
+  rpc GetWasteLineMeasurement(GetWasteLineReq) returns (GetWasteLineRes);
+  rpc DeleteWasteLineMeasurement(DeleteWasteLineReq) returns (NilRes);
+  rpc UpdateWasteLineMeasurement(UpdateWasteLineReq) returns (UpdateWasteLineRes);
+
 }
 
+message CreateWeightReq {
+  XWeight weight = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message CreateWeightRes {
+  bool success = 1;
+  string message = 2;
+  XWeight weight = 3;
+  BaseResponse response = 100;
+}
+
+message GetWeightsReq {
+  BaseRequest request = 100;
+}
+
+message GetWeightsRes{
+  bool success = 1;
+  string message = 2;
+  repeated XWeight weight = 3;
+  BaseResponse response = 100;
+}
+
+message GetWeightReq {
+  string weight_id = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message GetWeightRes {
+  string weight_id = 1;
+  string user_id = 2;
+  BaseResponse response = 100;
+}
+
+message DeleteWeightReq {
+  string weight_id = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateWeightReq {
+  string weight_id = 1;
+  string user_id = 2;
+  repeated XDiff updates  = 3;
+  BaseResponse response = 100;
+}
+
+message UpdateWeightRes {
+  bool success = 1;
+  string message = 2;
+  XWeight weight = 3;
+  BaseResponse response = 100;
+}
+
+message CreateWaterIntakeReq {
+  XWaterIntake water = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message CreateWaterIntakeRes {
+  bool success = 1;
+  string message = 2;
+  XWaterIntake water = 3;
+  BaseResponse response = 100;
+}
+
+message GetWaterIntakesReq {
+  BaseRequest request = 100;
+}
+
+message GetWaterIntakesRes{
+  bool success = 1;
+  string message = 2;
+  repeated XWaterIntake water = 3;
+  BaseResponse response = 100;
+}
+
+message GetWaterIntakeReq {
+  string water_intake_id = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message GetWaterIntakeRes {
+  string water_intake_id = 1;
+  string user_id = 2;
+  BaseResponse response = 100;
+}
+
+message DeleteWaterIntakeReq {
+  string water_intake_id = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateWaterIntakeReq {
+  string water_intake_id = 1;
+  string user_id = 2;
+  repeated XDiff updates  = 3;
+  BaseResponse response = 100;
+}
+
+message UpdateWaterIntakeRes {
+  bool success = 1;
+  string message = 2;
+  XWaterIntake water = 3;
+  BaseResponse response = 100;
+}
+
+message CreateWasteLineReq {
+  XWasteLine waste_line = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message CreateWasteLineRes {
+  bool success = 1;
+  string message = 2;
+  XWasteLine waste_line = 3;
+  BaseResponse response = 100;
+}
+
+message GetWasteLinesReq {
+  BaseRequest request = 100;
+}
+
+message GetWasteLinesRes{
+  bool success = 1;
+  string message = 2;
+  repeated XWasteLine waste_line = 3;
+  BaseResponse response = 100;
+}
+
+message GetWasteLineReq {
+  string waste_line_id = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message GetWasteLineRes {
+  string waste_line_id = 1;
+  string user_id = 2;
+  BaseResponse response = 100;
+}
+
+message DeleteWasteLineReq {
+  string waste_line_id = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateWasteLineReq {
+  string waste_line_id = 1;
+  string user_id = 2;
+  repeated XDiff updates  = 3;
+  BaseResponse response = 100;
+}
+
+message UpdateWasteLineRes {
+  bool success = 1;
+  string message = 2;
+  XWasteLine waste_line = 3;
+  BaseResponse response = 100;
+}
+
+message BaseRequest {
+  string downstream = 998;
+  string request_id = 999;
+}
+
+message BaseResponse {
+  string upstream = 998;
+  string request_id = 999;
+}
 
 message NilRes {
+}
+
+message XDiff {
+  string field      = 1;
+  string old_value  = 2;
+  string new_value  = 3;
+}
+
+message XWeight {
+  string weight_id = 1;
+  string user_id = 2;
+  int32 weight_value = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+message XWaterIntake {
+  string water_intake_id = 1;
+  string user_id = 2;
+  int32 quantity = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+message XWasteLine {
+  string waste_line_id = 1;
+  string user_id = 2;
+  int32 measurement = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
 }

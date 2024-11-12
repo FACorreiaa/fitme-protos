@@ -5,7 +5,10 @@ import (
 	calculator "github.com/FACorreiaa/fitme-protos/modules/calculator/generated"
 	workout "github.com/FACorreiaa/fitme-protos/modules/workout/generated"
 
+	measurement "github.com/FACorreiaa/fitme-protos/modules/measurement/generated"
+
 	customer "github.com/FACorreiaa/fitme-protos/modules/customer/generated"
+
 	user "github.com/FACorreiaa/fitme-protos/modules/user/generated"
 
 	"github.com/FACorreiaa/fitme-protos/utils"
@@ -25,6 +28,7 @@ type Brokers struct {
 	Calculator     calculator.CalculatorClient
 	Activity       activity.ActivityClient
 	Workout        workout.WorkoutClient
+	Measurements   measurement.UserMeasurementsClient
 	TransportUtils *utils.TransportUtils
 }
 
