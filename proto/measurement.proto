@@ -74,7 +74,7 @@ message UpdateWeightReq {
   string weight_id = 1;
   string user_id = 2;
   repeated XDiff updates  = 3;
-  BaseResponse response = 100;
+  BaseRequest request = 100;
 }
 
 message UpdateWeightRes {
