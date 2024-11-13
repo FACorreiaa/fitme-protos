@@ -10,6 +10,8 @@ github.com/FACorreiaa/fitme-grpc v0.0.0-20241111200821-5f8c197c7fb0 h1:mljque2zX
 github.com/FACorreiaa/fitme-grpc v0.0.0-20241111200821-5f8c197c7fb0/go.mod h1:rMTxgure1RbsE2QIsDu3HykPOBaMQLoOycRUQuNKwXc=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20241111213009-5c6a500d5604 h1:ahwi400rUHPKrlybozz+V5czQA1s0WFxDQdXwmW6G0w=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20241111213009-5c6a500d5604/go.mod h1:WYQX+nnsYcWy4qMUAaYs3VypNJRDQN7vRr/tRagzdp4=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20241113134417-74dd00e8c3e3 h1:jn9HEc8Q1uuRmGygGm9kEfgNG0/0EbjIV3darV4TU0E=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20241113134417-74dd00e8c3e3/go.mod h1:r2rlE8Mlm5q0bfOSU4YfFxw5yF7+xOphZNBDQUp9ZuE=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
@@ -273,10 +275,14 @@ google.golang.org/genproto/googleapis/api v0.0.0-20241021214115-324edc3d5d38 h1:
 google.golang.org/genproto/googleapis/api v0.0.0-20241021214115-324edc3d5d38/go.mod h1:vuAjtvlwkDKF6L1GQ0SokiRLCGFfeBUXWr/aFFkHACc=
 google.golang.org/genproto/googleapis/api v0.0.0-20241104194629-dd2ea8efbc28 h1:M0KvPgPmDZHPlbRbaNU1APr28TvwvvdUPlSv7PUvy8g=
 google.golang.org/genproto/googleapis/api v0.0.0-20241104194629-dd2ea8efbc28/go.mod h1:dguCy7UOdZhTvLzDyt15+rOrawrpM4q7DD9dQ1P11P4=
+google.golang.org/genproto/googleapis/api v0.0.0-20241113154021-e0fbfb71d213 h1:cNftAhx0Q32f3Fz2+BLargfsMD6pGINE+/mUZneTMyk=
+google.golang.org/genproto/googleapis/api v0.0.0-20241113154021-e0fbfb71d213/go.mod h1:Yo94eF2nj7igQt+TiJ49KxjIH8ndLYPZMIRSiRcEbg0=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20241021214115-324edc3d5d38 h1:zciRKQ4kBpFgpfC5QQCVtnnNAcLIqweL7plyZRQHVpI=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20241021214115-324edc3d5d38/go.mod h1:GX3210XPVPUjJbTUbvwI8f2IpZDMZuPJWDzDuebbviI=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20241104194629-dd2ea8efbc28 h1:XVhgTWWV3kGQlwJHR3upFWZeTsei6Oks1apkZSeonIE=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20241104194629-dd2ea8efbc28/go.mod h1:GX3210XPVPUjJbTUbvwI8f2IpZDMZuPJWDzDuebbviI=
+google.golang.org/genproto/googleapis/rpc v0.0.0-20241113154021-e0fbfb71d213 h1:L+WcQXqkyf5MX6g7AudgYEuJjmYbqSRkTmJqGfAPw+Y=
+google.golang.org/genproto/googleapis/rpc v0.0.0-20241113154021-e0fbfb71d213/go.mod h1:GX3210XPVPUjJbTUbvwI8f2IpZDMZuPJWDzDuebbviI=
 google.golang.org/grpc v1.19.0/go.mod h1:mqu4LbDTu4XGKhr4mRzUsmM4RtVoemTSY81AxZiDr8c=
 google.golang.org/grpc v1.23.0/go.mod h1:Y5yQAOtifL1yxbo5wqy6BxZv8vAUGQwXBOALyacEbxg=
 google.golang.org/grpc v1.25.1/go.mod h1:c3i+UQWmh7LiEpx4sFZnkU36qjEYZ0imhYfXVyQciAY=
