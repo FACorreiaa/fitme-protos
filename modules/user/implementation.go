@@ -69,6 +69,10 @@ func (b *Broker) ChangeEmail(ctx context.Context, in *generated.ChangeEmailReque
 	return b.client.ChangeEmail(ctx, in, opts...)
 }
 
+func (b *Broker) RefreshToken(ctx context.Context, in *generated.RefreshTokenRequest, opts ...grpc.CallOption) (*generated.TokenResponse, error) {
+	return b.client.RefreshToken(ctx, in, opts...)
+}
+
 func (b *Broker) GetAllUsers(ctx context.Context, in *generated.GetAllUsersRequest, opts ...grpc.CallOption) (*generated.GetAllUsersResponse, error) {
 	return b.client.GetAllUsers(ctx, in, opts...)
 }

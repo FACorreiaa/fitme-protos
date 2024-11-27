@@ -24,6 +24,7 @@ const (
 	Auth_Logout_FullMethodName         = "/auth.Auth/Logout"
 	Auth_ChangePassword_FullMethodName = "/auth.Auth/ChangePassword"
 	Auth_ChangeEmail_FullMethodName    = "/auth.Auth/ChangeEmail"
+	Auth_RefreshToken_FullMethodName   = "/auth.Auth/RefreshToken"
 	Auth_GetAllUsers_FullMethodName    = "/auth.Auth/GetAllUsers"
 	Auth_GetUserByID_FullMethodName    = "/auth.Auth/GetUserByID"
 	Auth_DeleteUser_FullMethodName     = "/auth.Auth/DeleteUser"
@@ -40,6 +41,7 @@ type AuthClient interface {
 	Logout(ctx context.Context, in *NilReq, opts ...grpc.CallOption) (*NilRes, error)
 	ChangePassword(ctx context.Context, in *ChangePasswordRequest, opts ...grpc.CallOption) (*ChangePasswordResponse, error)
 	ChangeEmail(ctx context.Context, in *ChangeEmailRequest, opts ...grpc.CallOption) (*ChangeEmailResponse, error)
+	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokenResponse, error)
 	// New user-related services
 	GetAllUsers(ctx context.Context, in *GetAllUsersRequest, opts ...grpc.CallOption) (*GetAllUsersResponse, error)
 	GetUserByID(ctx context.Context, in *GetUserByIDRequest, opts ...grpc.CallOption) (*GetUserByIDResponse, error)
@@ -106,6 +108,16 @@ func (c *authClient) ChangeEmail(ctx context.Context, in *ChangeEmailRequest, op
 	return out, nil
 }
 
+func (c *authClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TokenResponse)
+	err := c.cc.Invoke(ctx, Auth_RefreshToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *authClient) GetAllUsers(ctx context.Context, in *GetAllUsersRequest, opts ...grpc.CallOption) (*GetAllUsersResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAllUsersResponse)
@@ -165,6 +177,7 @@ type AuthServer interface {
 	Logout(context.Context, *NilReq) (*NilRes, error)
 	ChangePassword(context.Context, *ChangePasswordRequest) (*ChangePasswordResponse, error)
 	ChangeEmail(context.Context, *ChangeEmailRequest) (*ChangeEmailResponse, error)
+	RefreshToken(context.Context, *RefreshTokenRequest) (*TokenResponse, error)
 	// New user-related services
 	GetAllUsers(context.Context, *GetAllUsersRequest) (*GetAllUsersResponse, error)
 	GetUserByID(context.Context, *GetUserByIDRequest) (*GetUserByIDResponse, error)
@@ -195,6 +208,9 @@ func (UnimplementedAuthServer) ChangePassword(context.Context, *ChangePasswordRe
 }
 func (UnimplementedAuthServer) ChangeEmail(context.Context, *ChangeEmailRequest) (*ChangeEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChangeEmail not implemented")
+}
+func (UnimplementedAuthServer) RefreshToken(context.Context, *RefreshTokenRequest) (*TokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
 }
 func (UnimplementedAuthServer) GetAllUsers(context.Context, *GetAllUsersRequest) (*GetAllUsersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllUsers not implemented")
@@ -322,6 +338,24 @@ func _Auth_ChangeEmail_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Auth_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServer).RefreshToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Auth_RefreshToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Auth_GetAllUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllUsersRequest)
 	if err := dec(in); err != nil {
@@ -438,6 +472,10 @@ var Auth_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ChangeEmail",
 			Handler:    _Auth_ChangeEmail_Handler,
+		},
+		{
+			MethodName: "RefreshToken",
+			Handler:    _Auth_RefreshToken_Handler,
 		},
 		{
 			MethodName: "GetAllUsers",

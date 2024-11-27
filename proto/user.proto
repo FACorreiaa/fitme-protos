@@ -8,6 +8,7 @@ service Auth {
   rpc Logout(NilReq) returns (NilRes);
   rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
   rpc ChangeEmail(ChangeEmailRequest) returns (ChangeEmailResponse);
+  rpc RefreshToken(RefreshTokenRequest) returns (TokenResponse);
 
   // New user-related services
   rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse);
@@ -123,5 +124,26 @@ message InsertUserRequest {
 
 message InsertUserResponse {
   string message = 1;
+}
+
+message RefreshTokenRequest {
+  string refresh_token = 1;
+  BaseRequest request = 100;
+}
+
+message TokenResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+  BaseResponse response = 100;
+}
+
+message BaseRequest {
+  string downstream = 998;
+  string request_id = 999;
+}
+
+message BaseResponse {
+  string upstream = 998;
+  string request_id = 999;
 }
 
