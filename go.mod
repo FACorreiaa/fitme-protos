@@ -3,13 +3,13 @@ module github.com/FACorreiaa/fitme-protos
 go 1.23.1
 
 require (
-	github.com/FACorreiaa/fitme-grpc v0.0.0-20241113134417-74dd00e8c3e3
+	github.com/FACorreiaa/fitme-grpc v0.0.0-20241127151150-d50fe1999688
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.20.5
 	go.opentelemetry.io/otel/trace v1.32.0
 	go.uber.org/zap v1.27.0
 	google.golang.org/grpc v1.68.0
-	google.golang.org/protobuf v1.35.1
+	google.golang.org/protobuf v1.35.2
 )
 
 require (
@@ -26,7 +26,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus v1.0.1 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.1.0 // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.23.0 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
@@ -68,8 +68,8 @@ require (
 	golang.org/x/sync v0.9.0 // indirect
 	golang.org/x/sys v0.27.0 // indirect
 	golang.org/x/text v0.20.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20241113154021-e0fbfb71d213 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20241113154021-e0fbfb71d213 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20241118233622-e639e219e697 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20241118233622-e639e219e697 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
