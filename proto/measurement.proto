@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package measurement;
+package fitSphere.measurement;
 
 import "google/protobuf/timestamp.proto";
 

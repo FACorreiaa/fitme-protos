@@ -1,10 +1,190 @@
 syntax = "proto3";
 
-package meal_plan;
+package fitSphere.meal_plan;
 
+import "google/protobuf/timestamp.proto";
+
+// MealPlan Service
 service MealPlan {
-  rpc GetMealPlan(NilRes) returns (NilRes);
+  rpc GetMealPlan(GetMealPlanReq) returns (GetMealPlanRes);
+  rpc GetMealPlans(GetMealPlansReq) returns (GetMealPlansRes);
+  rpc CreateMealPlan(CreateMealPlanReq) returns (CreateMealPlanRes);
+  rpc UpdateMealPlan(UpdateMealPlanReq) returns (UpdateMealPlanRes);
+  rpc DeleteMealPlan(DeleteMealPlanReq) returns (NilRes);
+  rpc AddIngredientToMealPlan(AddIngredientReq) returns (NilRes);
+  rpc RemoveIngredientFromMealPlan(RemoveIngredientReq) returns (NilRes);
+}
+
+// Ingredients Service
+service Ingredients {
+  rpc GetIngredients(GetIngredientsReq) returns (GetIngredientsRes);
+  rpc GetIngredient(GetIngredientReq) returns (GetIngredientRes);
+  rpc CreateIngredient(CreateIngredientReq) returns (CreateIngredientRes);
+  rpc UpdateIngredient(UpdateIngredientReq) returns (UpdateIngredientRes);
+  rpc DeleteIngredient(DeleteIngredientReq) returns (NilRes);
 }
 
 message NilRes {
+
+}
+
+message XDiff {
+  string field      = 1;
+  string old_value  = 2;
+  string new_value  = 3;
+}
+
+message BaseRequest {
+  string downstream = 998;
+  string request_id = 999;
+}
+
+message BaseResponse {
+  string upstream = 998;
+  string request_id = 999;
+}
+
+// Request/Response Messages for Meal Plans
+
+message GetMealPlanReq {
+  string meal_plan_id = 1; // The ID of the meal plan
+  BaseRequest request = 100;
+}
+
+message GetMealPlanRes {
+  string meal_plan_id = 1;
+  string name = 2;
+  repeated XIngredient ingredients = 3;
+  string description = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  BaseResponse response = 100;
+}
+
+message GetMealPlansReq {
+  string user_id = 1; // User ID to filter meal plans
+  BaseRequest request = 100;
+}
+
+message GetMealPlansRes {
+  repeated MealPlanSummary meal_plans = 1;
+  BaseResponse response = 100;
+}
+
+message MealPlanSummary {
+  string meal_plan_id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message CreateMealPlanReq {
+  string name = 1;
+  string description = 2;
+  repeated string ingredient_ids = 3; // List of ingredient IDs
+  BaseRequest request = 100;
+}
+
+message CreateMealPlanRes {
+  string meal_plan_id = 1;
+  string status = 2;
+  BaseResponse response = 100;
+}
+
+message UpdateMealPlanReq {
+  string meal_plan_id = 1;
+  repeated XDiff updates  = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateMealPlanRes {
+  bool success = 1;
+  string message = 2;
+  XMealPlan meal_plan = 3;
+  BaseResponse response = 100;
+}
+
+message DeleteMealPlanReq {
+  string meal_plan_id = 1;
+  BaseRequest request = 100;
+}
+
+message AddIngredientReq {
+  string meal_plan_id = 1;
+  string ingredient_id = 2;
+  BaseRequest request = 100;
+}
+
+message RemoveIngredientReq {
+  string meal_plan_id = 1;
+  string ingredient_id = 2;
+  BaseRequest request = 100;
+}
+
+// Request/Response Messages for Ingredients
+
+message GetIngredientsReq {
+  string user_id = 1; // Optional filter, e.g., by user
+  BaseRequest request = 100;
+}
+
+message GetIngredientsRes {
+  repeated XIngredient ingredients = 1;
+  BaseResponse response = 100;
+}
+
+message GetIngredientReq {
+  string ingredient_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetIngredientRes {
+  XIngredient ingredient = 1;
+  BaseResponse response = 100;
+}
+
+message CreateIngredientReq {
+  string name = 1;
+  string description = 2;
+  string category = 3;
+  string unit = 4; // e.g., grams, pieces
+  BaseRequest request = 100;
+}
+
+message CreateIngredientRes {
+  string ingredient_id = 1;
+  BaseResponse response = 100;
+}
+
+message UpdateIngredientReq {
+  string ingredient_id = 1;
+  repeated XDiff updates  = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateIngredientRes {
+  bool success = 1;
+  string message = 2;
+  XIngredient ingredient = 3;
+  BaseResponse response = 100;
+}
+
+message DeleteIngredientReq {
+  string ingredient_id = 1;
+  BaseRequest request = 100;
+}
+
+// Ingredient definition used across various messages
+message XIngredient {
+  string ingredient_id = 1;
+  string name = 2;
+  string description = 3;
+  string category = 4; // e.g., protein, carb, etc.
+  string unit = 5; // e.g., grams, pieces
+  float quantity = 6; // Quantity in the specified unit
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+}
+
+message XMealPlan {
+
 }

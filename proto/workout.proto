@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package workout;
+package fitSphere.workout;
 
 import "google/protobuf/timestamp.proto";
 
