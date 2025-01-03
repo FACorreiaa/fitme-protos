@@ -12,3 +12,43 @@ service Recipes {
   rpc UpdateRecipe(UpdateRecipeReq) returns (UpdateRecipeRes);
   rpc DeleteRecipe(DeleteRecipeReq) returns (NilRes);
 }
+
+message CreateRecipeReq{
+
+}
+
+message CreateRecipeRes {
+
+}
+
+message GetRecipeReq{
+
+}
+
+message GetRecipeRes{
+
+}
+
+message SearchRecipesReq{
+
+}
+
+message SearchRecipesRes{
+
+}
+
+message UpdateRecipeReq{
+
+}
+
+message UpdateRecipeRes{
+
+}
+
+message DeleteRecipeReq{
+
+}
+
+message NilRes {
+
+}

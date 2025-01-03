@@ -9,3 +9,19 @@ service NutritionalAnalysis {
   rpc AnalyzeMealPlan(AnalyzeMealPlanReq) returns (AnalyzeMealPlanRes);
   rpc RecommendChanges(RecommendChangesReq) returns (RecommendChangesRes);
 }
+
+message AnalyzeMealPlanReq {
+
+}
+
+message AnalyzeMealPlanRes {
+
+}
+
+message RecommendChangesReq{
+
+}
+
+message RecommendChangesRes{
+
+}

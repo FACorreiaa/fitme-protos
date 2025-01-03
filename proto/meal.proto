@@ -20,7 +20,7 @@ service MealPlan {
   rpc DeleteMealPlan(DeleteMealPlanReq) returns (NilRes);
 
   rpc AddIngredientToMealPlan(AddIngredientReq) returns (NilRes);
-  rpc RemoveIngredientFromMealPlan(RemoveIngredientReq) returns (NilRes);
+  rpc DeleteIngredientFromMealPlan(DeleteIngredientReq) returns (NilRes);
 
   rpc CreateCalorieIntakeObjective(CreateCalorieIntakeObjectiveReq) returns (CreateCalorieIntakeObjectiveRes);
   rpc UpdateCalorieIntakeObjective(UpdateCalorieIntakeObjectiveReq) returns (UpdateCalorieIntakeObjectiveRes);
@@ -35,7 +35,7 @@ service Meal {
   rpc UpdateMeal(UpdateMealReq) returns (UpdateMealRes);
   rpc DeleteMeal(DeleteMealReq) returns (NilRes);
   rpc AddIngredientToMeal(AddIngredientReq) returns (NilRes);
-  rpc RemoveIngredientFromMeal(RemoveIngredientReq) returns (NilRes);
+  rpc RemoveIngredientFromMeal(DeleteIngredientReq) returns (NilRes);
 }
 
 // Ingredients Service
@@ -51,7 +51,7 @@ service MealReminder {
   rpc CreateReminder(CreateReminderReq) returns (CreateReminderRes);
   rpc GetReminders(GetRemindersReq) returns (GetRemindersRes);
   rpc UpdateReminder(UpdateReminderReq) returns (UpdateReminderRes);
-  rpc DeleteReminder(DeleteReminderReq) returns (NilRes)
+  rpc DeleteReminder(DeleteReminderReq) returns (NilRes);
 }
 
 service GoalRecommendation {
@@ -60,17 +60,148 @@ service GoalRecommendation {
   rpc GetGoalSuggestions(GetGoalSuggestionsReq) returns (GetGoalSuggestionsRes);
 }
 
+message RecommendCalorieObjectiveReq {
+  string user_id = 1;
+  BaseRequest request = 100;
+}
+
+message RecommendCalorieObjectiveRes {
+  bool success = 1;
+  string message = 2;
+  sint32 cal_intake_objective = 3;
+  BaseResponse response = 100;
+}
+
+message AdjustGoalsReq {
+  string user_id = 1;
+  repeated XDiff updates  = 2;
+  BaseRequest request = 100;
+}
+
+message AdjustGoalsRes {
+  bool success = 1;
+  string message = 2;
+  UserMacroDistribution user_macro_distribution = 3;
+  BaseResponse response = 100;
+}
+
+message GetGoalSuggestionsReq {
+  string user_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetGoalSuggestionsRes {
+  repeated UserMacroDistribution user_macro_distribution = 1;
+  BaseResponse response = 100;
+}
+
+message GetUserProgressReq {
+  string user_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetUserProgressRes {
+  repeated XMealPlan meal_plans = 1;
+  repeated XMeal meals = 2;
+  repeated XFoodLog food_logs = 3;
+  repeated XReminder reminders = 4;
+  BaseResponse response = 100;
+}
+
+message GetAllProgressReq {
+  BaseRequest request = 100;
+}
+
+message GetAllProgressRes {
+  repeated XMealPlan meal_plans = 1;
+  repeated XMeal meals = 2;
+  repeated XFoodLog food_logs = 3;
+  repeated XReminder reminders = 4;
+  BaseResponse response = 100;
+}
+
+// TODO change this later when change DB schema
+message GetAllStatisticsReq {
+  BaseRequest request = 100;
+}
+
+message GetAllStatisticsRes {
+  repeated XMealPlan meal_plans = 1;
+  repeated XMeal meals = 2;
+  repeated XFoodLog food_logs = 3;
+  repeated XReminder reminders = 4;
+  BaseResponse response = 100;
+}
+
 // log food outside the plan
 service FoodLogService {
   rpc LogFood(LogFoodReq) returns (LogFoodRes);
   rpc GetFoodLogs(GetFoodLogsReq) returns (GetFoodLogsRes);
-  rpc DeleteFoodLog(DeleteFoodLogReq) returns (DeleteFoodLogres);
+  rpc DeleteFoodLog(DeleteFoodLogReq) returns (NilRes);
+}
+
+message LogFoodReq {
+  string user_id = 1;
+  string meal_id = 2;
+  double quantity = 3;
+  google.protobuf.Timestamp log_date = 4;
+  BaseRequest request = 100;
+}
+
+message LogFoodRes {
+  bool success = 1;
+  string message = 2;
+  BaseResponse response = 100;
+}
+
+message GetFoodLogsReq {
+  string user_id = 1;
+  BaseRequest request = 100;
+}
+
+message DeleteFoodLogReq {
+  string food_log_id = 1;
+  BaseRequest request = 100;
+}
+
+message DeleteFoodLogRes {
+  bool success = 1;
+  string message = 2;
+  BaseResponse response = 100;
+}
+
+message GetFoodLogsRes {
+  repeated XFoodLog food_logs = 1;
+  BaseResponse response = 100;
 }
 
 // (e.g., vegan, keto)
 service DietPreferenceService{
-  rpc SetDietPreferences(SetDietPreferencesReq) returns (SetDietPreferencesRes);
+  rpc SetDietPreferences(UpdateDietPreferencesReq) returns (UpdateDietPreferencesRes);
   rpc GetDietPreferences(GetDietPreferencesReq) returns (GetDietPreferencesRes);
+}
+
+message UpdateDietPreferencesReq {
+  string diet_preference_id = 1;
+  repeated XDiff updates  = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateDietPreferencesRes {
+  bool success = 1;
+  string message = 2;
+  XDietPreference diet_preference = 3;
+  BaseResponse response = 100;
+}
+
+message GetDietPreferencesReq {
+  string user_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetDietPreferencesRes {
+  repeated XDietPreference diet_preferences = 1;
+  BaseResponse response = 100;
 }
 
 message NilRes {
@@ -225,9 +356,38 @@ message AddIngredientReq {
   BaseRequest request = 100;
 }
 
-message RemoveIngredientReq {
+message DeleteIngredientReq {
   string meal_plan_id = 1;
   string ingredient_id = 2;
+  BaseRequest request = 100;
+}
+
+message CreateCalorieIntakeObjectiveReq {
+  sint32 cal_intake_objective = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message CreateCalorieIntakeObjectiveRes {
+  bool success = 1;
+  string message = 2;
+  sint32 cal_intake_objective = 3;
+  BaseResponse response = 100;
+}
+
+message UpdateCalorieIntakeObjectiveReq {
+  sint32 cal_intake_objective = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+message UpdateCalorieIntakeObjectiveRes {
+  bool success = 1;
+  string message = 2;
+  sint32 cal_intake_objective = 3;
+  BaseResponse response = 100;
+}
+message DeleteCalorieIntakeObjectiveReq {
+  string user_id = 1;
   BaseRequest request = 100;
 }
 
@@ -279,9 +439,52 @@ message UpdateIngredientRes {
   BaseResponse response = 100;
 }
 
-message DeleteIngredientReq {
-  string ingredient_id = 1;
+message CreateReminderReq {
+  XReminder reminder = 1;
+  string user_id = 2;
   BaseRequest request = 100;
+}
+
+message CreateReminderRes {
+  bool success = 1;
+  string message = 2;
+  XReminder reminder = 3;
+  BaseResponse response = 100;
+}
+
+message GetRemindersReq {
+  string reminder_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetRemindersRes {
+  repeated  XReminder reminder = 1;
+  BaseResponse response = 100;
+}
+
+message DeleteReminderReq {
+  string reminder_id = 1;
+  BaseRequest request = 100;
+}
+
+message UpdateReminderReq {
+  string reminder_id = 1;
+  repeated XDiff updates  = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateReminderRes {
+  bool success = 1;
+  string message = 2;
+  XReminder reminder = 3;
+  BaseResponse response = 100;
+}
+
+message XReminder {
+  string reminder_id = 1;
+  string message = 2;
+  string workout_description = 3;
+  string workout_date = 4;
 }
 
 message XIngredient {
@@ -352,4 +555,23 @@ message UserMacroDistribution {
   int32 tdee = 18;
   int32 goal = 19;
   google.protobuf.Timestamp created_at = 20;
+}
+
+message XDietPreference {
+  string diet_preference_id = 1;
+  string user_id = 2;
+  string diet_type = 3;
+  string diet_description = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message XFoodLog {
+  string food_log_id = 1;
+  string user_id = 2;
+  string meal_id = 3;
+  double quantity = 4;
+  google.protobuf.Timestamp log_date = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
 }

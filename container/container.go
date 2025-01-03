@@ -3,6 +3,7 @@ package container
 import (
 	activity "github.com/FACorreiaa/fitme-protos/modules/activity/generated"
 	calculator "github.com/FACorreiaa/fitme-protos/modules/calculator/generated"
+	meal "github.com/FACorreiaa/fitme-protos/modules/meal/generated"
 	workout "github.com/FACorreiaa/fitme-protos/modules/workout/generated"
 
 	measurement "github.com/FACorreiaa/fitme-protos/modules/measurement/generated"
@@ -29,6 +30,7 @@ type Brokers struct {
 	Activity       activity.ActivityClient
 	Workout        workout.WorkoutClient
 	Measurements   measurement.UserMeasurementsClient
+	Meals          meal.MealClient
 	TransportUtils *utils.TransportUtils
 }
 

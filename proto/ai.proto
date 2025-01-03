@@ -4,7 +4,8 @@ package fitSphere.ai_assistant;
 
 import "google/protobuf/timestamp.proto";
 
-service AIMealsPlannerService {
-  rpc GenerateMealPlan(GenerateMealPlanReq) returns(GenerateMealPlanRes);
-  rpc UpdateAIPlan(UpdateAIPlanReq) returns (UpdateAIPlanRes)
-}
+// TODO study how to process
+//service AIMealsPlannerService {
+//  rpc GenerateMealPlan(GenerateMealPlanReq) returns(GenerateMealPlanRes);
+//  rpc UpdateAIPlan(UpdateAIPlanReq) returns (UpdateAIPlanRes)
+//}

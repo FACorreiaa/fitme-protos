@@ -26,6 +26,16 @@ service Workout {
   rpc InsertWorkoutPlan(InsertWorkoutPlanReq) returns (InsertWorkoutPlanRes);
 }
 
+// TODO change objectives in exercises (objective to get to 5 reps, get or fail, change scheme)
+
+// TODO Implement reminders here
+//service WorkoutReminder {
+//  rpc CreateReminder(CreateReminderReq) returns (CreateReminderRes);
+//  rpc GetReminders(GetRemindersReq) returns (GetRemindersRes);
+//  rpc UpdateReminder(UpdateReminderReq) returns (UpdateReminderRes);
+//  rpc DeleteReminder(DeleteReminderReq) returns (NilRes)
+//}
+
 // TODO Sync meal plans with user workout routines for better calorie and macro balance.
 //service WorkoutSyncService {
 //  rpc SyncWorkoutPlan(SyncWorkoutPlanReq) returns(SyncWorkoutPlanRes);

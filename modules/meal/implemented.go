@@ -49,6 +49,42 @@ func (b *Broker) GetAddress() string {
 	return b.serverAddr
 }
 
-func (b *Broker) GetMealPlan(ctx context.Context, in *generated.NilRes, opts ...grpc.CallOption) (*generated.NilRes, error) {
+func (b *Broker) GetMealPlan(ctx context.Context, in *generated.GetMealPlanReq, opts ...grpc.CallOption) (*generated.GetMealPlanRes, error) {
 	return b.client.GetMealPlan(ctx, in, opts...)
+}
+
+func (b *Broker) GetMealPlans(ctx context.Context, in *generated.GetMealPlansReq, opts ...grpc.CallOption) (*generated.GetMealPlansRes, error) {
+	return b.client.GetMealPlans(ctx, in, opts...)
+}
+
+func (b *Broker) CreateMealPlan(ctx context.Context, in *generated.CreateMealPlanReq, opts ...grpc.CallOption) (*generated.CreateMealPlanRes, error) {
+	return b.client.CreateMealPlan(ctx, in, opts...)
+}
+
+func (b *Broker) UpdateMealPlan(ctx context.Context, in *generated.UpdateMealPlanReq, opts ...grpc.CallOption) (*generated.UpdateMealPlanRes, error) {
+	return b.client.UpdateMealPlan(ctx, in, opts...)
+}
+
+func (b *Broker) DeleteMealPlan(ctx context.Context, in *generated.DeleteMealPlanReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+	return b.client.DeleteMealPlan(ctx, in, opts...)
+}
+
+func (b *Broker) AddIngredientToMealPlan(ctx context.Context, in *generated.AddIngredientReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+	return b.client.AddIngredientToMealPlan(ctx, in, opts...)
+}
+
+func (b *Broker) DeleteIngredientFromMealPlan(ctx context.Context, in *generated.DeleteIngredientReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+	return b.client.DeleteIngredientFromMealPlan(ctx, in, opts...)
+}
+
+func (b *Broker) CreateCalorieIntakeObjective(ctx context.Context, in *generated.CreateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*generated.CreateCalorieIntakeObjectiveRes, error) {
+	return b.client.CreateCalorieIntakeObjective(ctx, in, opts...)
+}
+
+func (b *Broker) UpdateCalorieIntakeObjective(ctx context.Context, in *generated.UpdateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*generated.UpdateCalorieIntakeObjectiveRes, error) {
+	return b.client.UpdateCalorieIntakeObjective(ctx, in, opts...)
+}
+
+func (b *Broker) DeleteCalorieIntakeObjective(ctx context.Context, in *generated.DeleteCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+	return b.client.DeleteCalorieIntakeObjective(ctx, in, opts...)
 }

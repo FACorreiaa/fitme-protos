@@ -19,13 +19,198 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	TrackMealProgress_GetUserProgress_FullMethodName  = "/fitSphere.meal_plan.TrackMealProgress/GetUserProgress"
+	TrackMealProgress_GetAllProgress_FullMethodName   = "/fitSphere.meal_plan.TrackMealProgress/GetAllProgress"
+	TrackMealProgress_GetAllStatistics_FullMethodName = "/fitSphere.meal_plan.TrackMealProgress/GetAllStatistics"
+)
+
+// TrackMealProgressClient is the client API for TrackMealProgress service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// Progress meals
+type TrackMealProgressClient interface {
+	GetUserProgress(ctx context.Context, in *GetUserProgressReq, opts ...grpc.CallOption) (*GetUserProgressRes, error)
+	GetAllProgress(ctx context.Context, in *GetAllProgressReq, opts ...grpc.CallOption) (*GetAllProgressRes, error)
+	GetAllStatistics(ctx context.Context, in *GetAllStatisticsReq, opts ...grpc.CallOption) (*GetAllStatisticsRes, error)
+}
+
+type trackMealProgressClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrackMealProgressClient(cc grpc.ClientConnInterface) TrackMealProgressClient {
+	return &trackMealProgressClient{cc}
+}
+
+func (c *trackMealProgressClient) GetUserProgress(ctx context.Context, in *GetUserProgressReq, opts ...grpc.CallOption) (*GetUserProgressRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserProgressRes)
+	err := c.cc.Invoke(ctx, TrackMealProgress_GetUserProgress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackMealProgressClient) GetAllProgress(ctx context.Context, in *GetAllProgressReq, opts ...grpc.CallOption) (*GetAllProgressRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllProgressRes)
+	err := c.cc.Invoke(ctx, TrackMealProgress_GetAllProgress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackMealProgressClient) GetAllStatistics(ctx context.Context, in *GetAllStatisticsReq, opts ...grpc.CallOption) (*GetAllStatisticsRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllStatisticsRes)
+	err := c.cc.Invoke(ctx, TrackMealProgress_GetAllStatistics_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrackMealProgressServer is the server API for TrackMealProgress service.
+// All implementations must embed UnimplementedTrackMealProgressServer
+// for forward compatibility.
+//
+// Progress meals
+type TrackMealProgressServer interface {
+	GetUserProgress(context.Context, *GetUserProgressReq) (*GetUserProgressRes, error)
+	GetAllProgress(context.Context, *GetAllProgressReq) (*GetAllProgressRes, error)
+	GetAllStatistics(context.Context, *GetAllStatisticsReq) (*GetAllStatisticsRes, error)
+	mustEmbedUnimplementedTrackMealProgressServer()
+}
+
+// UnimplementedTrackMealProgressServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrackMealProgressServer struct{}
+
+func (UnimplementedTrackMealProgressServer) GetUserProgress(context.Context, *GetUserProgressReq) (*GetUserProgressRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserProgress not implemented")
+}
+func (UnimplementedTrackMealProgressServer) GetAllProgress(context.Context, *GetAllProgressReq) (*GetAllProgressRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllProgress not implemented")
+}
+func (UnimplementedTrackMealProgressServer) GetAllStatistics(context.Context, *GetAllStatisticsReq) (*GetAllStatisticsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllStatistics not implemented")
+}
+func (UnimplementedTrackMealProgressServer) mustEmbedUnimplementedTrackMealProgressServer() {}
+func (UnimplementedTrackMealProgressServer) testEmbeddedByValue()                           {}
+
+// UnsafeTrackMealProgressServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrackMealProgressServer will
+// result in compilation errors.
+type UnsafeTrackMealProgressServer interface {
+	mustEmbedUnimplementedTrackMealProgressServer()
+}
+
+func RegisterTrackMealProgressServer(s grpc.ServiceRegistrar, srv TrackMealProgressServer) {
+	// If the following call pancis, it indicates UnimplementedTrackMealProgressServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrackMealProgress_ServiceDesc, srv)
+}
+
+func _TrackMealProgress_GetUserProgress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserProgressReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackMealProgressServer).GetUserProgress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackMealProgress_GetUserProgress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackMealProgressServer).GetUserProgress(ctx, req.(*GetUserProgressReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackMealProgress_GetAllProgress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllProgressReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackMealProgressServer).GetAllProgress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackMealProgress_GetAllProgress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackMealProgressServer).GetAllProgress(ctx, req.(*GetAllProgressReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackMealProgress_GetAllStatistics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllStatisticsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackMealProgressServer).GetAllStatistics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackMealProgress_GetAllStatistics_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackMealProgressServer).GetAllStatistics(ctx, req.(*GetAllStatisticsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrackMealProgress_ServiceDesc is the grpc.ServiceDesc for TrackMealProgress service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TrackMealProgress_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fitSphere.meal_plan.TrackMealProgress",
+	HandlerType: (*TrackMealProgressServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetUserProgress",
+			Handler:    _TrackMealProgress_GetUserProgress_Handler,
+		},
+		{
+			MethodName: "GetAllProgress",
+			Handler:    _TrackMealProgress_GetAllProgress_Handler,
+		},
+		{
+			MethodName: "GetAllStatistics",
+			Handler:    _TrackMealProgress_GetAllStatistics_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "meal.proto",
+}
+
+const (
 	MealPlan_GetMealPlan_FullMethodName                  = "/fitSphere.meal_plan.MealPlan/GetMealPlan"
 	MealPlan_GetMealPlans_FullMethodName                 = "/fitSphere.meal_plan.MealPlan/GetMealPlans"
 	MealPlan_CreateMealPlan_FullMethodName               = "/fitSphere.meal_plan.MealPlan/CreateMealPlan"
 	MealPlan_UpdateMealPlan_FullMethodName               = "/fitSphere.meal_plan.MealPlan/UpdateMealPlan"
 	MealPlan_DeleteMealPlan_FullMethodName               = "/fitSphere.meal_plan.MealPlan/DeleteMealPlan"
 	MealPlan_AddIngredientToMealPlan_FullMethodName      = "/fitSphere.meal_plan.MealPlan/AddIngredientToMealPlan"
-	MealPlan_RemoveIngredientFromMealPlan_FullMethodName = "/fitSphere.meal_plan.MealPlan/RemoveIngredientFromMealPlan"
+	MealPlan_DeleteIngredientFromMealPlan_FullMethodName = "/fitSphere.meal_plan.MealPlan/DeleteIngredientFromMealPlan"
+	MealPlan_CreateCalorieIntakeObjective_FullMethodName = "/fitSphere.meal_plan.MealPlan/CreateCalorieIntakeObjective"
+	MealPlan_UpdateCalorieIntakeObjective_FullMethodName = "/fitSphere.meal_plan.MealPlan/UpdateCalorieIntakeObjective"
+	MealPlan_DeleteCalorieIntakeObjective_FullMethodName = "/fitSphere.meal_plan.MealPlan/DeleteCalorieIntakeObjective"
 )
 
 // MealPlanClient is the client API for MealPlan service.
@@ -40,7 +225,10 @@ type MealPlanClient interface {
 	UpdateMealPlan(ctx context.Context, in *UpdateMealPlanReq, opts ...grpc.CallOption) (*UpdateMealPlanRes, error)
 	DeleteMealPlan(ctx context.Context, in *DeleteMealPlanReq, opts ...grpc.CallOption) (*NilRes, error)
 	AddIngredientToMealPlan(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
-	RemoveIngredientFromMealPlan(ctx context.Context, in *RemoveIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
+	DeleteIngredientFromMealPlan(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
+	CreateCalorieIntakeObjective(ctx context.Context, in *CreateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*CreateCalorieIntakeObjectiveRes, error)
+	UpdateCalorieIntakeObjective(ctx context.Context, in *UpdateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*UpdateCalorieIntakeObjectiveRes, error)
+	DeleteCalorieIntakeObjective(ctx context.Context, in *DeleteCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*NilRes, error)
 }
 
 type mealPlanClient struct {
@@ -111,10 +299,40 @@ func (c *mealPlanClient) AddIngredientToMealPlan(ctx context.Context, in *AddIng
 	return out, nil
 }
 
-func (c *mealPlanClient) RemoveIngredientFromMealPlan(ctx context.Context, in *RemoveIngredientReq, opts ...grpc.CallOption) (*NilRes, error) {
+func (c *mealPlanClient) DeleteIngredientFromMealPlan(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(NilRes)
-	err := c.cc.Invoke(ctx, MealPlan_RemoveIngredientFromMealPlan_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MealPlan_DeleteIngredientFromMealPlan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealPlanClient) CreateCalorieIntakeObjective(ctx context.Context, in *CreateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*CreateCalorieIntakeObjectiveRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateCalorieIntakeObjectiveRes)
+	err := c.cc.Invoke(ctx, MealPlan_CreateCalorieIntakeObjective_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealPlanClient) UpdateCalorieIntakeObjective(ctx context.Context, in *UpdateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*UpdateCalorieIntakeObjectiveRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateCalorieIntakeObjectiveRes)
+	err := c.cc.Invoke(ctx, MealPlan_UpdateCalorieIntakeObjective_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealPlanClient) DeleteCalorieIntakeObjective(ctx context.Context, in *DeleteCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, MealPlan_DeleteCalorieIntakeObjective_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -133,7 +351,10 @@ type MealPlanServer interface {
 	UpdateMealPlan(context.Context, *UpdateMealPlanReq) (*UpdateMealPlanRes, error)
 	DeleteMealPlan(context.Context, *DeleteMealPlanReq) (*NilRes, error)
 	AddIngredientToMealPlan(context.Context, *AddIngredientReq) (*NilRes, error)
-	RemoveIngredientFromMealPlan(context.Context, *RemoveIngredientReq) (*NilRes, error)
+	DeleteIngredientFromMealPlan(context.Context, *DeleteIngredientReq) (*NilRes, error)
+	CreateCalorieIntakeObjective(context.Context, *CreateCalorieIntakeObjectiveReq) (*CreateCalorieIntakeObjectiveRes, error)
+	UpdateCalorieIntakeObjective(context.Context, *UpdateCalorieIntakeObjectiveReq) (*UpdateCalorieIntakeObjectiveRes, error)
+	DeleteCalorieIntakeObjective(context.Context, *DeleteCalorieIntakeObjectiveReq) (*NilRes, error)
 	mustEmbedUnimplementedMealPlanServer()
 }
 
@@ -162,8 +383,17 @@ func (UnimplementedMealPlanServer) DeleteMealPlan(context.Context, *DeleteMealPl
 func (UnimplementedMealPlanServer) AddIngredientToMealPlan(context.Context, *AddIngredientReq) (*NilRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddIngredientToMealPlan not implemented")
 }
-func (UnimplementedMealPlanServer) RemoveIngredientFromMealPlan(context.Context, *RemoveIngredientReq) (*NilRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RemoveIngredientFromMealPlan not implemented")
+func (UnimplementedMealPlanServer) DeleteIngredientFromMealPlan(context.Context, *DeleteIngredientReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteIngredientFromMealPlan not implemented")
+}
+func (UnimplementedMealPlanServer) CreateCalorieIntakeObjective(context.Context, *CreateCalorieIntakeObjectiveReq) (*CreateCalorieIntakeObjectiveRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCalorieIntakeObjective not implemented")
+}
+func (UnimplementedMealPlanServer) UpdateCalorieIntakeObjective(context.Context, *UpdateCalorieIntakeObjectiveReq) (*UpdateCalorieIntakeObjectiveRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCalorieIntakeObjective not implemented")
+}
+func (UnimplementedMealPlanServer) DeleteCalorieIntakeObjective(context.Context, *DeleteCalorieIntakeObjectiveReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCalorieIntakeObjective not implemented")
 }
 func (UnimplementedMealPlanServer) mustEmbedUnimplementedMealPlanServer() {}
 func (UnimplementedMealPlanServer) testEmbeddedByValue()                  {}
@@ -294,20 +524,74 @@ func _MealPlan_AddIngredientToMealPlan_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MealPlan_RemoveIngredientFromMealPlan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveIngredientReq)
+func _MealPlan_DeleteIngredientFromMealPlan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteIngredientReq)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MealPlanServer).RemoveIngredientFromMealPlan(ctx, in)
+		return srv.(MealPlanServer).DeleteIngredientFromMealPlan(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MealPlan_RemoveIngredientFromMealPlan_FullMethodName,
+		FullMethod: MealPlan_DeleteIngredientFromMealPlan_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MealPlanServer).RemoveIngredientFromMealPlan(ctx, req.(*RemoveIngredientReq))
+		return srv.(MealPlanServer).DeleteIngredientFromMealPlan(ctx, req.(*DeleteIngredientReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MealPlan_CreateCalorieIntakeObjective_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCalorieIntakeObjectiveReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealPlanServer).CreateCalorieIntakeObjective(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MealPlan_CreateCalorieIntakeObjective_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealPlanServer).CreateCalorieIntakeObjective(ctx, req.(*CreateCalorieIntakeObjectiveReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MealPlan_UpdateCalorieIntakeObjective_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCalorieIntakeObjectiveReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealPlanServer).UpdateCalorieIntakeObjective(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MealPlan_UpdateCalorieIntakeObjective_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealPlanServer).UpdateCalorieIntakeObjective(ctx, req.(*UpdateCalorieIntakeObjectiveReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MealPlan_DeleteCalorieIntakeObjective_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteCalorieIntakeObjectiveReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealPlanServer).DeleteCalorieIntakeObjective(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MealPlan_DeleteCalorieIntakeObjective_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealPlanServer).DeleteCalorieIntakeObjective(ctx, req.(*DeleteCalorieIntakeObjectiveReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -344,8 +628,354 @@ var MealPlan_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _MealPlan_AddIngredientToMealPlan_Handler,
 		},
 		{
-			MethodName: "RemoveIngredientFromMealPlan",
-			Handler:    _MealPlan_RemoveIngredientFromMealPlan_Handler,
+			MethodName: "DeleteIngredientFromMealPlan",
+			Handler:    _MealPlan_DeleteIngredientFromMealPlan_Handler,
+		},
+		{
+			MethodName: "CreateCalorieIntakeObjective",
+			Handler:    _MealPlan_CreateCalorieIntakeObjective_Handler,
+		},
+		{
+			MethodName: "UpdateCalorieIntakeObjective",
+			Handler:    _MealPlan_UpdateCalorieIntakeObjective_Handler,
+		},
+		{
+			MethodName: "DeleteCalorieIntakeObjective",
+			Handler:    _MealPlan_DeleteCalorieIntakeObjective_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "meal.proto",
+}
+
+const (
+	Meal_GetMeal_FullMethodName                  = "/fitSphere.meal_plan.Meal/GetMeal"
+	Meal_GetMeals_FullMethodName                 = "/fitSphere.meal_plan.Meal/GetMeals"
+	Meal_CreateMeal_FullMethodName               = "/fitSphere.meal_plan.Meal/CreateMeal"
+	Meal_UpdateMeal_FullMethodName               = "/fitSphere.meal_plan.Meal/UpdateMeal"
+	Meal_DeleteMeal_FullMethodName               = "/fitSphere.meal_plan.Meal/DeleteMeal"
+	Meal_AddIngredientToMeal_FullMethodName      = "/fitSphere.meal_plan.Meal/AddIngredientToMeal"
+	Meal_RemoveIngredientFromMeal_FullMethodName = "/fitSphere.meal_plan.Meal/RemoveIngredientFromMeal"
+)
+
+// MealClient is the client API for Meal service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// Meals Service
+type MealClient interface {
+	GetMeal(ctx context.Context, in *GetMealReq, opts ...grpc.CallOption) (*GetMealRes, error)
+	GetMeals(ctx context.Context, in *GetMealsReq, opts ...grpc.CallOption) (*GetMealsRes, error)
+	CreateMeal(ctx context.Context, in *CreateMealReq, opts ...grpc.CallOption) (*CreateMealRes, error)
+	UpdateMeal(ctx context.Context, in *UpdateMealReq, opts ...grpc.CallOption) (*UpdateMealRes, error)
+	DeleteMeal(ctx context.Context, in *DeleteMealReq, opts ...grpc.CallOption) (*NilRes, error)
+	AddIngredientToMeal(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
+	RemoveIngredientFromMeal(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
+}
+
+type mealClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMealClient(cc grpc.ClientConnInterface) MealClient {
+	return &mealClient{cc}
+}
+
+func (c *mealClient) GetMeal(ctx context.Context, in *GetMealReq, opts ...grpc.CallOption) (*GetMealRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMealRes)
+	err := c.cc.Invoke(ctx, Meal_GetMeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) GetMeals(ctx context.Context, in *GetMealsReq, opts ...grpc.CallOption) (*GetMealsRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMealsRes)
+	err := c.cc.Invoke(ctx, Meal_GetMeals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) CreateMeal(ctx context.Context, in *CreateMealReq, opts ...grpc.CallOption) (*CreateMealRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateMealRes)
+	err := c.cc.Invoke(ctx, Meal_CreateMeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) UpdateMeal(ctx context.Context, in *UpdateMealReq, opts ...grpc.CallOption) (*UpdateMealRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateMealRes)
+	err := c.cc.Invoke(ctx, Meal_UpdateMeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) DeleteMeal(ctx context.Context, in *DeleteMealReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, Meal_DeleteMeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) AddIngredientToMeal(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, Meal_AddIngredientToMeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) RemoveIngredientFromMeal(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, Meal_RemoveIngredientFromMeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MealServer is the server API for Meal service.
+// All implementations must embed UnimplementedMealServer
+// for forward compatibility.
+//
+// Meals Service
+type MealServer interface {
+	GetMeal(context.Context, *GetMealReq) (*GetMealRes, error)
+	GetMeals(context.Context, *GetMealsReq) (*GetMealsRes, error)
+	CreateMeal(context.Context, *CreateMealReq) (*CreateMealRes, error)
+	UpdateMeal(context.Context, *UpdateMealReq) (*UpdateMealRes, error)
+	DeleteMeal(context.Context, *DeleteMealReq) (*NilRes, error)
+	AddIngredientToMeal(context.Context, *AddIngredientReq) (*NilRes, error)
+	RemoveIngredientFromMeal(context.Context, *DeleteIngredientReq) (*NilRes, error)
+	mustEmbedUnimplementedMealServer()
+}
+
+// UnimplementedMealServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMealServer struct{}
+
+func (UnimplementedMealServer) GetMeal(context.Context, *GetMealReq) (*GetMealRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMeal not implemented")
+}
+func (UnimplementedMealServer) GetMeals(context.Context, *GetMealsReq) (*GetMealsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMeals not implemented")
+}
+func (UnimplementedMealServer) CreateMeal(context.Context, *CreateMealReq) (*CreateMealRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateMeal not implemented")
+}
+func (UnimplementedMealServer) UpdateMeal(context.Context, *UpdateMealReq) (*UpdateMealRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateMeal not implemented")
+}
+func (UnimplementedMealServer) DeleteMeal(context.Context, *DeleteMealReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteMeal not implemented")
+}
+func (UnimplementedMealServer) AddIngredientToMeal(context.Context, *AddIngredientReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddIngredientToMeal not implemented")
+}
+func (UnimplementedMealServer) RemoveIngredientFromMeal(context.Context, *DeleteIngredientReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveIngredientFromMeal not implemented")
+}
+func (UnimplementedMealServer) mustEmbedUnimplementedMealServer() {}
+func (UnimplementedMealServer) testEmbeddedByValue()              {}
+
+// UnsafeMealServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MealServer will
+// result in compilation errors.
+type UnsafeMealServer interface {
+	mustEmbedUnimplementedMealServer()
+}
+
+func RegisterMealServer(s grpc.ServiceRegistrar, srv MealServer) {
+	// If the following call pancis, it indicates UnimplementedMealServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&Meal_ServiceDesc, srv)
+}
+
+func _Meal_GetMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMealReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).GetMeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_GetMeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).GetMeal(ctx, req.(*GetMealReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_GetMeals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMealsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).GetMeals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_GetMeals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).GetMeals(ctx, req.(*GetMealsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_CreateMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateMealReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).CreateMeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_CreateMeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).CreateMeal(ctx, req.(*CreateMealReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_UpdateMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateMealReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).UpdateMeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_UpdateMeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).UpdateMeal(ctx, req.(*UpdateMealReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_DeleteMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteMealReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).DeleteMeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_DeleteMeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).DeleteMeal(ctx, req.(*DeleteMealReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_AddIngredientToMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddIngredientReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).AddIngredientToMeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_AddIngredientToMeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).AddIngredientToMeal(ctx, req.(*AddIngredientReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_RemoveIngredientFromMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteIngredientReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).RemoveIngredientFromMeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_RemoveIngredientFromMeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).RemoveIngredientFromMeal(ctx, req.(*DeleteIngredientReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Meal_ServiceDesc is the grpc.ServiceDesc for Meal service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var Meal_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fitSphere.meal_plan.Meal",
+	HandlerType: (*MealServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetMeal",
+			Handler:    _Meal_GetMeal_Handler,
+		},
+		{
+			MethodName: "GetMeals",
+			Handler:    _Meal_GetMeals_Handler,
+		},
+		{
+			MethodName: "CreateMeal",
+			Handler:    _Meal_CreateMeal_Handler,
+		},
+		{
+			MethodName: "UpdateMeal",
+			Handler:    _Meal_UpdateMeal_Handler,
+		},
+		{
+			MethodName: "DeleteMeal",
+			Handler:    _Meal_DeleteMeal_Handler,
+		},
+		{
+			MethodName: "AddIngredientToMeal",
+			Handler:    _Meal_AddIngredientToMeal_Handler,
+		},
+		{
+			MethodName: "RemoveIngredientFromMeal",
+			Handler:    _Meal_RemoveIngredientFromMeal_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -604,6 +1234,726 @@ var Ingredients_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteIngredient",
 			Handler:    _Ingredients_DeleteIngredient_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "meal.proto",
+}
+
+const (
+	MealReminder_CreateReminder_FullMethodName = "/fitSphere.meal_plan.MealReminder/CreateReminder"
+	MealReminder_GetReminders_FullMethodName   = "/fitSphere.meal_plan.MealReminder/GetReminders"
+	MealReminder_UpdateReminder_FullMethodName = "/fitSphere.meal_plan.MealReminder/UpdateReminder"
+	MealReminder_DeleteReminder_FullMethodName = "/fitSphere.meal_plan.MealReminder/DeleteReminder"
+)
+
+// MealReminderClient is the client API for MealReminder service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MealReminderClient interface {
+	CreateReminder(ctx context.Context, in *CreateReminderReq, opts ...grpc.CallOption) (*CreateReminderRes, error)
+	GetReminders(ctx context.Context, in *GetRemindersReq, opts ...grpc.CallOption) (*GetRemindersRes, error)
+	UpdateReminder(ctx context.Context, in *UpdateReminderReq, opts ...grpc.CallOption) (*UpdateReminderRes, error)
+	DeleteReminder(ctx context.Context, in *DeleteReminderReq, opts ...grpc.CallOption) (*NilRes, error)
+}
+
+type mealReminderClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMealReminderClient(cc grpc.ClientConnInterface) MealReminderClient {
+	return &mealReminderClient{cc}
+}
+
+func (c *mealReminderClient) CreateReminder(ctx context.Context, in *CreateReminderReq, opts ...grpc.CallOption) (*CreateReminderRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateReminderRes)
+	err := c.cc.Invoke(ctx, MealReminder_CreateReminder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealReminderClient) GetReminders(ctx context.Context, in *GetRemindersReq, opts ...grpc.CallOption) (*GetRemindersRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRemindersRes)
+	err := c.cc.Invoke(ctx, MealReminder_GetReminders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealReminderClient) UpdateReminder(ctx context.Context, in *UpdateReminderReq, opts ...grpc.CallOption) (*UpdateReminderRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateReminderRes)
+	err := c.cc.Invoke(ctx, MealReminder_UpdateReminder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealReminderClient) DeleteReminder(ctx context.Context, in *DeleteReminderReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, MealReminder_DeleteReminder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MealReminderServer is the server API for MealReminder service.
+// All implementations must embed UnimplementedMealReminderServer
+// for forward compatibility.
+type MealReminderServer interface {
+	CreateReminder(context.Context, *CreateReminderReq) (*CreateReminderRes, error)
+	GetReminders(context.Context, *GetRemindersReq) (*GetRemindersRes, error)
+	UpdateReminder(context.Context, *UpdateReminderReq) (*UpdateReminderRes, error)
+	DeleteReminder(context.Context, *DeleteReminderReq) (*NilRes, error)
+	mustEmbedUnimplementedMealReminderServer()
+}
+
+// UnimplementedMealReminderServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMealReminderServer struct{}
+
+func (UnimplementedMealReminderServer) CreateReminder(context.Context, *CreateReminderReq) (*CreateReminderRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateReminder not implemented")
+}
+func (UnimplementedMealReminderServer) GetReminders(context.Context, *GetRemindersReq) (*GetRemindersRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetReminders not implemented")
+}
+func (UnimplementedMealReminderServer) UpdateReminder(context.Context, *UpdateReminderReq) (*UpdateReminderRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateReminder not implemented")
+}
+func (UnimplementedMealReminderServer) DeleteReminder(context.Context, *DeleteReminderReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteReminder not implemented")
+}
+func (UnimplementedMealReminderServer) mustEmbedUnimplementedMealReminderServer() {}
+func (UnimplementedMealReminderServer) testEmbeddedByValue()                      {}
+
+// UnsafeMealReminderServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MealReminderServer will
+// result in compilation errors.
+type UnsafeMealReminderServer interface {
+	mustEmbedUnimplementedMealReminderServer()
+}
+
+func RegisterMealReminderServer(s grpc.ServiceRegistrar, srv MealReminderServer) {
+	// If the following call pancis, it indicates UnimplementedMealReminderServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MealReminder_ServiceDesc, srv)
+}
+
+func _MealReminder_CreateReminder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateReminderReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealReminderServer).CreateReminder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MealReminder_CreateReminder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealReminderServer).CreateReminder(ctx, req.(*CreateReminderReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MealReminder_GetReminders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemindersReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealReminderServer).GetReminders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MealReminder_GetReminders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealReminderServer).GetReminders(ctx, req.(*GetRemindersReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MealReminder_UpdateReminder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateReminderReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealReminderServer).UpdateReminder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MealReminder_UpdateReminder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealReminderServer).UpdateReminder(ctx, req.(*UpdateReminderReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MealReminder_DeleteReminder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteReminderReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealReminderServer).DeleteReminder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MealReminder_DeleteReminder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealReminderServer).DeleteReminder(ctx, req.(*DeleteReminderReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MealReminder_ServiceDesc is the grpc.ServiceDesc for MealReminder service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MealReminder_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fitSphere.meal_plan.MealReminder",
+	HandlerType: (*MealReminderServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateReminder",
+			Handler:    _MealReminder_CreateReminder_Handler,
+		},
+		{
+			MethodName: "GetReminders",
+			Handler:    _MealReminder_GetReminders_Handler,
+		},
+		{
+			MethodName: "UpdateReminder",
+			Handler:    _MealReminder_UpdateReminder_Handler,
+		},
+		{
+			MethodName: "DeleteReminder",
+			Handler:    _MealReminder_DeleteReminder_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "meal.proto",
+}
+
+const (
+	GoalRecommendation_RecommendCalorieObjective_FullMethodName = "/fitSphere.meal_plan.GoalRecommendation/RecommendCalorieObjective"
+	GoalRecommendation_AdjustGoals_FullMethodName               = "/fitSphere.meal_plan.GoalRecommendation/AdjustGoals"
+	GoalRecommendation_GetGoalSuggestions_FullMethodName        = "/fitSphere.meal_plan.GoalRecommendation/GetGoalSuggestions"
+)
+
+// GoalRecommendationClient is the client API for GoalRecommendation service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GoalRecommendationClient interface {
+	RecommendCalorieObjective(ctx context.Context, in *RecommendCalorieObjectiveReq, opts ...grpc.CallOption) (*RecommendCalorieObjectiveRes, error)
+	AdjustGoals(ctx context.Context, in *AdjustGoalsReq, opts ...grpc.CallOption) (*AdjustGoalsRes, error)
+	GetGoalSuggestions(ctx context.Context, in *GetGoalSuggestionsReq, opts ...grpc.CallOption) (*GetGoalSuggestionsRes, error)
+}
+
+type goalRecommendationClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGoalRecommendationClient(cc grpc.ClientConnInterface) GoalRecommendationClient {
+	return &goalRecommendationClient{cc}
+}
+
+func (c *goalRecommendationClient) RecommendCalorieObjective(ctx context.Context, in *RecommendCalorieObjectiveReq, opts ...grpc.CallOption) (*RecommendCalorieObjectiveRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecommendCalorieObjectiveRes)
+	err := c.cc.Invoke(ctx, GoalRecommendation_RecommendCalorieObjective_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goalRecommendationClient) AdjustGoals(ctx context.Context, in *AdjustGoalsReq, opts ...grpc.CallOption) (*AdjustGoalsRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AdjustGoalsRes)
+	err := c.cc.Invoke(ctx, GoalRecommendation_AdjustGoals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goalRecommendationClient) GetGoalSuggestions(ctx context.Context, in *GetGoalSuggestionsReq, opts ...grpc.CallOption) (*GetGoalSuggestionsRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGoalSuggestionsRes)
+	err := c.cc.Invoke(ctx, GoalRecommendation_GetGoalSuggestions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GoalRecommendationServer is the server API for GoalRecommendation service.
+// All implementations must embed UnimplementedGoalRecommendationServer
+// for forward compatibility.
+type GoalRecommendationServer interface {
+	RecommendCalorieObjective(context.Context, *RecommendCalorieObjectiveReq) (*RecommendCalorieObjectiveRes, error)
+	AdjustGoals(context.Context, *AdjustGoalsReq) (*AdjustGoalsRes, error)
+	GetGoalSuggestions(context.Context, *GetGoalSuggestionsReq) (*GetGoalSuggestionsRes, error)
+	mustEmbedUnimplementedGoalRecommendationServer()
+}
+
+// UnimplementedGoalRecommendationServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGoalRecommendationServer struct{}
+
+func (UnimplementedGoalRecommendationServer) RecommendCalorieObjective(context.Context, *RecommendCalorieObjectiveReq) (*RecommendCalorieObjectiveRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecommendCalorieObjective not implemented")
+}
+func (UnimplementedGoalRecommendationServer) AdjustGoals(context.Context, *AdjustGoalsReq) (*AdjustGoalsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AdjustGoals not implemented")
+}
+func (UnimplementedGoalRecommendationServer) GetGoalSuggestions(context.Context, *GetGoalSuggestionsReq) (*GetGoalSuggestionsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGoalSuggestions not implemented")
+}
+func (UnimplementedGoalRecommendationServer) mustEmbedUnimplementedGoalRecommendationServer() {}
+func (UnimplementedGoalRecommendationServer) testEmbeddedByValue()                            {}
+
+// UnsafeGoalRecommendationServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GoalRecommendationServer will
+// result in compilation errors.
+type UnsafeGoalRecommendationServer interface {
+	mustEmbedUnimplementedGoalRecommendationServer()
+}
+
+func RegisterGoalRecommendationServer(s grpc.ServiceRegistrar, srv GoalRecommendationServer) {
+	// If the following call pancis, it indicates UnimplementedGoalRecommendationServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GoalRecommendation_ServiceDesc, srv)
+}
+
+func _GoalRecommendation_RecommendCalorieObjective_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecommendCalorieObjectiveReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoalRecommendationServer).RecommendCalorieObjective(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoalRecommendation_RecommendCalorieObjective_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoalRecommendationServer).RecommendCalorieObjective(ctx, req.(*RecommendCalorieObjectiveReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoalRecommendation_AdjustGoals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdjustGoalsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoalRecommendationServer).AdjustGoals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoalRecommendation_AdjustGoals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoalRecommendationServer).AdjustGoals(ctx, req.(*AdjustGoalsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoalRecommendation_GetGoalSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGoalSuggestionsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoalRecommendationServer).GetGoalSuggestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoalRecommendation_GetGoalSuggestions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoalRecommendationServer).GetGoalSuggestions(ctx, req.(*GetGoalSuggestionsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GoalRecommendation_ServiceDesc is the grpc.ServiceDesc for GoalRecommendation service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GoalRecommendation_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fitSphere.meal_plan.GoalRecommendation",
+	HandlerType: (*GoalRecommendationServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RecommendCalorieObjective",
+			Handler:    _GoalRecommendation_RecommendCalorieObjective_Handler,
+		},
+		{
+			MethodName: "AdjustGoals",
+			Handler:    _GoalRecommendation_AdjustGoals_Handler,
+		},
+		{
+			MethodName: "GetGoalSuggestions",
+			Handler:    _GoalRecommendation_GetGoalSuggestions_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "meal.proto",
+}
+
+const (
+	FoodLogService_LogFood_FullMethodName       = "/fitSphere.meal_plan.FoodLogService/LogFood"
+	FoodLogService_GetFoodLogs_FullMethodName   = "/fitSphere.meal_plan.FoodLogService/GetFoodLogs"
+	FoodLogService_DeleteFoodLog_FullMethodName = "/fitSphere.meal_plan.FoodLogService/DeleteFoodLog"
+)
+
+// FoodLogServiceClient is the client API for FoodLogService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// log food outside the plan
+type FoodLogServiceClient interface {
+	LogFood(ctx context.Context, in *LogFoodReq, opts ...grpc.CallOption) (*LogFoodRes, error)
+	GetFoodLogs(ctx context.Context, in *GetFoodLogsReq, opts ...grpc.CallOption) (*GetFoodLogsRes, error)
+	DeleteFoodLog(ctx context.Context, in *DeleteFoodLogReq, opts ...grpc.CallOption) (*NilRes, error)
+}
+
+type foodLogServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFoodLogServiceClient(cc grpc.ClientConnInterface) FoodLogServiceClient {
+	return &foodLogServiceClient{cc}
+}
+
+func (c *foodLogServiceClient) LogFood(ctx context.Context, in *LogFoodReq, opts ...grpc.CallOption) (*LogFoodRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LogFoodRes)
+	err := c.cc.Invoke(ctx, FoodLogService_LogFood_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foodLogServiceClient) GetFoodLogs(ctx context.Context, in *GetFoodLogsReq, opts ...grpc.CallOption) (*GetFoodLogsRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFoodLogsRes)
+	err := c.cc.Invoke(ctx, FoodLogService_GetFoodLogs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *foodLogServiceClient) DeleteFoodLog(ctx context.Context, in *DeleteFoodLogReq, opts ...grpc.CallOption) (*NilRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NilRes)
+	err := c.cc.Invoke(ctx, FoodLogService_DeleteFoodLog_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FoodLogServiceServer is the server API for FoodLogService service.
+// All implementations must embed UnimplementedFoodLogServiceServer
+// for forward compatibility.
+//
+// log food outside the plan
+type FoodLogServiceServer interface {
+	LogFood(context.Context, *LogFoodReq) (*LogFoodRes, error)
+	GetFoodLogs(context.Context, *GetFoodLogsReq) (*GetFoodLogsRes, error)
+	DeleteFoodLog(context.Context, *DeleteFoodLogReq) (*NilRes, error)
+	mustEmbedUnimplementedFoodLogServiceServer()
+}
+
+// UnimplementedFoodLogServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFoodLogServiceServer struct{}
+
+func (UnimplementedFoodLogServiceServer) LogFood(context.Context, *LogFoodReq) (*LogFoodRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LogFood not implemented")
+}
+func (UnimplementedFoodLogServiceServer) GetFoodLogs(context.Context, *GetFoodLogsReq) (*GetFoodLogsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFoodLogs not implemented")
+}
+func (UnimplementedFoodLogServiceServer) DeleteFoodLog(context.Context, *DeleteFoodLogReq) (*NilRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteFoodLog not implemented")
+}
+func (UnimplementedFoodLogServiceServer) mustEmbedUnimplementedFoodLogServiceServer() {}
+func (UnimplementedFoodLogServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeFoodLogServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FoodLogServiceServer will
+// result in compilation errors.
+type UnsafeFoodLogServiceServer interface {
+	mustEmbedUnimplementedFoodLogServiceServer()
+}
+
+func RegisterFoodLogServiceServer(s grpc.ServiceRegistrar, srv FoodLogServiceServer) {
+	// If the following call pancis, it indicates UnimplementedFoodLogServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FoodLogService_ServiceDesc, srv)
+}
+
+func _FoodLogService_LogFood_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogFoodReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FoodLogServiceServer).LogFood(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FoodLogService_LogFood_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FoodLogServiceServer).LogFood(ctx, req.(*LogFoodReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FoodLogService_GetFoodLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFoodLogsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FoodLogServiceServer).GetFoodLogs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FoodLogService_GetFoodLogs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FoodLogServiceServer).GetFoodLogs(ctx, req.(*GetFoodLogsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FoodLogService_DeleteFoodLog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteFoodLogReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FoodLogServiceServer).DeleteFoodLog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FoodLogService_DeleteFoodLog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FoodLogServiceServer).DeleteFoodLog(ctx, req.(*DeleteFoodLogReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FoodLogService_ServiceDesc is the grpc.ServiceDesc for FoodLogService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FoodLogService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fitSphere.meal_plan.FoodLogService",
+	HandlerType: (*FoodLogServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "LogFood",
+			Handler:    _FoodLogService_LogFood_Handler,
+		},
+		{
+			MethodName: "GetFoodLogs",
+			Handler:    _FoodLogService_GetFoodLogs_Handler,
+		},
+		{
+			MethodName: "DeleteFoodLog",
+			Handler:    _FoodLogService_DeleteFoodLog_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "meal.proto",
+}
+
+const (
+	DietPreferenceService_SetDietPreferences_FullMethodName = "/fitSphere.meal_plan.DietPreferenceService/SetDietPreferences"
+	DietPreferenceService_GetDietPreferences_FullMethodName = "/fitSphere.meal_plan.DietPreferenceService/GetDietPreferences"
+)
+
+// DietPreferenceServiceClient is the client API for DietPreferenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// (e.g., vegan, keto)
+type DietPreferenceServiceClient interface {
+	SetDietPreferences(ctx context.Context, in *UpdateDietPreferencesReq, opts ...grpc.CallOption) (*UpdateDietPreferencesRes, error)
+	GetDietPreferences(ctx context.Context, in *GetDietPreferencesReq, opts ...grpc.CallOption) (*GetDietPreferencesRes, error)
+}
+
+type dietPreferenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDietPreferenceServiceClient(cc grpc.ClientConnInterface) DietPreferenceServiceClient {
+	return &dietPreferenceServiceClient{cc}
+}
+
+func (c *dietPreferenceServiceClient) SetDietPreferences(ctx context.Context, in *UpdateDietPreferencesReq, opts ...grpc.CallOption) (*UpdateDietPreferencesRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateDietPreferencesRes)
+	err := c.cc.Invoke(ctx, DietPreferenceService_SetDietPreferences_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dietPreferenceServiceClient) GetDietPreferences(ctx context.Context, in *GetDietPreferencesReq, opts ...grpc.CallOption) (*GetDietPreferencesRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDietPreferencesRes)
+	err := c.cc.Invoke(ctx, DietPreferenceService_GetDietPreferences_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DietPreferenceServiceServer is the server API for DietPreferenceService service.
+// All implementations must embed UnimplementedDietPreferenceServiceServer
+// for forward compatibility.
+//
+// (e.g., vegan, keto)
+type DietPreferenceServiceServer interface {
+	SetDietPreferences(context.Context, *UpdateDietPreferencesReq) (*UpdateDietPreferencesRes, error)
+	GetDietPreferences(context.Context, *GetDietPreferencesReq) (*GetDietPreferencesRes, error)
+	mustEmbedUnimplementedDietPreferenceServiceServer()
+}
+
+// UnimplementedDietPreferenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDietPreferenceServiceServer struct{}
+
+func (UnimplementedDietPreferenceServiceServer) SetDietPreferences(context.Context, *UpdateDietPreferencesReq) (*UpdateDietPreferencesRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetDietPreferences not implemented")
+}
+func (UnimplementedDietPreferenceServiceServer) GetDietPreferences(context.Context, *GetDietPreferencesReq) (*GetDietPreferencesRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDietPreferences not implemented")
+}
+func (UnimplementedDietPreferenceServiceServer) mustEmbedUnimplementedDietPreferenceServiceServer() {}
+func (UnimplementedDietPreferenceServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeDietPreferenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DietPreferenceServiceServer will
+// result in compilation errors.
+type UnsafeDietPreferenceServiceServer interface {
+	mustEmbedUnimplementedDietPreferenceServiceServer()
+}
+
+func RegisterDietPreferenceServiceServer(s grpc.ServiceRegistrar, srv DietPreferenceServiceServer) {
+	// If the following call pancis, it indicates UnimplementedDietPreferenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DietPreferenceService_ServiceDesc, srv)
+}
+
+func _DietPreferenceService_SetDietPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDietPreferencesReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DietPreferenceServiceServer).SetDietPreferences(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DietPreferenceService_SetDietPreferences_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DietPreferenceServiceServer).SetDietPreferences(ctx, req.(*UpdateDietPreferencesReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DietPreferenceService_GetDietPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDietPreferencesReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DietPreferenceServiceServer).GetDietPreferences(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DietPreferenceService_GetDietPreferences_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DietPreferenceServiceServer).GetDietPreferences(ctx, req.(*GetDietPreferencesReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DietPreferenceService_ServiceDesc is the grpc.ServiceDesc for DietPreferenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DietPreferenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fitSphere.meal_plan.DietPreferenceService",
+	HandlerType: (*DietPreferenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SetDietPreferences",
+			Handler:    _DietPreferenceService_SetDietPreferences_Handler,
+		},
+		{
+			MethodName: "GetDietPreferences",
+			Handler:    _DietPreferenceService_GetDietPreferences_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -11,3 +11,35 @@ service Shopping {
   rpc UpdateShoppingList(UpdateShoppingListReq) returns (UpdateShoppingListRes);
   rpc DeleteShoppingList(DeleteShoppingListReq) returns (NilRes);
 }
+
+message GenerateShoppingListReq{
+
+}
+
+message GenerateShoppingListRes{
+
+}
+
+message GetShoppingListReq{
+
+}
+
+message GetShoppingListRes{
+
+}
+
+message UpdateShoppingListReq{
+
+}
+
+message UpdateShoppingListRes{
+
+}
+
+message DeleteShoppingListReq{
+
+}
+
+message NilRes{
+
+}
