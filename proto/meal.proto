@@ -4,6 +4,13 @@ package fitSphere.meal_plan;
 
 import "google/protobuf/timestamp.proto";
 
+// Progress meals
+service TrackMealProgress {
+  rpc GetUserProgress(GetUserProgressReq) returns (GetUserProgressRes);
+  rpc GetAllProgress(GetAllProgressReq) returns (GetAllProgressRes);
+  rpc GetAllStatistics(GetAllStatisticsReq) returns (GetAllStatisticsRes);
+}
+
 // MealPlan Service
 service MealPlan {
   rpc GetMealPlan(GetMealPlanReq) returns (GetMealPlanRes);
@@ -11,8 +18,24 @@ service MealPlan {
   rpc CreateMealPlan(CreateMealPlanReq) returns (CreateMealPlanRes);
   rpc UpdateMealPlan(UpdateMealPlanReq) returns (UpdateMealPlanRes);
   rpc DeleteMealPlan(DeleteMealPlanReq) returns (NilRes);
+
   rpc AddIngredientToMealPlan(AddIngredientReq) returns (NilRes);
   rpc RemoveIngredientFromMealPlan(RemoveIngredientReq) returns (NilRes);
+
+  rpc CreateCalorieIntakeObjective(CreateCalorieIntakeObjectiveReq) returns (CreateCalorieIntakeObjectiveRes);
+  rpc UpdateCalorieIntakeObjective(UpdateCalorieIntakeObjectiveReq) returns (UpdateCalorieIntakeObjectiveRes);
+  rpc DeleteCalorieIntakeObjective(DeleteCalorieIntakeObjectiveReq) returns (NilRes);
+}
+
+// Meals Service
+service Meal {
+  rpc GetMeal(GetMealReq) returns (GetMealRes);
+  rpc GetMeals(GetMealsReq) returns (GetMealsRes);
+  rpc CreateMeal(CreateMealReq) returns (CreateMealRes);
+  rpc UpdateMeal(UpdateMealReq) returns (UpdateMealRes);
+  rpc DeleteMeal(DeleteMealReq) returns (NilRes);
+  rpc AddIngredientToMeal(AddIngredientReq) returns (NilRes);
+  rpc RemoveIngredientFromMeal(RemoveIngredientReq) returns (NilRes);
 }
 
 // Ingredients Service
@@ -22,6 +45,32 @@ service Ingredients {
   rpc CreateIngredient(CreateIngredientReq) returns (CreateIngredientRes);
   rpc UpdateIngredient(UpdateIngredientReq) returns (UpdateIngredientRes);
   rpc DeleteIngredient(DeleteIngredientReq) returns (NilRes);
+}
+
+service MealReminder {
+  rpc CreateReminder(CreateReminderReq) returns (CreateReminderRes);
+  rpc GetReminders(GetRemindersReq) returns (GetRemindersRes);
+  rpc UpdateReminder(UpdateReminderReq) returns (UpdateReminderRes);
+  rpc DeleteReminder(DeleteReminderReq) returns (NilRes)
+}
+
+service GoalRecommendation {
+  rpc RecommendCalorieObjective(RecommendCalorieObjectiveReq) returns (RecommendCalorieObjectiveRes);
+  rpc AdjustGoals(AdjustGoalsReq) returns (AdjustGoalsRes);
+  rpc GetGoalSuggestions(GetGoalSuggestionsReq) returns (GetGoalSuggestionsRes);
+}
+
+// log food outside the plan
+service FoodLogService {
+  rpc LogFood(LogFoodReq) returns (LogFoodRes);
+  rpc GetFoodLogs(GetFoodLogsReq) returns (GetFoodLogsRes);
+  rpc DeleteFoodLog(DeleteFoodLogReq) returns (DeleteFoodLogres);
+}
+
+// (e.g., vegan, keto)
+service DietPreferenceService{
+  rpc SetDietPreferences(SetDietPreferencesReq) returns (SetDietPreferencesRes);
+  rpc GetDietPreferences(GetDietPreferencesReq) returns (GetDietPreferencesRes);
 }
 
 message NilRes {
@@ -47,7 +96,7 @@ message BaseResponse {
 // Request/Response Messages for Meal Plans
 
 message GetMealPlanReq {
-  string meal_plan_id = 1; // The ID of the meal plan
+  string meal_plan_id = 1;
   BaseRequest request = 100;
 }
 
@@ -62,7 +111,7 @@ message GetMealPlanRes {
 }
 
 message GetMealPlansReq {
-  string user_id = 1; // User ID to filter meal plans
+  string user_id = 1;
   BaseRequest request = 100;
 }
 
@@ -80,7 +129,7 @@ message MealPlanSummary {
 message CreateMealPlanReq {
   string name = 1;
   string description = 2;
-  repeated string ingredient_ids = 3; // List of ingredient IDs
+  repeated XMeal meal = 3;
   BaseRequest request = 100;
 }
 
@@ -108,6 +157,68 @@ message DeleteMealPlanReq {
   BaseRequest request = 100;
 }
 
+message GetMealReq {
+  string meal_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetMealRes {
+  string meal_id = 1;
+  string name = 2;
+  repeated XIngredient ingredients = 3;
+  string description = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  BaseResponse response = 100;
+}
+
+message GetMealsReq {
+  string user_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetMealsRes {
+  repeated XMeal meals = 1;
+  BaseResponse response = 100;
+}
+
+message MealSummary {
+  string meal_plan_id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message CreateMealReq {
+  string name = 1;
+  string description = 2;
+  repeated string ingredient_ids = 3; // List of ingredient IDs
+  BaseRequest request = 100;
+}
+
+message CreateMealRes {
+  string meal_id = 1;
+  string status = 2;
+  BaseResponse response = 100;
+}
+
+message UpdateMealReq {
+  string meal_id = 1;
+  repeated XDiff updates  = 2;
+  BaseRequest request = 100;
+}
+
+message UpdateMealRes {
+  bool success = 1;
+  string message = 2;
+  XMeal meal = 3;
+  BaseResponse response = 100;
+}
+
+message DeleteMealReq {
+  string meal_id = 1;
+  BaseRequest request = 100;
+}
+
 message AddIngredientReq {
   string meal_plan_id = 1;
   string ingredient_id = 2;
@@ -123,7 +234,7 @@ message RemoveIngredientReq {
 // Request/Response Messages for Ingredients
 
 message GetIngredientsReq {
-  string user_id = 1; // Optional filter, e.g., by user
+  string user_id = 1;
   BaseRequest request = 100;
 }
 
@@ -146,7 +257,7 @@ message CreateIngredientReq {
   string name = 1;
   string description = 2;
   string category = 3;
-  string unit = 4; // e.g., grams, pieces
+  string unit = 4; // grams, pieces, etc change db schema
   BaseRequest request = 100;
 }
 
@@ -173,18 +284,72 @@ message DeleteIngredientReq {
   BaseRequest request = 100;
 }
 
-// Ingredient definition used across various messages
 message XIngredient {
   string ingredient_id = 1;
   string name = 2;
-  string description = 3;
-  string category = 4; // e.g., protein, carb, etc.
-  string unit = 5; // e.g., grams, pieces
-  float quantity = 6; // Quantity in the specified unit
-  google.protobuf.Timestamp created_at = 7;
-  google.protobuf.Timestamp updated_at = 8;
+  double calories = 3;
+  double serving_size = 4;
+  double protein = 5;
+  double fat_total = 6;
+  double fat_saturated = 7;
+  double carbohydrates_total = 8;
+  double fiber = 9;
+  double sugar = 10;
+  double sodium = 11;
+  double potassium = 12;
+  double cholesterol = 13;
+  google.protobuf.Timestamp created_at  = 14;
+  google.protobuf.Timestamp updated_at = 15;
 }
 
 message XMealPlan {
+  string meal_plan_id = 1;
+  string user_id = 2;
+  string description = 3;
+  string notes = 4;
+  double total_calories = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+  int32 rating = 8;
+}
 
+message XMeal {
+  string meal_id = 1;
+  string user_id = 2;
+  int32 meal_number = 3;
+  string meal_description = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message XMealIngredient {
+  string ingredient_meal_id = 1;
+  string meal_id = 2;
+  string ingredient_id = 3;
+  double quantity = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message UserMacroDistribution {
+  string id = 1;
+  string user_id = 2;
+  int32 age = 3;
+  double height = 4;
+  double weight = 5;
+  string gender = 6;
+  string system = 7; // Metric or Imperial
+  string activity = 8;
+  string activity_description = 9;
+  string objective = 10;
+  string objective_description = 11;
+  string calories_distribution = 12;
+  string calories_distribution_description = 13;
+  int32 protein = 14;
+  int32 fats = 15;
+  int32 carbs = 16;
+  int32 bmr = 17;
+  int32 tdee = 18;
+  int32 goal = 19;
+  google.protobuf.Timestamp created_at = 20;
 }

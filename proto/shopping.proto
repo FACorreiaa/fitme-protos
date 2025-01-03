@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package fitSphere.shopping;
+
+import "google/protobuf/timestamp.proto";
+
+// Recipes Service
+service Shopping {
+  rpc GenerateShoppingList(GenerateShoppingListReq) returns (GenerateShoppingListRes);
+  rpc GetShoppingList(GetShoppingListReq) returns (GetShoppingListRes);
+  rpc UpdateShoppingList(UpdateShoppingListReq) returns (UpdateShoppingListRes);
+  rpc DeleteShoppingList(DeleteShoppingListReq) returns (NilRes);
+}

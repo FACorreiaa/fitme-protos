@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package fitSphere.nutrition;
+
+import "google/protobuf/timestamp.proto";
+
+service SocialService {
+  rpc ShareMealPlan(ShareMealPlanReq) returns(ShareMealPlanRes);
+  rpc GetLeaderboard(GetLeaderboardReq) returns(GetLeaderboardRes);
+}

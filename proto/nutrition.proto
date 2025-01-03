@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package fitSphere.nutrition;
+
+import "google/protobuf/timestamp.proto";
+
+// Nutrition Service
+service NutritionalAnalysis {
+  rpc AnalyzeMealPlan(AnalyzeMealPlanReq) returns (AnalyzeMealPlanRes);
+  rpc RecommendChanges(RecommendChangesReq) returns (RecommendChangesRes);
+}

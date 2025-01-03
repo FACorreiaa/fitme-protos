@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package fitSphere.recipes;
+
+import "google/protobuf/timestamp.proto";
+
+// Recipes Service
+service Recipes {
+  rpc CreateRecipe(CreateRecipeReq) returns (CreateRecipeRes);
+  rpc GetRecipe(GetRecipeReq) returns (GetRecipeRes);
+  rpc SearchRecipes(SearchRecipesReq) returns (SearchRecipesRes);
+  rpc UpdateRecipe(UpdateRecipeReq) returns (UpdateRecipeRes);
+  rpc DeleteRecipe(DeleteRecipeReq) returns (NilRes);
+}

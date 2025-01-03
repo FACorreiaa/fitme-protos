@@ -26,6 +26,12 @@ service Workout {
   rpc InsertWorkoutPlan(InsertWorkoutPlanReq) returns (InsertWorkoutPlanRes);
 }
 
+// TODO Sync meal plans with user workout routines for better calorie and macro balance.
+//service WorkoutSyncService {
+//  rpc SyncWorkoutPlan(SyncWorkoutPlanReq) returns(SyncWorkoutPlanRes);
+//  rpc GetWorkoutIntegration(GetWorkoutIntegrationReq) returns (GetWorkoutIntegrationRes);
+//}
+
 message GetExercisesReq {
   BaseRequest request = 100;
 }
