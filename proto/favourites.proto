@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package fitSphere.ai_assistant;
+package fitSphere.favourite;
 
 import "google/protobuf/timestamp.proto";
 

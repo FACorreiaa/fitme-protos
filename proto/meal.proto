@@ -60,6 +60,19 @@ service GoalRecommendation {
   rpc GetGoalSuggestions(GetGoalSuggestionsReq) returns (GetGoalSuggestionsRes);
 }
 
+// log food outside the plan
+service FoodLogService {
+  rpc LogFood(LogFoodReq) returns (LogFoodRes);
+  rpc GetFoodLogs(GetFoodLogsReq) returns (GetFoodLogsRes);
+  rpc DeleteFoodLog(DeleteFoodLogReq) returns (NilRes);
+}
+
+// (e.g., vegan, keto)
+service DietPreferenceService{
+  rpc SetDietPreferences(UpdateDietPreferencesReq) returns (UpdateDietPreferencesRes);
+  rpc GetDietPreferences(GetDietPreferencesReq) returns (GetDietPreferencesRes);
+}
+
 message RecommendCalorieObjectiveReq {
   string user_id = 1;
   BaseRequest request = 100;
@@ -133,13 +146,6 @@ message GetAllStatisticsRes {
   BaseResponse response = 100;
 }
 
-// log food outside the plan
-service FoodLogService {
-  rpc LogFood(LogFoodReq) returns (LogFoodRes);
-  rpc GetFoodLogs(GetFoodLogsReq) returns (GetFoodLogsRes);
-  rpc DeleteFoodLog(DeleteFoodLogReq) returns (NilRes);
-}
-
 message LogFoodReq {
   string user_id = 1;
   string meal_id = 2;
@@ -173,12 +179,6 @@ message DeleteFoodLogRes {
 message GetFoodLogsRes {
   repeated XFoodLog food_logs = 1;
   BaseResponse response = 100;
-}
-
-// (e.g., vegan, keto)
-service DietPreferenceService{
-  rpc SetDietPreferences(UpdateDietPreferencesReq) returns (UpdateDietPreferencesRes);
-  rpc GetDietPreferences(GetDietPreferencesReq) returns (GetDietPreferencesRes);
 }
 
 message UpdateDietPreferencesReq {
@@ -359,6 +359,7 @@ message AddIngredientReq {
 message DeleteIngredientReq {
   string meal_plan_id = 1;
   string ingredient_id = 2;
+  string user_id = 3;
   BaseRequest request = 100;
 }
 
@@ -405,6 +406,7 @@ message GetIngredientsRes {
 
 message GetIngredientReq {
   string ingredient_id = 1;
+  string user_id = 2;
   BaseRequest request = 100;
 }
 
@@ -418,6 +420,7 @@ message CreateIngredientReq {
   string description = 2;
   string category = 3;
   string unit = 4; // grams, pieces, etc change db schema
+  string user_id = 5;
   BaseRequest request = 100;
 }
 
@@ -429,6 +432,7 @@ message CreateIngredientRes {
 message UpdateIngredientReq {
   string ingredient_id = 1;
   repeated XDiff updates  = 2;
+  string user_id = 3;
   BaseRequest request = 100;
 }
 
