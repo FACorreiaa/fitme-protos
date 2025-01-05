@@ -550,6 +550,7 @@ message XIngredient {
   double cholesterol = 13;
   google.protobuf.Timestamp created_at  = 14;
   google.protobuf.Timestamp updated_at = 15;
+  string user_id = 16;
 }
 
 message XMealPlan {
