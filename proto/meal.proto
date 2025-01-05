@@ -104,7 +104,9 @@ message GetGoalSuggestionsReq {
 }
 
 message GetGoalSuggestionsRes {
-  repeated UserMacroDistribution user_macro_distribution = 1;
+  bool success = 1;
+  string message = 2;
+  repeated UserMacroDistribution user_macro_distribution = 3;
   BaseResponse response = 100;
 }
 
@@ -114,10 +116,12 @@ message GetUserProgressReq {
 }
 
 message GetUserProgressRes {
-  repeated XMealPlan meal_plans = 1;
-  repeated XMeal meals = 2;
-  repeated XFoodLog food_logs = 3;
-  repeated XReminder reminders = 4;
+  bool success = 1;
+  string message = 2;
+  repeated XMealPlan meal_plans = 3;
+  repeated XMeal meals = 4;
+  repeated XFoodLog food_logs = 5;
+  repeated XReminder reminders = 6;
   BaseResponse response = 100;
 }
 
@@ -126,10 +130,12 @@ message GetAllProgressReq {
 }
 
 message GetAllProgressRes {
-  repeated XMealPlan meal_plans = 1;
-  repeated XMeal meals = 2;
-  repeated XFoodLog food_logs = 3;
-  repeated XReminder reminders = 4;
+  bool success = 1;
+  string message = 2;
+  repeated XMealPlan meal_plans = 3;
+  repeated XMeal meals = 4;
+  repeated XFoodLog food_logs = 5;
+  repeated XReminder reminders = 6;
   BaseResponse response = 100;
 }
 
@@ -139,10 +145,12 @@ message GetAllStatisticsReq {
 }
 
 message GetAllStatisticsRes {
-  repeated XMealPlan meal_plans = 1;
-  repeated XMeal meals = 2;
-  repeated XFoodLog food_logs = 3;
-  repeated XReminder reminders = 4;
+  bool success = 1;
+  string message = 2;
+  repeated XMealPlan meal_plans = 3;
+  repeated XMeal meals = 4;
+  repeated XFoodLog food_logs = 5;
+  repeated XReminder reminders = 6;
   BaseResponse response = 100;
 }
 
@@ -177,7 +185,9 @@ message DeleteFoodLogRes {
 }
 
 message GetFoodLogsRes {
-  repeated XFoodLog food_logs = 1;
+  bool success = 1;
+  string message = 2;
+  repeated XFoodLog food_logs = 3;
   BaseResponse response = 100;
 }
 
@@ -200,7 +210,9 @@ message GetDietPreferencesReq {
 }
 
 message GetDietPreferencesRes {
-  repeated XDietPreference diet_preferences = 1;
+  bool success = 1;
+  string message = 2;
+  repeated XDietPreference diet_preferences = 3;
   BaseResponse response = 100;
 }
 
@@ -232,12 +244,14 @@ message GetMealPlanReq {
 }
 
 message GetMealPlanRes {
-  string meal_plan_id = 1;
-  string name = 2;
-  repeated XIngredient ingredients = 3;
-  string description = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  bool success = 1;
+  string message = 2;
+  string meal_plan_id = 3;
+  string name = 4;
+  repeated XIngredient ingredients = 5;
+  string description = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
   BaseResponse response = 100;
 }
 
@@ -247,7 +261,9 @@ message GetMealPlansReq {
 }
 
 message GetMealPlansRes {
-  repeated MealPlanSummary meal_plans = 1;
+  bool success = 1;
+  string message = 2;
+  repeated MealPlanSummary meal_plans = 3;
   BaseResponse response = 100;
 }
 
@@ -265,8 +281,10 @@ message CreateMealPlanReq {
 }
 
 message CreateMealPlanRes {
-  string meal_plan_id = 1;
-  string status = 2;
+  bool success = 1;
+  string message = 2;
+  string meal_plan_id = 3;
+  string status = 4;
   BaseResponse response = 100;
 }
 
@@ -294,12 +312,14 @@ message GetMealReq {
 }
 
 message GetMealRes {
-  string meal_id = 1;
-  string name = 2;
-  repeated XIngredient ingredients = 3;
-  string description = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  bool success = 1;
+  string message = 2;
+  string meal_id = 3;
+  string name = 4;
+  repeated XIngredient ingredients = 5;
+  string description = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
   BaseResponse response = 100;
 }
 
@@ -309,7 +329,9 @@ message GetMealsReq {
 }
 
 message GetMealsRes {
-  repeated XMeal meals = 1;
+  bool success = 1;
+  string message = 2;
+  repeated XMeal meals = 3;
   BaseResponse response = 100;
 }
 
@@ -327,8 +349,10 @@ message CreateMealReq {
 }
 
 message CreateMealRes {
-  string meal_id = 1;
-  string status = 2;
+  bool success = 1;
+  string message = 2;
+  string meal_id = 3;
+  string status = 4;
   BaseResponse response = 100;
 }
 
@@ -400,7 +424,9 @@ message GetIngredientsReq {
 }
 
 message GetIngredientsRes {
-  repeated XIngredient ingredients = 1;
+  bool success = 1;
+  string message = 2;
+  repeated XIngredient ingredients = 3;
   BaseResponse response = 100;
 }
 
@@ -411,7 +437,9 @@ message GetIngredientReq {
 }
 
 message GetIngredientRes {
-  XIngredient ingredient = 1;
+  bool success = 1;
+  string message = 2;
+  XIngredient ingredient = 3;
   BaseResponse response = 100;
 }
 
@@ -425,7 +453,9 @@ message CreateIngredientReq {
 }
 
 message CreateIngredientRes {
-  string ingredient_id = 1;
+  bool success = 1;
+  string message = 2;
+  string ingredient_id = 3;
   BaseResponse response = 100;
 }
 
@@ -462,7 +492,9 @@ message GetRemindersReq {
 }
 
 message GetRemindersRes {
-  repeated  XReminder reminder = 1;
+  bool success = 1;
+  string message = 2;
+  repeated  XReminder reminder = 3;
   BaseResponse response = 100;
 }
 
