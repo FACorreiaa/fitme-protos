@@ -444,18 +444,29 @@ message GetIngredientRes {
 }
 
 message CreateIngredientReq {
-  string name = 1;
-  string description = 2;
-  string category = 3;
-  string unit = 4; // grams, pieces, etc change db schema
-  string user_id = 5;
+  string ingredient_id = 1;
+  string name = 2;
+  string calories = 3;
+  string serving_size = 4;
+  string protein = 5;
+  string fat_total = 6;
+  string fat_saturated = 7;
+  string carbohydrates_total = 8;
+  string fiber = 9;
+  string sugar = 10;
+  string sodium = 11;
+  string potassium = 12;
+  string cholesterol = 13;
+  google.protobuf.Timestamp created_at = 14;
+  google.protobuf.Timestamp updated_at = 15;
+  string user_id = 16;
   BaseRequest request = 100;
 }
 
 message CreateIngredientRes {
   bool success = 1;
   string message = 2;
-  string ingredient_id = 3;
+  XIngredient ingredient = 3;
   BaseResponse response = 100;
 }
 
