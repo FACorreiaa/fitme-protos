@@ -339,7 +339,8 @@ message MealSummary {
 
 message CreateMealReq {
   string meal_id = 1;
-  XMeal meal = 2;
+  string user_id = 2;
+  XMeal meal = 3;
   BaseRequest request = 100;
 }
 
