@@ -38,7 +38,7 @@ service Meal {
   rpc RemoveIngredientFromMeal(DeleteIngredientReq) returns (NilRes);
 }
 
-// Ingredients Service
+// Ingredients Service x
 service Ingredients {
   rpc GetIngredients(GetIngredientsReq) returns (GetIngredientsRes);
   rpc GetIngredient(GetIngredientReq) returns (GetIngredientRes);
@@ -308,18 +308,14 @@ message DeleteMealPlanReq {
 
 message GetMealReq {
   string meal_id = 1;
+  string user_id = 2;
   BaseRequest request = 100;
 }
 
 message GetMealRes {
   bool success = 1;
   string message = 2;
-  string meal_id = 3;
-  string name = 4;
-  repeated XIngredient ingredients = 5;
-  string description = 6;
-  google.protobuf.Timestamp created_at = 7;
-  google.protobuf.Timestamp updated_at = 8;
+  XMeal meal = 3;
   BaseResponse response = 100;
 }
 
@@ -342,16 +338,15 @@ message MealSummary {
 }
 
 message CreateMealReq {
-  string name = 1;
-  string description = 2;
-  repeated string ingredient_ids = 3; // List of ingredient IDs
+  string meal_id = 1;
+  XMeal meal = 2;
   BaseRequest request = 100;
 }
 
 message CreateMealRes {
   bool success = 1;
   string message = 2;
-  string meal_id = 3;
+  XMeal meal = 3;
   string status = 4;
   BaseResponse response = 100;
 }
@@ -569,8 +564,9 @@ message XMeal {
   string user_id = 2;
   int32 meal_number = 3;
   string meal_description = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  repeated XIngredient ingredient_id = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
 }
 
 message XMealIngredient {

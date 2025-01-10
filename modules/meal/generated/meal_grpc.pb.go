@@ -994,7 +994,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Ingredients Service
+// Ingredients Service x
 type IngredientsClient interface {
 	GetIngredients(ctx context.Context, in *GetIngredientsReq, opts ...grpc.CallOption) (*GetIngredientsRes, error)
 	GetIngredient(ctx context.Context, in *GetIngredientReq, opts ...grpc.CallOption) (*GetIngredientRes, error)
@@ -1065,7 +1065,7 @@ func (c *ingredientsClient) DeleteIngredient(ctx context.Context, in *DeleteIngr
 // All implementations must embed UnimplementedIngredientsServer
 // for forward compatibility.
 //
-// Ingredients Service
+// Ingredients Service x
 type IngredientsServer interface {
 	GetIngredients(context.Context, *GetIngredientsReq) (*GetIngredientsRes, error)
 	GetIngredient(context.Context, *GetIngredientReq) (*GetIngredientRes, error)
