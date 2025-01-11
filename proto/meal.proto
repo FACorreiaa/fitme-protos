@@ -565,7 +565,8 @@ message XMeal {
   string user_id = 2;
   int32 meal_number = 3;
   string meal_description = 4;
-  repeated XMealIngredient meal_ingredient_id = 5;
+  repeated XIngredient ingredient_id = 5;
+  // repeated XMealIngredient meal_ingredient_id = 5;
   google.protobuf.Timestamp created_at = 6;
   google.protobuf.Timestamp updated_at = 7;
 }
