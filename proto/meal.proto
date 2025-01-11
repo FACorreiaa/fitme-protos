@@ -573,7 +573,7 @@ message XMeal {
 // TODO Check if needed
 message XMealIngredient {
   string meal_id = 1;
-  string ingredient_id = 2;
+  repeated string ingredient_id = 2;
   double quantity = 3; // Quantity of the ingredient in grams
   double calories = 4;
   double protein = 5;

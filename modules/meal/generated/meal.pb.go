@@ -5051,19 +5051,19 @@ type XMealIngredient struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	MealId             string  `protobuf:"bytes,1,opt,name=meal_id,json=mealId,proto3" json:"meal_id,omitempty"`
-	IngredientId       string  `protobuf:"bytes,2,opt,name=ingredient_id,json=ingredientId,proto3" json:"ingredient_id,omitempty"`
-	Quantity           float64 `protobuf:"fixed64,3,opt,name=quantity,proto3" json:"quantity,omitempty"` // Quantity of the ingredient in grams
-	Calories           float64 `protobuf:"fixed64,4,opt,name=calories,proto3" json:"calories,omitempty"`
-	Protein            float64 `protobuf:"fixed64,5,opt,name=protein,proto3" json:"protein,omitempty"`
-	CarbohydratesTotal float64 `protobuf:"fixed64,6,opt,name=carbohydrates_total,json=carbohydratesTotal,proto3" json:"carbohydrates_total,omitempty"`
-	FatTotal           float64 `protobuf:"fixed64,7,opt,name=fat_total,json=fatTotal,proto3" json:"fat_total,omitempty"`
-	FatSaturated       float64 `protobuf:"fixed64,8,opt,name=fat_saturated,json=fatSaturated,proto3" json:"fat_saturated,omitempty"`
-	Fiber              float64 `protobuf:"fixed64,9,opt,name=fiber,proto3" json:"fiber,omitempty"`
-	Sugar              float64 `protobuf:"fixed64,10,opt,name=sugar,proto3" json:"sugar,omitempty"`
-	Sodium             float64 `protobuf:"fixed64,11,opt,name=sodium,proto3" json:"sodium,omitempty"`
-	Potassium          float64 `protobuf:"fixed64,12,opt,name=potassium,proto3" json:"potassium,omitempty"`
-	Cholesterol        float64 `protobuf:"fixed64,13,opt,name=cholesterol,proto3" json:"cholesterol,omitempty"`
+	MealId             string   `protobuf:"bytes,1,opt,name=meal_id,json=mealId,proto3" json:"meal_id,omitempty"`
+	IngredientId       []string `protobuf:"bytes,2,rep,name=ingredient_id,json=ingredientId,proto3" json:"ingredient_id,omitempty"`
+	Quantity           float64  `protobuf:"fixed64,3,opt,name=quantity,proto3" json:"quantity,omitempty"` // Quantity of the ingredient in grams
+	Calories           float64  `protobuf:"fixed64,4,opt,name=calories,proto3" json:"calories,omitempty"`
+	Protein            float64  `protobuf:"fixed64,5,opt,name=protein,proto3" json:"protein,omitempty"`
+	CarbohydratesTotal float64  `protobuf:"fixed64,6,opt,name=carbohydrates_total,json=carbohydratesTotal,proto3" json:"carbohydrates_total,omitempty"`
+	FatTotal           float64  `protobuf:"fixed64,7,opt,name=fat_total,json=fatTotal,proto3" json:"fat_total,omitempty"`
+	FatSaturated       float64  `protobuf:"fixed64,8,opt,name=fat_saturated,json=fatSaturated,proto3" json:"fat_saturated,omitempty"`
+	Fiber              float64  `protobuf:"fixed64,9,opt,name=fiber,proto3" json:"fiber,omitempty"`
+	Sugar              float64  `protobuf:"fixed64,10,opt,name=sugar,proto3" json:"sugar,omitempty"`
+	Sodium             float64  `protobuf:"fixed64,11,opt,name=sodium,proto3" json:"sodium,omitempty"`
+	Potassium          float64  `protobuf:"fixed64,12,opt,name=potassium,proto3" json:"potassium,omitempty"`
+	Cholesterol        float64  `protobuf:"fixed64,13,opt,name=cholesterol,proto3" json:"cholesterol,omitempty"`
 }
 
 func (x *XMealIngredient) Reset() {
@@ -5105,11 +5105,11 @@ func (x *XMealIngredient) GetMealId() string {
 	return ""
 }
 
-func (x *XMealIngredient) GetIngredientId() string {
+func (x *XMealIngredient) GetIngredientId() []string {
 	if x != nil {
 		return x.IngredientId
 	}
-	return ""
+	return nil
 }
 
 func (x *XMealIngredient) GetQuantity() float64 {
@@ -6407,7 +6407,7 @@ var file_meal_proto_rawDesc = []byte{
 	0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x6d,
 	0x65, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6d, 0x65,
 	0x61, 0x6c, 0x49, 0x64, 0x12, 0x23, 0x0a, 0x0d, 0x69, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65,
-	0x6e, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x69, 0x6e, 0x67,
+	0x6e, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0c, 0x69, 0x6e, 0x67,
 	0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x49, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x71, 0x75, 0x61,
 	0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52, 0x08, 0x71, 0x75, 0x61,
 	0x6e, 0x74, 0x69, 0x74, 0x79, 0x12, 0x1a, 0x0a, 0x08, 0x63, 0x61, 0x6c, 0x6f, 0x72, 0x69, 0x65,
