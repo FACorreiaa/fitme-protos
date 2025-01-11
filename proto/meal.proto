@@ -565,21 +565,26 @@ message XMeal {
   string user_id = 2;
   int32 meal_number = 3;
   string meal_description = 4;
-  repeated XIngredient ingredient_id = 5;
-  double quantity = 6;
-  // repeated XMealIngredient meal_ingredient_id = 5;
-  google.protobuf.Timestamp created_at = 7;
-  google.protobuf.Timestamp updated_at = 8;
+  repeated XMealIngredient meal_ingredients = 5; // Use XMealIngredient for computed nutrients
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
 }
 
 // TODO Check if needed
 message XMealIngredient {
-  string ingredient_meal_id = 1;
-  string name = 2;
-  string ingredient_id = 3;
-  double quantity = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  string meal_id = 1;
+  string ingredient_id = 2;
+  double quantity = 3; // Quantity of the ingredient in grams
+  double calories = 4;
+  double protein = 5;
+  double carbohydrates_total = 6;
+  double fat_total = 7;
+  double fat_saturated = 8;
+  double fiber = 9;
+  double sugar = 10;
+  double sodium = 11;
+  double potassium = 12;
+  double cholesterol = 13;
 }
 
 message UserMacroDistribution {
