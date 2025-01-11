@@ -370,6 +370,7 @@ message UpdateMealRes {
 
 message DeleteMealReq {
   string meal_id = 1;
+  string user_id = 2;
   BaseRequest request = 100;
 }
 
