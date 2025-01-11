@@ -3189,6 +3189,266 @@ func (x *DeleteIngredientReq) GetRequest() *BaseRequest {
 	return nil
 }
 
+type GetMealIngredientReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MealId  string       `protobuf:"bytes,1,opt,name=meal_id,json=mealId,proto3" json:"meal_id,omitempty"`
+	UserId  string       `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Request *BaseRequest `protobuf:"bytes,100,opt,name=request,proto3" json:"request,omitempty"`
+}
+
+func (x *GetMealIngredientReq) Reset() {
+	*x = GetMealIngredientReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_meal_proto_msgTypes[48]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMealIngredientReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMealIngredientReq) ProtoMessage() {}
+
+func (x *GetMealIngredientReq) ProtoReflect() protoreflect.Message {
+	mi := &file_meal_proto_msgTypes[48]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMealIngredientReq.ProtoReflect.Descriptor instead.
+func (*GetMealIngredientReq) Descriptor() ([]byte, []int) {
+	return file_meal_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetMealIngredientReq) GetMealId() string {
+	if x != nil {
+		return x.MealId
+	}
+	return ""
+}
+
+func (x *GetMealIngredientReq) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *GetMealIngredientReq) GetRequest() *BaseRequest {
+	if x != nil {
+		return x.Request
+	}
+	return nil
+}
+
+type GetMealIngredientRes struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Success         bool             `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message         string           `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	MealIngredients *XMealIngredient `protobuf:"bytes,3,opt,name=meal_ingredients,json=mealIngredients,proto3" json:"meal_ingredients,omitempty"`
+	Response        *BaseResponse    `protobuf:"bytes,100,opt,name=response,proto3" json:"response,omitempty"`
+}
+
+func (x *GetMealIngredientRes) Reset() {
+	*x = GetMealIngredientRes{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_meal_proto_msgTypes[49]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMealIngredientRes) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMealIngredientRes) ProtoMessage() {}
+
+func (x *GetMealIngredientRes) ProtoReflect() protoreflect.Message {
+	mi := &file_meal_proto_msgTypes[49]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMealIngredientRes.ProtoReflect.Descriptor instead.
+func (*GetMealIngredientRes) Descriptor() ([]byte, []int) {
+	return file_meal_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetMealIngredientRes) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *GetMealIngredientRes) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetMealIngredientRes) GetMealIngredients() *XMealIngredient {
+	if x != nil {
+		return x.MealIngredients
+	}
+	return nil
+}
+
+func (x *GetMealIngredientRes) GetResponse() *BaseResponse {
+	if x != nil {
+		return x.Response
+	}
+	return nil
+}
+
+type GetMealIngredientsReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UserId  string       `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Request *BaseRequest `protobuf:"bytes,100,opt,name=request,proto3" json:"request,omitempty"`
+}
+
+func (x *GetMealIngredientsReq) Reset() {
+	*x = GetMealIngredientsReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_meal_proto_msgTypes[50]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMealIngredientsReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMealIngredientsReq) ProtoMessage() {}
+
+func (x *GetMealIngredientsReq) ProtoReflect() protoreflect.Message {
+	mi := &file_meal_proto_msgTypes[50]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMealIngredientsReq.ProtoReflect.Descriptor instead.
+func (*GetMealIngredientsReq) Descriptor() ([]byte, []int) {
+	return file_meal_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetMealIngredientsReq) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *GetMealIngredientsReq) GetRequest() *BaseRequest {
+	if x != nil {
+		return x.Request
+	}
+	return nil
+}
+
+type GetMealIngredientsRes struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Success         bool               `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message         string             `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	MealIngredients []*XMealIngredient `protobuf:"bytes,3,rep,name=meal_ingredients,json=mealIngredients,proto3" json:"meal_ingredients,omitempty"`
+	Response        *BaseResponse      `protobuf:"bytes,100,opt,name=response,proto3" json:"response,omitempty"`
+}
+
+func (x *GetMealIngredientsRes) Reset() {
+	*x = GetMealIngredientsRes{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_meal_proto_msgTypes[51]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMealIngredientsRes) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMealIngredientsRes) ProtoMessage() {}
+
+func (x *GetMealIngredientsRes) ProtoReflect() protoreflect.Message {
+	mi := &file_meal_proto_msgTypes[51]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMealIngredientsRes.ProtoReflect.Descriptor instead.
+func (*GetMealIngredientsRes) Descriptor() ([]byte, []int) {
+	return file_meal_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetMealIngredientsRes) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *GetMealIngredientsRes) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetMealIngredientsRes) GetMealIngredients() []*XMealIngredient {
+	if x != nil {
+		return x.MealIngredients
+	}
+	return nil
+}
+
+func (x *GetMealIngredientsRes) GetResponse() *BaseResponse {
+	if x != nil {
+		return x.Response
+	}
+	return nil
+}
+
 type CreateCalorieIntakeObjectiveReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -3202,7 +3462,7 @@ type CreateCalorieIntakeObjectiveReq struct {
 func (x *CreateCalorieIntakeObjectiveReq) Reset() {
 	*x = CreateCalorieIntakeObjectiveReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[48]
+		mi := &file_meal_proto_msgTypes[52]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3215,7 +3475,7 @@ func (x *CreateCalorieIntakeObjectiveReq) String() string {
 func (*CreateCalorieIntakeObjectiveReq) ProtoMessage() {}
 
 func (x *CreateCalorieIntakeObjectiveReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[48]
+	mi := &file_meal_proto_msgTypes[52]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3228,7 +3488,7 @@ func (x *CreateCalorieIntakeObjectiveReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCalorieIntakeObjectiveReq.ProtoReflect.Descriptor instead.
 func (*CreateCalorieIntakeObjectiveReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{48}
+	return file_meal_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *CreateCalorieIntakeObjectiveReq) GetCalIntakeObjective() int32 {
@@ -3266,7 +3526,7 @@ type CreateCalorieIntakeObjectiveRes struct {
 func (x *CreateCalorieIntakeObjectiveRes) Reset() {
 	*x = CreateCalorieIntakeObjectiveRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[49]
+		mi := &file_meal_proto_msgTypes[53]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3279,7 +3539,7 @@ func (x *CreateCalorieIntakeObjectiveRes) String() string {
 func (*CreateCalorieIntakeObjectiveRes) ProtoMessage() {}
 
 func (x *CreateCalorieIntakeObjectiveRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[49]
+	mi := &file_meal_proto_msgTypes[53]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3292,7 +3552,7 @@ func (x *CreateCalorieIntakeObjectiveRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCalorieIntakeObjectiveRes.ProtoReflect.Descriptor instead.
 func (*CreateCalorieIntakeObjectiveRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{49}
+	return file_meal_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *CreateCalorieIntakeObjectiveRes) GetSuccess() bool {
@@ -3336,7 +3596,7 @@ type UpdateCalorieIntakeObjectiveReq struct {
 func (x *UpdateCalorieIntakeObjectiveReq) Reset() {
 	*x = UpdateCalorieIntakeObjectiveReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[50]
+		mi := &file_meal_proto_msgTypes[54]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3349,7 +3609,7 @@ func (x *UpdateCalorieIntakeObjectiveReq) String() string {
 func (*UpdateCalorieIntakeObjectiveReq) ProtoMessage() {}
 
 func (x *UpdateCalorieIntakeObjectiveReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[50]
+	mi := &file_meal_proto_msgTypes[54]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3362,7 +3622,7 @@ func (x *UpdateCalorieIntakeObjectiveReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCalorieIntakeObjectiveReq.ProtoReflect.Descriptor instead.
 func (*UpdateCalorieIntakeObjectiveReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{50}
+	return file_meal_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *UpdateCalorieIntakeObjectiveReq) GetCalIntakeObjective() int32 {
@@ -3400,7 +3660,7 @@ type UpdateCalorieIntakeObjectiveRes struct {
 func (x *UpdateCalorieIntakeObjectiveRes) Reset() {
 	*x = UpdateCalorieIntakeObjectiveRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[51]
+		mi := &file_meal_proto_msgTypes[55]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3413,7 +3673,7 @@ func (x *UpdateCalorieIntakeObjectiveRes) String() string {
 func (*UpdateCalorieIntakeObjectiveRes) ProtoMessage() {}
 
 func (x *UpdateCalorieIntakeObjectiveRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[51]
+	mi := &file_meal_proto_msgTypes[55]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3426,7 +3686,7 @@ func (x *UpdateCalorieIntakeObjectiveRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCalorieIntakeObjectiveRes.ProtoReflect.Descriptor instead.
 func (*UpdateCalorieIntakeObjectiveRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{51}
+	return file_meal_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *UpdateCalorieIntakeObjectiveRes) GetSuccess() bool {
@@ -3469,7 +3729,7 @@ type DeleteCalorieIntakeObjectiveReq struct {
 func (x *DeleteCalorieIntakeObjectiveReq) Reset() {
 	*x = DeleteCalorieIntakeObjectiveReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[52]
+		mi := &file_meal_proto_msgTypes[56]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3482,7 +3742,7 @@ func (x *DeleteCalorieIntakeObjectiveReq) String() string {
 func (*DeleteCalorieIntakeObjectiveReq) ProtoMessage() {}
 
 func (x *DeleteCalorieIntakeObjectiveReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[52]
+	mi := &file_meal_proto_msgTypes[56]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3495,7 +3755,7 @@ func (x *DeleteCalorieIntakeObjectiveReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteCalorieIntakeObjectiveReq.ProtoReflect.Descriptor instead.
 func (*DeleteCalorieIntakeObjectiveReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{52}
+	return file_meal_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *DeleteCalorieIntakeObjectiveReq) GetUserId() string {
@@ -3524,7 +3784,7 @@ type GetIngredientsReq struct {
 func (x *GetIngredientsReq) Reset() {
 	*x = GetIngredientsReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[53]
+		mi := &file_meal_proto_msgTypes[57]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3537,7 +3797,7 @@ func (x *GetIngredientsReq) String() string {
 func (*GetIngredientsReq) ProtoMessage() {}
 
 func (x *GetIngredientsReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[53]
+	mi := &file_meal_proto_msgTypes[57]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3550,7 +3810,7 @@ func (x *GetIngredientsReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIngredientsReq.ProtoReflect.Descriptor instead.
 func (*GetIngredientsReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{53}
+	return file_meal_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *GetIngredientsReq) GetUserId() string {
@@ -3581,7 +3841,7 @@ type GetIngredientsRes struct {
 func (x *GetIngredientsRes) Reset() {
 	*x = GetIngredientsRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[54]
+		mi := &file_meal_proto_msgTypes[58]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3594,7 +3854,7 @@ func (x *GetIngredientsRes) String() string {
 func (*GetIngredientsRes) ProtoMessage() {}
 
 func (x *GetIngredientsRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[54]
+	mi := &file_meal_proto_msgTypes[58]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3607,7 +3867,7 @@ func (x *GetIngredientsRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIngredientsRes.ProtoReflect.Descriptor instead.
 func (*GetIngredientsRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{54}
+	return file_meal_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *GetIngredientsRes) GetSuccess() bool {
@@ -3651,7 +3911,7 @@ type GetIngredientReq struct {
 func (x *GetIngredientReq) Reset() {
 	*x = GetIngredientReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[55]
+		mi := &file_meal_proto_msgTypes[59]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3664,7 +3924,7 @@ func (x *GetIngredientReq) String() string {
 func (*GetIngredientReq) ProtoMessage() {}
 
 func (x *GetIngredientReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[55]
+	mi := &file_meal_proto_msgTypes[59]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3677,7 +3937,7 @@ func (x *GetIngredientReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIngredientReq.ProtoReflect.Descriptor instead.
 func (*GetIngredientReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{55}
+	return file_meal_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *GetIngredientReq) GetIngredientId() string {
@@ -3715,7 +3975,7 @@ type GetIngredientRes struct {
 func (x *GetIngredientRes) Reset() {
 	*x = GetIngredientRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[56]
+		mi := &file_meal_proto_msgTypes[60]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3728,7 +3988,7 @@ func (x *GetIngredientRes) String() string {
 func (*GetIngredientRes) ProtoMessage() {}
 
 func (x *GetIngredientRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[56]
+	mi := &file_meal_proto_msgTypes[60]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3741,7 +4001,7 @@ func (x *GetIngredientRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIngredientRes.ProtoReflect.Descriptor instead.
 func (*GetIngredientRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{56}
+	return file_meal_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *GetIngredientRes) GetSuccess() bool {
@@ -3799,7 +4059,7 @@ type CreateIngredientReq struct {
 func (x *CreateIngredientReq) Reset() {
 	*x = CreateIngredientReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[57]
+		mi := &file_meal_proto_msgTypes[61]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3812,7 +4072,7 @@ func (x *CreateIngredientReq) String() string {
 func (*CreateIngredientReq) ProtoMessage() {}
 
 func (x *CreateIngredientReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[57]
+	mi := &file_meal_proto_msgTypes[61]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3825,7 +4085,7 @@ func (x *CreateIngredientReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateIngredientReq.ProtoReflect.Descriptor instead.
 func (*CreateIngredientReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{57}
+	return file_meal_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *CreateIngredientReq) GetIngredientId() string {
@@ -3961,7 +4221,7 @@ type CreateIngredientRes struct {
 func (x *CreateIngredientRes) Reset() {
 	*x = CreateIngredientRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[58]
+		mi := &file_meal_proto_msgTypes[62]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3974,7 +4234,7 @@ func (x *CreateIngredientRes) String() string {
 func (*CreateIngredientRes) ProtoMessage() {}
 
 func (x *CreateIngredientRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[58]
+	mi := &file_meal_proto_msgTypes[62]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3987,7 +4247,7 @@ func (x *CreateIngredientRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateIngredientRes.ProtoReflect.Descriptor instead.
 func (*CreateIngredientRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{58}
+	return file_meal_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *CreateIngredientRes) GetSuccess() bool {
@@ -4032,7 +4292,7 @@ type UpdateIngredientReq struct {
 func (x *UpdateIngredientReq) Reset() {
 	*x = UpdateIngredientReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[59]
+		mi := &file_meal_proto_msgTypes[63]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4045,7 +4305,7 @@ func (x *UpdateIngredientReq) String() string {
 func (*UpdateIngredientReq) ProtoMessage() {}
 
 func (x *UpdateIngredientReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[59]
+	mi := &file_meal_proto_msgTypes[63]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4058,7 +4318,7 @@ func (x *UpdateIngredientReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateIngredientReq.ProtoReflect.Descriptor instead.
 func (*UpdateIngredientReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{59}
+	return file_meal_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *UpdateIngredientReq) GetIngredientId() string {
@@ -4103,7 +4363,7 @@ type UpdateIngredientRes struct {
 func (x *UpdateIngredientRes) Reset() {
 	*x = UpdateIngredientRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[60]
+		mi := &file_meal_proto_msgTypes[64]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4116,7 +4376,7 @@ func (x *UpdateIngredientRes) String() string {
 func (*UpdateIngredientRes) ProtoMessage() {}
 
 func (x *UpdateIngredientRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[60]
+	mi := &file_meal_proto_msgTypes[64]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4129,7 +4389,7 @@ func (x *UpdateIngredientRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateIngredientRes.ProtoReflect.Descriptor instead.
 func (*UpdateIngredientRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{60}
+	return file_meal_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *UpdateIngredientRes) GetSuccess() bool {
@@ -4173,7 +4433,7 @@ type CreateReminderReq struct {
 func (x *CreateReminderReq) Reset() {
 	*x = CreateReminderReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[61]
+		mi := &file_meal_proto_msgTypes[65]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4186,7 +4446,7 @@ func (x *CreateReminderReq) String() string {
 func (*CreateReminderReq) ProtoMessage() {}
 
 func (x *CreateReminderReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[61]
+	mi := &file_meal_proto_msgTypes[65]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4199,7 +4459,7 @@ func (x *CreateReminderReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateReminderReq.ProtoReflect.Descriptor instead.
 func (*CreateReminderReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{61}
+	return file_meal_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *CreateReminderReq) GetReminder() *XReminder {
@@ -4237,7 +4497,7 @@ type CreateReminderRes struct {
 func (x *CreateReminderRes) Reset() {
 	*x = CreateReminderRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[62]
+		mi := &file_meal_proto_msgTypes[66]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4250,7 +4510,7 @@ func (x *CreateReminderRes) String() string {
 func (*CreateReminderRes) ProtoMessage() {}
 
 func (x *CreateReminderRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[62]
+	mi := &file_meal_proto_msgTypes[66]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4263,7 +4523,7 @@ func (x *CreateReminderRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateReminderRes.ProtoReflect.Descriptor instead.
 func (*CreateReminderRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{62}
+	return file_meal_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *CreateReminderRes) GetSuccess() bool {
@@ -4306,7 +4566,7 @@ type GetRemindersReq struct {
 func (x *GetRemindersReq) Reset() {
 	*x = GetRemindersReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[63]
+		mi := &file_meal_proto_msgTypes[67]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4319,7 +4579,7 @@ func (x *GetRemindersReq) String() string {
 func (*GetRemindersReq) ProtoMessage() {}
 
 func (x *GetRemindersReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[63]
+	mi := &file_meal_proto_msgTypes[67]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4332,7 +4592,7 @@ func (x *GetRemindersReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRemindersReq.ProtoReflect.Descriptor instead.
 func (*GetRemindersReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{63}
+	return file_meal_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *GetRemindersReq) GetReminderId() string {
@@ -4363,7 +4623,7 @@ type GetRemindersRes struct {
 func (x *GetRemindersRes) Reset() {
 	*x = GetRemindersRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[64]
+		mi := &file_meal_proto_msgTypes[68]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4376,7 +4636,7 @@ func (x *GetRemindersRes) String() string {
 func (*GetRemindersRes) ProtoMessage() {}
 
 func (x *GetRemindersRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[64]
+	mi := &file_meal_proto_msgTypes[68]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4389,7 +4649,7 @@ func (x *GetRemindersRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRemindersRes.ProtoReflect.Descriptor instead.
 func (*GetRemindersRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{64}
+	return file_meal_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *GetRemindersRes) GetSuccess() bool {
@@ -4432,7 +4692,7 @@ type DeleteReminderReq struct {
 func (x *DeleteReminderReq) Reset() {
 	*x = DeleteReminderReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[65]
+		mi := &file_meal_proto_msgTypes[69]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4445,7 +4705,7 @@ func (x *DeleteReminderReq) String() string {
 func (*DeleteReminderReq) ProtoMessage() {}
 
 func (x *DeleteReminderReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[65]
+	mi := &file_meal_proto_msgTypes[69]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4458,7 +4718,7 @@ func (x *DeleteReminderReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteReminderReq.ProtoReflect.Descriptor instead.
 func (*DeleteReminderReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{65}
+	return file_meal_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *DeleteReminderReq) GetReminderId() string {
@@ -4488,7 +4748,7 @@ type UpdateReminderReq struct {
 func (x *UpdateReminderReq) Reset() {
 	*x = UpdateReminderReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[66]
+		mi := &file_meal_proto_msgTypes[70]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4501,7 +4761,7 @@ func (x *UpdateReminderReq) String() string {
 func (*UpdateReminderReq) ProtoMessage() {}
 
 func (x *UpdateReminderReq) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[66]
+	mi := &file_meal_proto_msgTypes[70]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4514,7 +4774,7 @@ func (x *UpdateReminderReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateReminderReq.ProtoReflect.Descriptor instead.
 func (*UpdateReminderReq) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{66}
+	return file_meal_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *UpdateReminderReq) GetReminderId() string {
@@ -4552,7 +4812,7 @@ type UpdateReminderRes struct {
 func (x *UpdateReminderRes) Reset() {
 	*x = UpdateReminderRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[67]
+		mi := &file_meal_proto_msgTypes[71]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4565,7 +4825,7 @@ func (x *UpdateReminderRes) String() string {
 func (*UpdateReminderRes) ProtoMessage() {}
 
 func (x *UpdateReminderRes) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[67]
+	mi := &file_meal_proto_msgTypes[71]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4578,7 +4838,7 @@ func (x *UpdateReminderRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateReminderRes.ProtoReflect.Descriptor instead.
 func (*UpdateReminderRes) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{67}
+	return file_meal_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *UpdateReminderRes) GetSuccess() bool {
@@ -4623,7 +4883,7 @@ type XReminder struct {
 func (x *XReminder) Reset() {
 	*x = XReminder{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[68]
+		mi := &file_meal_proto_msgTypes[72]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4636,7 +4896,7 @@ func (x *XReminder) String() string {
 func (*XReminder) ProtoMessage() {}
 
 func (x *XReminder) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[68]
+	mi := &file_meal_proto_msgTypes[72]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4649,7 +4909,7 @@ func (x *XReminder) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XReminder.ProtoReflect.Descriptor instead.
 func (*XReminder) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{68}
+	return file_meal_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *XReminder) GetReminderId() string {
@@ -4706,7 +4966,7 @@ type XIngredient struct {
 func (x *XIngredient) Reset() {
 	*x = XIngredient{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[69]
+		mi := &file_meal_proto_msgTypes[73]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4719,7 +4979,7 @@ func (x *XIngredient) String() string {
 func (*XIngredient) ProtoMessage() {}
 
 func (x *XIngredient) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[69]
+	mi := &file_meal_proto_msgTypes[73]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4732,7 +4992,7 @@ func (x *XIngredient) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XIngredient.ProtoReflect.Descriptor instead.
 func (*XIngredient) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{69}
+	return file_meal_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *XIngredient) GetIngredientId() string {
@@ -4865,7 +5125,7 @@ type XMealPlan struct {
 func (x *XMealPlan) Reset() {
 	*x = XMealPlan{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[70]
+		mi := &file_meal_proto_msgTypes[74]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4878,7 +5138,7 @@ func (x *XMealPlan) String() string {
 func (*XMealPlan) ProtoMessage() {}
 
 func (x *XMealPlan) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[70]
+	mi := &file_meal_proto_msgTypes[74]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4891,7 +5151,7 @@ func (x *XMealPlan) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XMealPlan.ProtoReflect.Descriptor instead.
 func (*XMealPlan) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{70}
+	return file_meal_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *XMealPlan) GetMealPlanId() string {
@@ -4967,7 +5227,7 @@ type XMeal struct {
 func (x *XMeal) Reset() {
 	*x = XMeal{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[71]
+		mi := &file_meal_proto_msgTypes[75]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4980,7 +5240,7 @@ func (x *XMeal) String() string {
 func (*XMeal) ProtoMessage() {}
 
 func (x *XMeal) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[71]
+	mi := &file_meal_proto_msgTypes[75]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4993,7 +5253,7 @@ func (x *XMeal) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XMeal.ProtoReflect.Descriptor instead.
 func (*XMeal) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{71}
+	return file_meal_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *XMeal) GetMealId() string {
@@ -5069,7 +5329,7 @@ type XMealIngredient struct {
 func (x *XMealIngredient) Reset() {
 	*x = XMealIngredient{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[72]
+		mi := &file_meal_proto_msgTypes[76]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5082,7 +5342,7 @@ func (x *XMealIngredient) String() string {
 func (*XMealIngredient) ProtoMessage() {}
 
 func (x *XMealIngredient) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[72]
+	mi := &file_meal_proto_msgTypes[76]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5095,7 +5355,7 @@ func (x *XMealIngredient) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XMealIngredient.ProtoReflect.Descriptor instead.
 func (*XMealIngredient) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{72}
+	return file_meal_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *XMealIngredient) GetMealId() string {
@@ -5219,7 +5479,7 @@ type UserMacroDistribution struct {
 func (x *UserMacroDistribution) Reset() {
 	*x = UserMacroDistribution{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[73]
+		mi := &file_meal_proto_msgTypes[77]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5232,7 +5492,7 @@ func (x *UserMacroDistribution) String() string {
 func (*UserMacroDistribution) ProtoMessage() {}
 
 func (x *UserMacroDistribution) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[73]
+	mi := &file_meal_proto_msgTypes[77]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5245,7 +5505,7 @@ func (x *UserMacroDistribution) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserMacroDistribution.ProtoReflect.Descriptor instead.
 func (*UserMacroDistribution) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{73}
+	return file_meal_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *UserMacroDistribution) GetId() string {
@@ -5404,7 +5664,7 @@ type XDietPreference struct {
 func (x *XDietPreference) Reset() {
 	*x = XDietPreference{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[74]
+		mi := &file_meal_proto_msgTypes[78]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5417,7 +5677,7 @@ func (x *XDietPreference) String() string {
 func (*XDietPreference) ProtoMessage() {}
 
 func (x *XDietPreference) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[74]
+	mi := &file_meal_proto_msgTypes[78]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5430,7 +5690,7 @@ func (x *XDietPreference) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XDietPreference.ProtoReflect.Descriptor instead.
 func (*XDietPreference) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{74}
+	return file_meal_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *XDietPreference) GetDietPreferenceId() string {
@@ -5492,7 +5752,7 @@ type XFoodLog struct {
 func (x *XFoodLog) Reset() {
 	*x = XFoodLog{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_meal_proto_msgTypes[75]
+		mi := &file_meal_proto_msgTypes[79]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5505,7 +5765,7 @@ func (x *XFoodLog) String() string {
 func (*XFoodLog) ProtoMessage() {}
 
 func (x *XFoodLog) ProtoReflect() protoreflect.Message {
-	mi := &file_meal_proto_msgTypes[75]
+	mi := &file_meal_proto_msgTypes[79]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5518,7 +5778,7 @@ func (x *XFoodLog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XFoodLog.ProtoReflect.Descriptor instead.
 func (*XFoodLog) Descriptor() ([]byte, []int) {
-	return file_meal_proto_rawDescGZIP(), []int{75}
+	return file_meal_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *XFoodLog) GetFoodLogId() string {
@@ -6075,6 +6335,49 @@ var file_meal_proto_rawDesc = []byte{
 	0x64, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72,
 	0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x22, 0x84, 0x01, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72,
+	0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x12, 0x17, 0x0a, 0x07, 0x6d, 0x65, 0x61,
+	0x6c, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6d, 0x65, 0x61, 0x6c,
+	0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x3a, 0x0a, 0x07, 0x72,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x18, 0x64, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x66,
+	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
+	0x61, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x07,
+	0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0xda, 0x01, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x4d,
+	0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73,
+	0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73,
+	0x73, 0x61, 0x67, 0x65, 0x12, 0x4f, 0x0a, 0x10, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x69, 0x6e, 0x67,
+	0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x24,
+	0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f,
+	0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x58, 0x4d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64,
+	0x69, 0x65, 0x6e, 0x74, 0x52, 0x0f, 0x6d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64,
+	0x69, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x3d, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x18, 0x64, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
+	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x42, 0x61,
+	0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x6c, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x49,
+	0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x12, 0x17, 0x0a,
+	0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
+	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x3a, 0x0a, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x18, 0x64, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
+	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x42, 0x61,
+	0x73, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x22, 0xdb, 0x01, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x49, 0x6e,
+	0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x12, 0x18, 0x0a, 0x07,
+	0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73,
+	0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x12, 0x4f, 0x0a, 0x10, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x69, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69,
+	0x65, 0x6e, 0x74, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x66, 0x69, 0x74,
+	0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e,
+	0x2e, 0x58, 0x4d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74,
+	0x52, 0x0f, 0x6d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74,
+	0x73, 0x12, 0x3d, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x64, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e,
+	0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x22, 0xa8, 0x01, 0x0a, 0x1f, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x61, 0x6c, 0x6f, 0x72,
 	0x69, 0x65, 0x49, 0x6e, 0x74, 0x61, 0x6b, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x69, 0x76,
 	0x65, 0x52, 0x65, 0x71, 0x12, 0x30, 0x0a, 0x14, 0x63, 0x61, 0x6c, 0x5f, 0x69, 0x6e, 0x74, 0x61,
@@ -6593,7 +6896,7 @@ var file_meal_proto_rawDesc = []byte{
 	0x65, 0x74, 0x65, 0x43, 0x61, 0x6c, 0x6f, 0x72, 0x69, 0x65, 0x49, 0x6e, 0x74, 0x61, 0x6b, 0x65,
 	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x69, 0x76, 0x65, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e, 0x66,
 	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
-	0x61, 0x6e, 0x2e, 0x4e, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x32, 0xdc, 0x04, 0x0a, 0x04, 0x4d, 0x65,
+	0x61, 0x6e, 0x2e, 0x4e, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x32, 0xa3, 0x07, 0x0a, 0x04, 0x4d, 0x65,
 	0x61, 0x6c, 0x12, 0x4b, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x12, 0x1f, 0x2e,
 	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
 	0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x52, 0x65, 0x71, 0x1a, 0x1f,
@@ -6631,118 +6934,139 @@ var file_meal_proto_rawDesc = []byte{
 	0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x49, 0x6e,
 	0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e, 0x66, 0x69,
 	0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61,
-	0x6e, 0x2e, 0x4e, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x32, 0xf9, 0x03, 0x0a, 0x0b, 0x49, 0x6e, 0x67,
-	0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x60, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x49,
-	0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x26, 0x2e, 0x66, 0x69, 0x74,
-	0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e,
-	0x2e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x52,
-	0x65, 0x71, 0x1a, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d,
-	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72,
-	0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x12, 0x5d, 0x0a, 0x0d, 0x47, 0x65,
-	0x74, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x25, 0x2e, 0x66, 0x69,
-	0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61,
-	0x6e, 0x2e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52,
-	0x65, 0x71, 0x1a, 0x25, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d,
-	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72,
-	0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x12, 0x66, 0x0a, 0x10, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x28, 0x2e,
-	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
-	0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64,
-	0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x28, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
-	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65,
-	0x73, 0x12, 0x66, 0x0a, 0x10, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65,
-	0x64, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x28, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72,
-	0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a,
-	0x28, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c,
-	0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72,
-	0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x12, 0x59, 0x0a, 0x10, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x28, 0x2e,
-	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
-	0x6c, 0x61, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64,
-	0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
-	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4e, 0x69,
-	0x6c, 0x52, 0x65, 0x73, 0x32, 0x85, 0x03, 0x0a, 0x0c, 0x4d, 0x65, 0x61, 0x6c, 0x52, 0x65, 0x6d,
-	0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x60, 0x0a, 0x0e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52,
-	0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
-	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a,
-	0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c,
-	0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69,
-	0x6e, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73, 0x12, 0x5a, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x52, 0x65,
-	0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x73, 0x12, 0x24, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
-	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65,
-	0x74, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x24, 0x2e,
-	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
-	0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x73,
-	0x52, 0x65, 0x73, 0x12, 0x60, 0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d,
-	0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72,
-	0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x26, 0x2e,
-	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
-	0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64,
-	0x65, 0x72, 0x52, 0x65, 0x73, 0x12, 0x55, 0x0a, 0x0e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52,
-	0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
-	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x44, 0x65,
-	0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a,
-	0x1b, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c,
-	0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4e, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x32, 0xdf, 0x02, 0x0a,
-	0x12, 0x47, 0x6f, 0x61, 0x6c, 0x52, 0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x12, 0x81, 0x01, 0x0a, 0x19, 0x52, 0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e,
-	0x64, 0x43, 0x61, 0x6c, 0x6f, 0x72, 0x69, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x69, 0x76,
-	0x65, 0x12, 0x31, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65,
-	0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x52, 0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e,
-	0x64, 0x43, 0x61, 0x6c, 0x6f, 0x72, 0x69, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x69, 0x76,
-	0x65, 0x52, 0x65, 0x71, 0x1a, 0x31, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
-	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x52, 0x65, 0x63, 0x6f, 0x6d,
-	0x6d, 0x65, 0x6e, 0x64, 0x43, 0x61, 0x6c, 0x6f, 0x72, 0x69, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x69, 0x76, 0x65, 0x52, 0x65, 0x73, 0x12, 0x57, 0x0a, 0x0b, 0x41, 0x64, 0x6a, 0x75, 0x73,
-	0x74, 0x47, 0x6f, 0x61, 0x6c, 0x73, 0x12, 0x23, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65,
-	0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x41, 0x64, 0x6a,
-	0x75, 0x73, 0x74, 0x47, 0x6f, 0x61, 0x6c, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x23, 0x2e, 0x66, 0x69,
-	0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61,
-	0x6e, 0x2e, 0x41, 0x64, 0x6a, 0x75, 0x73, 0x74, 0x47, 0x6f, 0x61, 0x6c, 0x73, 0x52, 0x65, 0x73,
-	0x12, 0x6c, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x47, 0x6f, 0x61, 0x6c, 0x53, 0x75, 0x67, 0x67, 0x65,
-	0x73, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x2a, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65,
-	0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74,
-	0x47, 0x6f, 0x61, 0x6c, 0x53, 0x75, 0x67, 0x67, 0x65, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x52,
-	0x65, 0x71, 0x1a, 0x2a, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d,
-	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x6f, 0x61, 0x6c,
-	0x53, 0x75, 0x67, 0x67, 0x65, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x52, 0x65, 0x73, 0x32, 0x8b,
-	0x02, 0x0a, 0x0e, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x12, 0x4b, 0x0a, 0x07, 0x4c, 0x6f, 0x67, 0x46, 0x6f, 0x6f, 0x64, 0x12, 0x1f, 0x2e, 0x66,
+	0x6e, 0x2e, 0x4e, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x12, 0x6c, 0x0a, 0x16, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x49, 0x6e, 0x4d, 0x65,
+	0x61, 0x6c, 0x12, 0x28, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d,
+	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49,
+	0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x28, 0x2e, 0x66,
 	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
-	0x61, 0x6e, 0x2e, 0x4c, 0x6f, 0x67, 0x46, 0x6f, 0x6f, 0x64, 0x52, 0x65, 0x71, 0x1a, 0x1f, 0x2e,
+	0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69,
+	0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x12, 0x6c, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61,
+	0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x2a, 0x2e, 0x66,
+	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
+	0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64,
+	0x69, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x2a, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70,
+	0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47,
+	0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74,
+	0x73, 0x52, 0x65, 0x73, 0x12, 0x69, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x49,
+	0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x29, 0x2e, 0x66, 0x69, 0x74, 0x53,
+	0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e,
+	0x47, 0x65, 0x74, 0x4d, 0x65, 0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e,
+	0x74, 0x52, 0x65, 0x71, 0x1a, 0x29, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
+	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x4d, 0x65,
+	0x61, 0x6c, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x32,
+	0xf9, 0x03, 0x0a, 0x0b, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x12,
+	0x60, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74,
+	0x73, 0x12, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65,
+	0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72, 0x65,
+	0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53,
+	0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e,
+	0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65,
+	0x73, 0x12, 0x5d, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65,
+	0x6e, 0x74, 0x12, 0x25, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d,
+	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72,
+	0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x25, 0x2e, 0x66, 0x69, 0x74, 0x53,
+	0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e,
+	0x47, 0x65, 0x74, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73,
+	0x12, 0x66, 0x0a, 0x10, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64,
+	0x69, 0x65, 0x6e, 0x74, 0x12, 0x28, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
+	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x28,
+	0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f,
+	0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65,
+	0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x12, 0x66, 0x0a, 0x10, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x28, 0x2e, 0x66,
+	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
+	0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69,
+	0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x28, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65,
+	0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73,
+	0x12, 0x59, 0x0a, 0x10, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64,
+	0x69, 0x65, 0x6e, 0x74, 0x12, 0x28, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
+	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x65, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x64, 0x69, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x1b,
+	0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f,
+	0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4e, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x32, 0x85, 0x03, 0x0a, 0x0c,
+	0x4d, 0x65, 0x61, 0x6c, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x60, 0x0a, 0x0e,
+	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x26,
+	0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f,
+	0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e,
+	0x64, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65,
+	0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73, 0x12, 0x5a,
+	0x0a, 0x0c, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x73, 0x12, 0x24,
+	0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f,
+	0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72,
+	0x73, 0x52, 0x65, 0x71, 0x1a, 0x24, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
+	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65,
+	0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x12, 0x60, 0x0a, 0x0e, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x26, 0x2e, 0x66,
+	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
+	0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65,
+	0x72, 0x52, 0x65, 0x71, 0x1a, 0x26, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
+	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73, 0x12, 0x55, 0x0a, 0x0e,
+	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x26,
+	0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f,
+	0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x6d, 0x69, 0x6e,
+	0x64, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65,
+	0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4e, 0x69, 0x6c,
+	0x52, 0x65, 0x73, 0x32, 0xdf, 0x02, 0x0a, 0x12, 0x47, 0x6f, 0x61, 0x6c, 0x52, 0x65, 0x63, 0x6f,
+	0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x81, 0x01, 0x0a, 0x19, 0x52,
+	0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x43, 0x61, 0x6c, 0x6f, 0x72, 0x69, 0x65, 0x4f,
+	0x62, 0x6a, 0x65, 0x63, 0x74, 0x69, 0x76, 0x65, 0x12, 0x31, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70,
+	0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x52,
+	0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x43, 0x61, 0x6c, 0x6f, 0x72, 0x69, 0x65, 0x4f,
+	0x62, 0x6a, 0x65, 0x63, 0x74, 0x69, 0x76, 0x65, 0x52, 0x65, 0x71, 0x1a, 0x31, 0x2e, 0x66, 0x69,
+	0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61,
+	0x6e, 0x2e, 0x52, 0x65, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x43, 0x61, 0x6c, 0x6f, 0x72,
+	0x69, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x69, 0x76, 0x65, 0x52, 0x65, 0x73, 0x12, 0x57,
+	0x0a, 0x0b, 0x41, 0x64, 0x6a, 0x75, 0x73, 0x74, 0x47, 0x6f, 0x61, 0x6c, 0x73, 0x12, 0x23, 0x2e,
 	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
-	0x6c, 0x61, 0x6e, 0x2e, 0x4c, 0x6f, 0x67, 0x46, 0x6f, 0x6f, 0x64, 0x52, 0x65, 0x73, 0x12, 0x57,
-	0x0a, 0x0b, 0x47, 0x65, 0x74, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x73, 0x12, 0x23, 0x2e,
-	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
-	0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x73, 0x52,
+	0x6c, 0x61, 0x6e, 0x2e, 0x41, 0x64, 0x6a, 0x75, 0x73, 0x74, 0x47, 0x6f, 0x61, 0x6c, 0x73, 0x52,
 	0x65, 0x71, 0x1a, 0x23, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d,
-	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x6f, 0x6f, 0x64,
-	0x4c, 0x6f, 0x67, 0x73, 0x52, 0x65, 0x73, 0x12, 0x53, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74,
-	0x65, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x12, 0x25, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70,
-	0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x52, 0x65, 0x71, 0x1a,
-	0x1b, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c,
-	0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4e, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x32, 0xf9, 0x01, 0x0a,
-	0x15, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x72, 0x0a, 0x12, 0x53, 0x65, 0x74, 0x44, 0x69, 0x65,
-	0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x12, 0x2d, 0x2e, 0x66,
-	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
-	0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65,
-	0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x2d, 0x2e, 0x66, 0x69,
-	0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61,
-	0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66,
-	0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x12, 0x6c, 0x0a, 0x12, 0x47, 0x65,
+	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x41, 0x64, 0x6a, 0x75, 0x73, 0x74, 0x47,
+	0x6f, 0x61, 0x6c, 0x73, 0x52, 0x65, 0x73, 0x12, 0x6c, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x47, 0x6f,
+	0x61, 0x6c, 0x53, 0x75, 0x67, 0x67, 0x65, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x2a, 0x2e,
+	0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70,
+	0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x6f, 0x61, 0x6c, 0x53, 0x75, 0x67, 0x67, 0x65,
+	0x73, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x2a, 0x2e, 0x66, 0x69, 0x74, 0x53,
+	0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e,
+	0x47, 0x65, 0x74, 0x47, 0x6f, 0x61, 0x6c, 0x53, 0x75, 0x67, 0x67, 0x65, 0x73, 0x74, 0x69, 0x6f,
+	0x6e, 0x73, 0x52, 0x65, 0x73, 0x32, 0x8b, 0x02, 0x0a, 0x0e, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f,
+	0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x4b, 0x0a, 0x07, 0x4c, 0x6f, 0x67, 0x46,
+	0x6f, 0x6f, 0x64, 0x12, 0x1f, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e,
+	0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4c, 0x6f, 0x67, 0x46, 0x6f, 0x6f,
+	0x64, 0x52, 0x65, 0x71, 0x1a, 0x1f, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
+	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4c, 0x6f, 0x67, 0x46, 0x6f,
+	0x6f, 0x64, 0x52, 0x65, 0x73, 0x12, 0x57, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x46, 0x6f, 0x6f, 0x64,
+	0x4c, 0x6f, 0x67, 0x73, 0x12, 0x23, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65,
+	0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x6f,
+	0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x23, 0x2e, 0x66, 0x69, 0x74, 0x53,
+	0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e,
+	0x47, 0x65, 0x74, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x73, 0x52, 0x65, 0x73, 0x12, 0x53,
+	0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x6f, 0x6f, 0x64, 0x4c, 0x6f, 0x67, 0x12,
+	0x25, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c,
+	0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x6f, 0x6f, 0x64,
+	0x4c, 0x6f, 0x67, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65,
+	0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x4e, 0x69, 0x6c,
+	0x52, 0x65, 0x73, 0x32, 0xf9, 0x01, 0x0a, 0x15, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66,
+	0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x72, 0x0a,
+	0x12, 0x53, 0x65, 0x74, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e,
+	0x63, 0x65, 0x73, 0x12, 0x2d, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e,
+	0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x52,
+	0x65, 0x71, 0x1a, 0x2d, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d,
+	0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x44,
+	0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x52, 0x65,
+	0x73, 0x12, 0x6c, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66,
+	0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x12, 0x2a, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68,
+	0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65,
 	0x74, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73,
-	0x12, 0x2a, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61,
-	0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72,
-	0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x2a, 0x2e, 0x66,
-	0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e, 0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c,
-	0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x44, 0x69, 0x65, 0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72,
-	0x65, 0x6e, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x65, 0x71, 0x1a, 0x2a, 0x2e, 0x66, 0x69, 0x74, 0x53, 0x70, 0x68, 0x65, 0x72, 0x65, 0x2e,
+	0x6d, 0x65, 0x61, 0x6c, 0x5f, 0x70, 0x6c, 0x61, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x44, 0x69, 0x65,
+	0x74, 0x50, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -6757,7 +7081,7 @@ func file_meal_proto_rawDescGZIP() []byte {
 	return file_meal_proto_rawDescData
 }
 
-var file_meal_proto_msgTypes = make([]protoimpl.MessageInfo, 76)
+var file_meal_proto_msgTypes = make([]protoimpl.MessageInfo, 80)
 var file_meal_proto_goTypes = []any{
 	(*RecommendCalorieObjectiveReq)(nil),    // 0: fitSphere.meal_plan.RecommendCalorieObjectiveReq
 	(*RecommendCalorieObjectiveRes)(nil),    // 1: fitSphere.meal_plan.RecommendCalorieObjectiveRes
@@ -6807,236 +7131,252 @@ var file_meal_proto_goTypes = []any{
 	(*DeleteMealReq)(nil),                   // 45: fitSphere.meal_plan.DeleteMealReq
 	(*AddIngredientReq)(nil),                // 46: fitSphere.meal_plan.AddIngredientReq
 	(*DeleteIngredientReq)(nil),             // 47: fitSphere.meal_plan.DeleteIngredientReq
-	(*CreateCalorieIntakeObjectiveReq)(nil), // 48: fitSphere.meal_plan.CreateCalorieIntakeObjectiveReq
-	(*CreateCalorieIntakeObjectiveRes)(nil), // 49: fitSphere.meal_plan.CreateCalorieIntakeObjectiveRes
-	(*UpdateCalorieIntakeObjectiveReq)(nil), // 50: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveReq
-	(*UpdateCalorieIntakeObjectiveRes)(nil), // 51: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveRes
-	(*DeleteCalorieIntakeObjectiveReq)(nil), // 52: fitSphere.meal_plan.DeleteCalorieIntakeObjectiveReq
-	(*GetIngredientsReq)(nil),               // 53: fitSphere.meal_plan.GetIngredientsReq
-	(*GetIngredientsRes)(nil),               // 54: fitSphere.meal_plan.GetIngredientsRes
-	(*GetIngredientReq)(nil),                // 55: fitSphere.meal_plan.GetIngredientReq
-	(*GetIngredientRes)(nil),                // 56: fitSphere.meal_plan.GetIngredientRes
-	(*CreateIngredientReq)(nil),             // 57: fitSphere.meal_plan.CreateIngredientReq
-	(*CreateIngredientRes)(nil),             // 58: fitSphere.meal_plan.CreateIngredientRes
-	(*UpdateIngredientReq)(nil),             // 59: fitSphere.meal_plan.UpdateIngredientReq
-	(*UpdateIngredientRes)(nil),             // 60: fitSphere.meal_plan.UpdateIngredientRes
-	(*CreateReminderReq)(nil),               // 61: fitSphere.meal_plan.CreateReminderReq
-	(*CreateReminderRes)(nil),               // 62: fitSphere.meal_plan.CreateReminderRes
-	(*GetRemindersReq)(nil),                 // 63: fitSphere.meal_plan.GetRemindersReq
-	(*GetRemindersRes)(nil),                 // 64: fitSphere.meal_plan.GetRemindersRes
-	(*DeleteReminderReq)(nil),               // 65: fitSphere.meal_plan.DeleteReminderReq
-	(*UpdateReminderReq)(nil),               // 66: fitSphere.meal_plan.UpdateReminderReq
-	(*UpdateReminderRes)(nil),               // 67: fitSphere.meal_plan.UpdateReminderRes
-	(*XReminder)(nil),                       // 68: fitSphere.meal_plan.XReminder
-	(*XIngredient)(nil),                     // 69: fitSphere.meal_plan.XIngredient
-	(*XMealPlan)(nil),                       // 70: fitSphere.meal_plan.XMealPlan
-	(*XMeal)(nil),                           // 71: fitSphere.meal_plan.XMeal
-	(*XMealIngredient)(nil),                 // 72: fitSphere.meal_plan.XMealIngredient
-	(*UserMacroDistribution)(nil),           // 73: fitSphere.meal_plan.UserMacroDistribution
-	(*XDietPreference)(nil),                 // 74: fitSphere.meal_plan.XDietPreference
-	(*XFoodLog)(nil),                        // 75: fitSphere.meal_plan.XFoodLog
-	(*timestamppb.Timestamp)(nil),           // 76: google.protobuf.Timestamp
+	(*GetMealIngredientReq)(nil),            // 48: fitSphere.meal_plan.GetMealIngredientReq
+	(*GetMealIngredientRes)(nil),            // 49: fitSphere.meal_plan.GetMealIngredientRes
+	(*GetMealIngredientsReq)(nil),           // 50: fitSphere.meal_plan.GetMealIngredientsReq
+	(*GetMealIngredientsRes)(nil),           // 51: fitSphere.meal_plan.GetMealIngredientsRes
+	(*CreateCalorieIntakeObjectiveReq)(nil), // 52: fitSphere.meal_plan.CreateCalorieIntakeObjectiveReq
+	(*CreateCalorieIntakeObjectiveRes)(nil), // 53: fitSphere.meal_plan.CreateCalorieIntakeObjectiveRes
+	(*UpdateCalorieIntakeObjectiveReq)(nil), // 54: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveReq
+	(*UpdateCalorieIntakeObjectiveRes)(nil), // 55: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveRes
+	(*DeleteCalorieIntakeObjectiveReq)(nil), // 56: fitSphere.meal_plan.DeleteCalorieIntakeObjectiveReq
+	(*GetIngredientsReq)(nil),               // 57: fitSphere.meal_plan.GetIngredientsReq
+	(*GetIngredientsRes)(nil),               // 58: fitSphere.meal_plan.GetIngredientsRes
+	(*GetIngredientReq)(nil),                // 59: fitSphere.meal_plan.GetIngredientReq
+	(*GetIngredientRes)(nil),                // 60: fitSphere.meal_plan.GetIngredientRes
+	(*CreateIngredientReq)(nil),             // 61: fitSphere.meal_plan.CreateIngredientReq
+	(*CreateIngredientRes)(nil),             // 62: fitSphere.meal_plan.CreateIngredientRes
+	(*UpdateIngredientReq)(nil),             // 63: fitSphere.meal_plan.UpdateIngredientReq
+	(*UpdateIngredientRes)(nil),             // 64: fitSphere.meal_plan.UpdateIngredientRes
+	(*CreateReminderReq)(nil),               // 65: fitSphere.meal_plan.CreateReminderReq
+	(*CreateReminderRes)(nil),               // 66: fitSphere.meal_plan.CreateReminderRes
+	(*GetRemindersReq)(nil),                 // 67: fitSphere.meal_plan.GetRemindersReq
+	(*GetRemindersRes)(nil),                 // 68: fitSphere.meal_plan.GetRemindersRes
+	(*DeleteReminderReq)(nil),               // 69: fitSphere.meal_plan.DeleteReminderReq
+	(*UpdateReminderReq)(nil),               // 70: fitSphere.meal_plan.UpdateReminderReq
+	(*UpdateReminderRes)(nil),               // 71: fitSphere.meal_plan.UpdateReminderRes
+	(*XReminder)(nil),                       // 72: fitSphere.meal_plan.XReminder
+	(*XIngredient)(nil),                     // 73: fitSphere.meal_plan.XIngredient
+	(*XMealPlan)(nil),                       // 74: fitSphere.meal_plan.XMealPlan
+	(*XMeal)(nil),                           // 75: fitSphere.meal_plan.XMeal
+	(*XMealIngredient)(nil),                 // 76: fitSphere.meal_plan.XMealIngredient
+	(*UserMacroDistribution)(nil),           // 77: fitSphere.meal_plan.UserMacroDistribution
+	(*XDietPreference)(nil),                 // 78: fitSphere.meal_plan.XDietPreference
+	(*XFoodLog)(nil),                        // 79: fitSphere.meal_plan.XFoodLog
+	(*timestamppb.Timestamp)(nil),           // 80: google.protobuf.Timestamp
 }
 var file_meal_proto_depIdxs = []int32{
 	24,  // 0: fitSphere.meal_plan.RecommendCalorieObjectiveReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	25,  // 1: fitSphere.meal_plan.RecommendCalorieObjectiveRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	23,  // 2: fitSphere.meal_plan.AdjustGoalsReq.updates:type_name -> fitSphere.meal_plan.XDiff
 	24,  // 3: fitSphere.meal_plan.AdjustGoalsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	73,  // 4: fitSphere.meal_plan.AdjustGoalsRes.user_macro_distribution:type_name -> fitSphere.meal_plan.UserMacroDistribution
+	77,  // 4: fitSphere.meal_plan.AdjustGoalsRes.user_macro_distribution:type_name -> fitSphere.meal_plan.UserMacroDistribution
 	25,  // 5: fitSphere.meal_plan.AdjustGoalsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 6: fitSphere.meal_plan.GetGoalSuggestionsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	73,  // 7: fitSphere.meal_plan.GetGoalSuggestionsRes.user_macro_distribution:type_name -> fitSphere.meal_plan.UserMacroDistribution
+	77,  // 7: fitSphere.meal_plan.GetGoalSuggestionsRes.user_macro_distribution:type_name -> fitSphere.meal_plan.UserMacroDistribution
 	25,  // 8: fitSphere.meal_plan.GetGoalSuggestionsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 9: fitSphere.meal_plan.GetUserProgressReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	70,  // 10: fitSphere.meal_plan.GetUserProgressRes.meal_plans:type_name -> fitSphere.meal_plan.XMealPlan
-	71,  // 11: fitSphere.meal_plan.GetUserProgressRes.meals:type_name -> fitSphere.meal_plan.XMeal
-	75,  // 12: fitSphere.meal_plan.GetUserProgressRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
-	68,  // 13: fitSphere.meal_plan.GetUserProgressRes.reminders:type_name -> fitSphere.meal_plan.XReminder
+	74,  // 10: fitSphere.meal_plan.GetUserProgressRes.meal_plans:type_name -> fitSphere.meal_plan.XMealPlan
+	75,  // 11: fitSphere.meal_plan.GetUserProgressRes.meals:type_name -> fitSphere.meal_plan.XMeal
+	79,  // 12: fitSphere.meal_plan.GetUserProgressRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
+	72,  // 13: fitSphere.meal_plan.GetUserProgressRes.reminders:type_name -> fitSphere.meal_plan.XReminder
 	25,  // 14: fitSphere.meal_plan.GetUserProgressRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 15: fitSphere.meal_plan.GetAllProgressReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	70,  // 16: fitSphere.meal_plan.GetAllProgressRes.meal_plans:type_name -> fitSphere.meal_plan.XMealPlan
-	71,  // 17: fitSphere.meal_plan.GetAllProgressRes.meals:type_name -> fitSphere.meal_plan.XMeal
-	75,  // 18: fitSphere.meal_plan.GetAllProgressRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
-	68,  // 19: fitSphere.meal_plan.GetAllProgressRes.reminders:type_name -> fitSphere.meal_plan.XReminder
+	74,  // 16: fitSphere.meal_plan.GetAllProgressRes.meal_plans:type_name -> fitSphere.meal_plan.XMealPlan
+	75,  // 17: fitSphere.meal_plan.GetAllProgressRes.meals:type_name -> fitSphere.meal_plan.XMeal
+	79,  // 18: fitSphere.meal_plan.GetAllProgressRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
+	72,  // 19: fitSphere.meal_plan.GetAllProgressRes.reminders:type_name -> fitSphere.meal_plan.XReminder
 	25,  // 20: fitSphere.meal_plan.GetAllProgressRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 21: fitSphere.meal_plan.GetAllStatisticsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	70,  // 22: fitSphere.meal_plan.GetAllStatisticsRes.meal_plans:type_name -> fitSphere.meal_plan.XMealPlan
-	71,  // 23: fitSphere.meal_plan.GetAllStatisticsRes.meals:type_name -> fitSphere.meal_plan.XMeal
-	75,  // 24: fitSphere.meal_plan.GetAllStatisticsRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
-	68,  // 25: fitSphere.meal_plan.GetAllStatisticsRes.reminders:type_name -> fitSphere.meal_plan.XReminder
+	74,  // 22: fitSphere.meal_plan.GetAllStatisticsRes.meal_plans:type_name -> fitSphere.meal_plan.XMealPlan
+	75,  // 23: fitSphere.meal_plan.GetAllStatisticsRes.meals:type_name -> fitSphere.meal_plan.XMeal
+	79,  // 24: fitSphere.meal_plan.GetAllStatisticsRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
+	72,  // 25: fitSphere.meal_plan.GetAllStatisticsRes.reminders:type_name -> fitSphere.meal_plan.XReminder
 	25,  // 26: fitSphere.meal_plan.GetAllStatisticsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	76,  // 27: fitSphere.meal_plan.LogFoodReq.log_date:type_name -> google.protobuf.Timestamp
+	80,  // 27: fitSphere.meal_plan.LogFoodReq.log_date:type_name -> google.protobuf.Timestamp
 	24,  // 28: fitSphere.meal_plan.LogFoodReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	25,  // 29: fitSphere.meal_plan.LogFoodRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 30: fitSphere.meal_plan.GetFoodLogsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	24,  // 31: fitSphere.meal_plan.DeleteFoodLogReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	25,  // 32: fitSphere.meal_plan.DeleteFoodLogRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	75,  // 33: fitSphere.meal_plan.GetFoodLogsRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
+	79,  // 33: fitSphere.meal_plan.GetFoodLogsRes.food_logs:type_name -> fitSphere.meal_plan.XFoodLog
 	25,  // 34: fitSphere.meal_plan.GetFoodLogsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	23,  // 35: fitSphere.meal_plan.UpdateDietPreferencesReq.updates:type_name -> fitSphere.meal_plan.XDiff
 	24,  // 36: fitSphere.meal_plan.UpdateDietPreferencesReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	74,  // 37: fitSphere.meal_plan.UpdateDietPreferencesRes.diet_preference:type_name -> fitSphere.meal_plan.XDietPreference
+	78,  // 37: fitSphere.meal_plan.UpdateDietPreferencesRes.diet_preference:type_name -> fitSphere.meal_plan.XDietPreference
 	25,  // 38: fitSphere.meal_plan.UpdateDietPreferencesRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 39: fitSphere.meal_plan.GetDietPreferencesReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	74,  // 40: fitSphere.meal_plan.GetDietPreferencesRes.diet_preferences:type_name -> fitSphere.meal_plan.XDietPreference
+	78,  // 40: fitSphere.meal_plan.GetDietPreferencesRes.diet_preferences:type_name -> fitSphere.meal_plan.XDietPreference
 	25,  // 41: fitSphere.meal_plan.GetDietPreferencesRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 42: fitSphere.meal_plan.GetMealPlanReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	69,  // 43: fitSphere.meal_plan.GetMealPlanRes.ingredients:type_name -> fitSphere.meal_plan.XIngredient
-	76,  // 44: fitSphere.meal_plan.GetMealPlanRes.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 45: fitSphere.meal_plan.GetMealPlanRes.updated_at:type_name -> google.protobuf.Timestamp
+	73,  // 43: fitSphere.meal_plan.GetMealPlanRes.ingredients:type_name -> fitSphere.meal_plan.XIngredient
+	80,  // 44: fitSphere.meal_plan.GetMealPlanRes.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 45: fitSphere.meal_plan.GetMealPlanRes.updated_at:type_name -> google.protobuf.Timestamp
 	25,  // 46: fitSphere.meal_plan.GetMealPlanRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 47: fitSphere.meal_plan.GetMealPlansReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	30,  // 48: fitSphere.meal_plan.GetMealPlansRes.meal_plans:type_name -> fitSphere.meal_plan.MealPlanSummary
 	25,  // 49: fitSphere.meal_plan.GetMealPlansRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	71,  // 50: fitSphere.meal_plan.CreateMealPlanReq.meal:type_name -> fitSphere.meal_plan.XMeal
+	75,  // 50: fitSphere.meal_plan.CreateMealPlanReq.meal:type_name -> fitSphere.meal_plan.XMeal
 	24,  // 51: fitSphere.meal_plan.CreateMealPlanReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	25,  // 52: fitSphere.meal_plan.CreateMealPlanRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	23,  // 53: fitSphere.meal_plan.UpdateMealPlanReq.updates:type_name -> fitSphere.meal_plan.XDiff
 	24,  // 54: fitSphere.meal_plan.UpdateMealPlanReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	70,  // 55: fitSphere.meal_plan.UpdateMealPlanRes.meal_plan:type_name -> fitSphere.meal_plan.XMealPlan
+	74,  // 55: fitSphere.meal_plan.UpdateMealPlanRes.meal_plan:type_name -> fitSphere.meal_plan.XMealPlan
 	25,  // 56: fitSphere.meal_plan.UpdateMealPlanRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 57: fitSphere.meal_plan.DeleteMealPlanReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	24,  // 58: fitSphere.meal_plan.GetMealReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	71,  // 59: fitSphere.meal_plan.GetMealRes.meal:type_name -> fitSphere.meal_plan.XMeal
+	75,  // 59: fitSphere.meal_plan.GetMealRes.meal:type_name -> fitSphere.meal_plan.XMeal
 	25,  // 60: fitSphere.meal_plan.GetMealRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 61: fitSphere.meal_plan.GetMealsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	71,  // 62: fitSphere.meal_plan.GetMealsRes.meals:type_name -> fitSphere.meal_plan.XMeal
+	75,  // 62: fitSphere.meal_plan.GetMealsRes.meals:type_name -> fitSphere.meal_plan.XMeal
 	25,  // 63: fitSphere.meal_plan.GetMealsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	71,  // 64: fitSphere.meal_plan.CreateMealReq.meal:type_name -> fitSphere.meal_plan.XMeal
+	75,  // 64: fitSphere.meal_plan.CreateMealReq.meal:type_name -> fitSphere.meal_plan.XMeal
 	24,  // 65: fitSphere.meal_plan.CreateMealReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	71,  // 66: fitSphere.meal_plan.CreateMealRes.meal:type_name -> fitSphere.meal_plan.XMeal
+	75,  // 66: fitSphere.meal_plan.CreateMealRes.meal:type_name -> fitSphere.meal_plan.XMeal
 	25,  // 67: fitSphere.meal_plan.CreateMealRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	23,  // 68: fitSphere.meal_plan.UpdateMealReq.updates:type_name -> fitSphere.meal_plan.XDiff
 	24,  // 69: fitSphere.meal_plan.UpdateMealReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	71,  // 70: fitSphere.meal_plan.UpdateMealRes.meal:type_name -> fitSphere.meal_plan.XMeal
+	75,  // 70: fitSphere.meal_plan.UpdateMealRes.meal:type_name -> fitSphere.meal_plan.XMeal
 	25,  // 71: fitSphere.meal_plan.UpdateMealRes.response:type_name -> fitSphere.meal_plan.BaseResponse
 	24,  // 72: fitSphere.meal_plan.DeleteMealReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	24,  // 73: fitSphere.meal_plan.AddIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
 	24,  // 74: fitSphere.meal_plan.DeleteIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	24,  // 75: fitSphere.meal_plan.CreateCalorieIntakeObjectiveReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	25,  // 76: fitSphere.meal_plan.CreateCalorieIntakeObjectiveRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	24,  // 77: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	25,  // 78: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	24,  // 79: fitSphere.meal_plan.DeleteCalorieIntakeObjectiveReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	24,  // 80: fitSphere.meal_plan.GetIngredientsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	69,  // 81: fitSphere.meal_plan.GetIngredientsRes.ingredients:type_name -> fitSphere.meal_plan.XIngredient
-	25,  // 82: fitSphere.meal_plan.GetIngredientsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	24,  // 83: fitSphere.meal_plan.GetIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	69,  // 84: fitSphere.meal_plan.GetIngredientRes.ingredient:type_name -> fitSphere.meal_plan.XIngredient
-	25,  // 85: fitSphere.meal_plan.GetIngredientRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	76,  // 86: fitSphere.meal_plan.CreateIngredientReq.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 87: fitSphere.meal_plan.CreateIngredientReq.updated_at:type_name -> google.protobuf.Timestamp
-	24,  // 88: fitSphere.meal_plan.CreateIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	69,  // 89: fitSphere.meal_plan.CreateIngredientRes.ingredient:type_name -> fitSphere.meal_plan.XIngredient
-	25,  // 90: fitSphere.meal_plan.CreateIngredientRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	23,  // 91: fitSphere.meal_plan.UpdateIngredientReq.updates:type_name -> fitSphere.meal_plan.XDiff
-	24,  // 92: fitSphere.meal_plan.UpdateIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	69,  // 93: fitSphere.meal_plan.UpdateIngredientRes.ingredient:type_name -> fitSphere.meal_plan.XIngredient
-	25,  // 94: fitSphere.meal_plan.UpdateIngredientRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	68,  // 95: fitSphere.meal_plan.CreateReminderReq.reminder:type_name -> fitSphere.meal_plan.XReminder
-	24,  // 96: fitSphere.meal_plan.CreateReminderReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	68,  // 97: fitSphere.meal_plan.CreateReminderRes.reminder:type_name -> fitSphere.meal_plan.XReminder
-	25,  // 98: fitSphere.meal_plan.CreateReminderRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	24,  // 99: fitSphere.meal_plan.GetRemindersReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	68,  // 100: fitSphere.meal_plan.GetRemindersRes.reminder:type_name -> fitSphere.meal_plan.XReminder
-	25,  // 101: fitSphere.meal_plan.GetRemindersRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	24,  // 102: fitSphere.meal_plan.DeleteReminderReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	23,  // 103: fitSphere.meal_plan.UpdateReminderReq.updates:type_name -> fitSphere.meal_plan.XDiff
-	24,  // 104: fitSphere.meal_plan.UpdateReminderReq.request:type_name -> fitSphere.meal_plan.BaseRequest
-	68,  // 105: fitSphere.meal_plan.UpdateReminderRes.reminder:type_name -> fitSphere.meal_plan.XReminder
-	25,  // 106: fitSphere.meal_plan.UpdateReminderRes.response:type_name -> fitSphere.meal_plan.BaseResponse
-	76,  // 107: fitSphere.meal_plan.XIngredient.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 108: fitSphere.meal_plan.XIngredient.updated_at:type_name -> google.protobuf.Timestamp
-	76,  // 109: fitSphere.meal_plan.XMealPlan.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 110: fitSphere.meal_plan.XMealPlan.updated_at:type_name -> google.protobuf.Timestamp
-	72,  // 111: fitSphere.meal_plan.XMeal.meal_ingredients:type_name -> fitSphere.meal_plan.XMealIngredient
-	76,  // 112: fitSphere.meal_plan.XMeal.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 113: fitSphere.meal_plan.XMeal.updated_at:type_name -> google.protobuf.Timestamp
-	76,  // 114: fitSphere.meal_plan.UserMacroDistribution.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 115: fitSphere.meal_plan.XDietPreference.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 116: fitSphere.meal_plan.XDietPreference.updated_at:type_name -> google.protobuf.Timestamp
-	76,  // 117: fitSphere.meal_plan.XFoodLog.log_date:type_name -> google.protobuf.Timestamp
-	76,  // 118: fitSphere.meal_plan.XFoodLog.created_at:type_name -> google.protobuf.Timestamp
-	76,  // 119: fitSphere.meal_plan.XFoodLog.updated_at:type_name -> google.protobuf.Timestamp
-	6,   // 120: fitSphere.meal_plan.TrackMealProgress.GetUserProgress:input_type -> fitSphere.meal_plan.GetUserProgressReq
-	8,   // 121: fitSphere.meal_plan.TrackMealProgress.GetAllProgress:input_type -> fitSphere.meal_plan.GetAllProgressReq
-	10,  // 122: fitSphere.meal_plan.TrackMealProgress.GetAllStatistics:input_type -> fitSphere.meal_plan.GetAllStatisticsReq
-	26,  // 123: fitSphere.meal_plan.MealPlan.GetMealPlan:input_type -> fitSphere.meal_plan.GetMealPlanReq
-	28,  // 124: fitSphere.meal_plan.MealPlan.GetMealPlans:input_type -> fitSphere.meal_plan.GetMealPlansReq
-	31,  // 125: fitSphere.meal_plan.MealPlan.CreateMealPlan:input_type -> fitSphere.meal_plan.CreateMealPlanReq
-	33,  // 126: fitSphere.meal_plan.MealPlan.UpdateMealPlan:input_type -> fitSphere.meal_plan.UpdateMealPlanReq
-	35,  // 127: fitSphere.meal_plan.MealPlan.DeleteMealPlan:input_type -> fitSphere.meal_plan.DeleteMealPlanReq
-	46,  // 128: fitSphere.meal_plan.MealPlan.AddIngredientToMealPlan:input_type -> fitSphere.meal_plan.AddIngredientReq
-	47,  // 129: fitSphere.meal_plan.MealPlan.DeleteIngredientFromMealPlan:input_type -> fitSphere.meal_plan.DeleteIngredientReq
-	48,  // 130: fitSphere.meal_plan.MealPlan.CreateCalorieIntakeObjective:input_type -> fitSphere.meal_plan.CreateCalorieIntakeObjectiveReq
-	50,  // 131: fitSphere.meal_plan.MealPlan.UpdateCalorieIntakeObjective:input_type -> fitSphere.meal_plan.UpdateCalorieIntakeObjectiveReq
-	52,  // 132: fitSphere.meal_plan.MealPlan.DeleteCalorieIntakeObjective:input_type -> fitSphere.meal_plan.DeleteCalorieIntakeObjectiveReq
-	36,  // 133: fitSphere.meal_plan.Meal.GetMeal:input_type -> fitSphere.meal_plan.GetMealReq
-	38,  // 134: fitSphere.meal_plan.Meal.GetMeals:input_type -> fitSphere.meal_plan.GetMealsReq
-	41,  // 135: fitSphere.meal_plan.Meal.CreateMeal:input_type -> fitSphere.meal_plan.CreateMealReq
-	43,  // 136: fitSphere.meal_plan.Meal.UpdateMeal:input_type -> fitSphere.meal_plan.UpdateMealReq
-	45,  // 137: fitSphere.meal_plan.Meal.DeleteMeal:input_type -> fitSphere.meal_plan.DeleteMealReq
-	46,  // 138: fitSphere.meal_plan.Meal.AddIngredientToMeal:input_type -> fitSphere.meal_plan.AddIngredientReq
-	47,  // 139: fitSphere.meal_plan.Meal.RemoveIngredientFromMeal:input_type -> fitSphere.meal_plan.DeleteIngredientReq
-	53,  // 140: fitSphere.meal_plan.Ingredients.GetIngredients:input_type -> fitSphere.meal_plan.GetIngredientsReq
-	55,  // 141: fitSphere.meal_plan.Ingredients.GetIngredient:input_type -> fitSphere.meal_plan.GetIngredientReq
-	57,  // 142: fitSphere.meal_plan.Ingredients.CreateIngredient:input_type -> fitSphere.meal_plan.CreateIngredientReq
-	59,  // 143: fitSphere.meal_plan.Ingredients.UpdateIngredient:input_type -> fitSphere.meal_plan.UpdateIngredientReq
-	47,  // 144: fitSphere.meal_plan.Ingredients.DeleteIngredient:input_type -> fitSphere.meal_plan.DeleteIngredientReq
-	61,  // 145: fitSphere.meal_plan.MealReminder.CreateReminder:input_type -> fitSphere.meal_plan.CreateReminderReq
-	63,  // 146: fitSphere.meal_plan.MealReminder.GetReminders:input_type -> fitSphere.meal_plan.GetRemindersReq
-	66,  // 147: fitSphere.meal_plan.MealReminder.UpdateReminder:input_type -> fitSphere.meal_plan.UpdateReminderReq
-	65,  // 148: fitSphere.meal_plan.MealReminder.DeleteReminder:input_type -> fitSphere.meal_plan.DeleteReminderReq
-	0,   // 149: fitSphere.meal_plan.GoalRecommendation.RecommendCalorieObjective:input_type -> fitSphere.meal_plan.RecommendCalorieObjectiveReq
-	2,   // 150: fitSphere.meal_plan.GoalRecommendation.AdjustGoals:input_type -> fitSphere.meal_plan.AdjustGoalsReq
-	4,   // 151: fitSphere.meal_plan.GoalRecommendation.GetGoalSuggestions:input_type -> fitSphere.meal_plan.GetGoalSuggestionsReq
-	12,  // 152: fitSphere.meal_plan.FoodLogService.LogFood:input_type -> fitSphere.meal_plan.LogFoodReq
-	14,  // 153: fitSphere.meal_plan.FoodLogService.GetFoodLogs:input_type -> fitSphere.meal_plan.GetFoodLogsReq
-	15,  // 154: fitSphere.meal_plan.FoodLogService.DeleteFoodLog:input_type -> fitSphere.meal_plan.DeleteFoodLogReq
-	18,  // 155: fitSphere.meal_plan.DietPreferenceService.SetDietPreferences:input_type -> fitSphere.meal_plan.UpdateDietPreferencesReq
-	20,  // 156: fitSphere.meal_plan.DietPreferenceService.GetDietPreferences:input_type -> fitSphere.meal_plan.GetDietPreferencesReq
-	7,   // 157: fitSphere.meal_plan.TrackMealProgress.GetUserProgress:output_type -> fitSphere.meal_plan.GetUserProgressRes
-	9,   // 158: fitSphere.meal_plan.TrackMealProgress.GetAllProgress:output_type -> fitSphere.meal_plan.GetAllProgressRes
-	11,  // 159: fitSphere.meal_plan.TrackMealProgress.GetAllStatistics:output_type -> fitSphere.meal_plan.GetAllStatisticsRes
-	27,  // 160: fitSphere.meal_plan.MealPlan.GetMealPlan:output_type -> fitSphere.meal_plan.GetMealPlanRes
-	29,  // 161: fitSphere.meal_plan.MealPlan.GetMealPlans:output_type -> fitSphere.meal_plan.GetMealPlansRes
-	32,  // 162: fitSphere.meal_plan.MealPlan.CreateMealPlan:output_type -> fitSphere.meal_plan.CreateMealPlanRes
-	34,  // 163: fitSphere.meal_plan.MealPlan.UpdateMealPlan:output_type -> fitSphere.meal_plan.UpdateMealPlanRes
-	22,  // 164: fitSphere.meal_plan.MealPlan.DeleteMealPlan:output_type -> fitSphere.meal_plan.NilRes
-	22,  // 165: fitSphere.meal_plan.MealPlan.AddIngredientToMealPlan:output_type -> fitSphere.meal_plan.NilRes
-	22,  // 166: fitSphere.meal_plan.MealPlan.DeleteIngredientFromMealPlan:output_type -> fitSphere.meal_plan.NilRes
-	49,  // 167: fitSphere.meal_plan.MealPlan.CreateCalorieIntakeObjective:output_type -> fitSphere.meal_plan.CreateCalorieIntakeObjectiveRes
-	51,  // 168: fitSphere.meal_plan.MealPlan.UpdateCalorieIntakeObjective:output_type -> fitSphere.meal_plan.UpdateCalorieIntakeObjectiveRes
-	22,  // 169: fitSphere.meal_plan.MealPlan.DeleteCalorieIntakeObjective:output_type -> fitSphere.meal_plan.NilRes
-	37,  // 170: fitSphere.meal_plan.Meal.GetMeal:output_type -> fitSphere.meal_plan.GetMealRes
-	39,  // 171: fitSphere.meal_plan.Meal.GetMeals:output_type -> fitSphere.meal_plan.GetMealsRes
-	42,  // 172: fitSphere.meal_plan.Meal.CreateMeal:output_type -> fitSphere.meal_plan.CreateMealRes
-	44,  // 173: fitSphere.meal_plan.Meal.UpdateMeal:output_type -> fitSphere.meal_plan.UpdateMealRes
-	22,  // 174: fitSphere.meal_plan.Meal.DeleteMeal:output_type -> fitSphere.meal_plan.NilRes
-	22,  // 175: fitSphere.meal_plan.Meal.AddIngredientToMeal:output_type -> fitSphere.meal_plan.NilRes
-	22,  // 176: fitSphere.meal_plan.Meal.RemoveIngredientFromMeal:output_type -> fitSphere.meal_plan.NilRes
-	54,  // 177: fitSphere.meal_plan.Ingredients.GetIngredients:output_type -> fitSphere.meal_plan.GetIngredientsRes
-	56,  // 178: fitSphere.meal_plan.Ingredients.GetIngredient:output_type -> fitSphere.meal_plan.GetIngredientRes
-	58,  // 179: fitSphere.meal_plan.Ingredients.CreateIngredient:output_type -> fitSphere.meal_plan.CreateIngredientRes
-	60,  // 180: fitSphere.meal_plan.Ingredients.UpdateIngredient:output_type -> fitSphere.meal_plan.UpdateIngredientRes
-	22,  // 181: fitSphere.meal_plan.Ingredients.DeleteIngredient:output_type -> fitSphere.meal_plan.NilRes
-	62,  // 182: fitSphere.meal_plan.MealReminder.CreateReminder:output_type -> fitSphere.meal_plan.CreateReminderRes
-	64,  // 183: fitSphere.meal_plan.MealReminder.GetReminders:output_type -> fitSphere.meal_plan.GetRemindersRes
-	67,  // 184: fitSphere.meal_plan.MealReminder.UpdateReminder:output_type -> fitSphere.meal_plan.UpdateReminderRes
-	22,  // 185: fitSphere.meal_plan.MealReminder.DeleteReminder:output_type -> fitSphere.meal_plan.NilRes
-	1,   // 186: fitSphere.meal_plan.GoalRecommendation.RecommendCalorieObjective:output_type -> fitSphere.meal_plan.RecommendCalorieObjectiveRes
-	3,   // 187: fitSphere.meal_plan.GoalRecommendation.AdjustGoals:output_type -> fitSphere.meal_plan.AdjustGoalsRes
-	5,   // 188: fitSphere.meal_plan.GoalRecommendation.GetGoalSuggestions:output_type -> fitSphere.meal_plan.GetGoalSuggestionsRes
-	13,  // 189: fitSphere.meal_plan.FoodLogService.LogFood:output_type -> fitSphere.meal_plan.LogFoodRes
-	17,  // 190: fitSphere.meal_plan.FoodLogService.GetFoodLogs:output_type -> fitSphere.meal_plan.GetFoodLogsRes
-	22,  // 191: fitSphere.meal_plan.FoodLogService.DeleteFoodLog:output_type -> fitSphere.meal_plan.NilRes
-	19,  // 192: fitSphere.meal_plan.DietPreferenceService.SetDietPreferences:output_type -> fitSphere.meal_plan.UpdateDietPreferencesRes
-	21,  // 193: fitSphere.meal_plan.DietPreferenceService.GetDietPreferences:output_type -> fitSphere.meal_plan.GetDietPreferencesRes
-	157, // [157:194] is the sub-list for method output_type
-	120, // [120:157] is the sub-list for method input_type
-	120, // [120:120] is the sub-list for extension type_name
-	120, // [120:120] is the sub-list for extension extendee
-	0,   // [0:120] is the sub-list for field type_name
+	24,  // 75: fitSphere.meal_plan.GetMealIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	76,  // 76: fitSphere.meal_plan.GetMealIngredientRes.meal_ingredients:type_name -> fitSphere.meal_plan.XMealIngredient
+	25,  // 77: fitSphere.meal_plan.GetMealIngredientRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	24,  // 78: fitSphere.meal_plan.GetMealIngredientsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	76,  // 79: fitSphere.meal_plan.GetMealIngredientsRes.meal_ingredients:type_name -> fitSphere.meal_plan.XMealIngredient
+	25,  // 80: fitSphere.meal_plan.GetMealIngredientsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	24,  // 81: fitSphere.meal_plan.CreateCalorieIntakeObjectiveReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	25,  // 82: fitSphere.meal_plan.CreateCalorieIntakeObjectiveRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	24,  // 83: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	25,  // 84: fitSphere.meal_plan.UpdateCalorieIntakeObjectiveRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	24,  // 85: fitSphere.meal_plan.DeleteCalorieIntakeObjectiveReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	24,  // 86: fitSphere.meal_plan.GetIngredientsReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	73,  // 87: fitSphere.meal_plan.GetIngredientsRes.ingredients:type_name -> fitSphere.meal_plan.XIngredient
+	25,  // 88: fitSphere.meal_plan.GetIngredientsRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	24,  // 89: fitSphere.meal_plan.GetIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	73,  // 90: fitSphere.meal_plan.GetIngredientRes.ingredient:type_name -> fitSphere.meal_plan.XIngredient
+	25,  // 91: fitSphere.meal_plan.GetIngredientRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	80,  // 92: fitSphere.meal_plan.CreateIngredientReq.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 93: fitSphere.meal_plan.CreateIngredientReq.updated_at:type_name -> google.protobuf.Timestamp
+	24,  // 94: fitSphere.meal_plan.CreateIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	73,  // 95: fitSphere.meal_plan.CreateIngredientRes.ingredient:type_name -> fitSphere.meal_plan.XIngredient
+	25,  // 96: fitSphere.meal_plan.CreateIngredientRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	23,  // 97: fitSphere.meal_plan.UpdateIngredientReq.updates:type_name -> fitSphere.meal_plan.XDiff
+	24,  // 98: fitSphere.meal_plan.UpdateIngredientReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	73,  // 99: fitSphere.meal_plan.UpdateIngredientRes.ingredient:type_name -> fitSphere.meal_plan.XIngredient
+	25,  // 100: fitSphere.meal_plan.UpdateIngredientRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	72,  // 101: fitSphere.meal_plan.CreateReminderReq.reminder:type_name -> fitSphere.meal_plan.XReminder
+	24,  // 102: fitSphere.meal_plan.CreateReminderReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	72,  // 103: fitSphere.meal_plan.CreateReminderRes.reminder:type_name -> fitSphere.meal_plan.XReminder
+	25,  // 104: fitSphere.meal_plan.CreateReminderRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	24,  // 105: fitSphere.meal_plan.GetRemindersReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	72,  // 106: fitSphere.meal_plan.GetRemindersRes.reminder:type_name -> fitSphere.meal_plan.XReminder
+	25,  // 107: fitSphere.meal_plan.GetRemindersRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	24,  // 108: fitSphere.meal_plan.DeleteReminderReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	23,  // 109: fitSphere.meal_plan.UpdateReminderReq.updates:type_name -> fitSphere.meal_plan.XDiff
+	24,  // 110: fitSphere.meal_plan.UpdateReminderReq.request:type_name -> fitSphere.meal_plan.BaseRequest
+	72,  // 111: fitSphere.meal_plan.UpdateReminderRes.reminder:type_name -> fitSphere.meal_plan.XReminder
+	25,  // 112: fitSphere.meal_plan.UpdateReminderRes.response:type_name -> fitSphere.meal_plan.BaseResponse
+	80,  // 113: fitSphere.meal_plan.XIngredient.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 114: fitSphere.meal_plan.XIngredient.updated_at:type_name -> google.protobuf.Timestamp
+	80,  // 115: fitSphere.meal_plan.XMealPlan.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 116: fitSphere.meal_plan.XMealPlan.updated_at:type_name -> google.protobuf.Timestamp
+	76,  // 117: fitSphere.meal_plan.XMeal.meal_ingredients:type_name -> fitSphere.meal_plan.XMealIngredient
+	80,  // 118: fitSphere.meal_plan.XMeal.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 119: fitSphere.meal_plan.XMeal.updated_at:type_name -> google.protobuf.Timestamp
+	80,  // 120: fitSphere.meal_plan.UserMacroDistribution.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 121: fitSphere.meal_plan.XDietPreference.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 122: fitSphere.meal_plan.XDietPreference.updated_at:type_name -> google.protobuf.Timestamp
+	80,  // 123: fitSphere.meal_plan.XFoodLog.log_date:type_name -> google.protobuf.Timestamp
+	80,  // 124: fitSphere.meal_plan.XFoodLog.created_at:type_name -> google.protobuf.Timestamp
+	80,  // 125: fitSphere.meal_plan.XFoodLog.updated_at:type_name -> google.protobuf.Timestamp
+	6,   // 126: fitSphere.meal_plan.TrackMealProgress.GetUserProgress:input_type -> fitSphere.meal_plan.GetUserProgressReq
+	8,   // 127: fitSphere.meal_plan.TrackMealProgress.GetAllProgress:input_type -> fitSphere.meal_plan.GetAllProgressReq
+	10,  // 128: fitSphere.meal_plan.TrackMealProgress.GetAllStatistics:input_type -> fitSphere.meal_plan.GetAllStatisticsReq
+	26,  // 129: fitSphere.meal_plan.MealPlan.GetMealPlan:input_type -> fitSphere.meal_plan.GetMealPlanReq
+	28,  // 130: fitSphere.meal_plan.MealPlan.GetMealPlans:input_type -> fitSphere.meal_plan.GetMealPlansReq
+	31,  // 131: fitSphere.meal_plan.MealPlan.CreateMealPlan:input_type -> fitSphere.meal_plan.CreateMealPlanReq
+	33,  // 132: fitSphere.meal_plan.MealPlan.UpdateMealPlan:input_type -> fitSphere.meal_plan.UpdateMealPlanReq
+	35,  // 133: fitSphere.meal_plan.MealPlan.DeleteMealPlan:input_type -> fitSphere.meal_plan.DeleteMealPlanReq
+	46,  // 134: fitSphere.meal_plan.MealPlan.AddIngredientToMealPlan:input_type -> fitSphere.meal_plan.AddIngredientReq
+	47,  // 135: fitSphere.meal_plan.MealPlan.DeleteIngredientFromMealPlan:input_type -> fitSphere.meal_plan.DeleteIngredientReq
+	52,  // 136: fitSphere.meal_plan.MealPlan.CreateCalorieIntakeObjective:input_type -> fitSphere.meal_plan.CreateCalorieIntakeObjectiveReq
+	54,  // 137: fitSphere.meal_plan.MealPlan.UpdateCalorieIntakeObjective:input_type -> fitSphere.meal_plan.UpdateCalorieIntakeObjectiveReq
+	56,  // 138: fitSphere.meal_plan.MealPlan.DeleteCalorieIntakeObjective:input_type -> fitSphere.meal_plan.DeleteCalorieIntakeObjectiveReq
+	36,  // 139: fitSphere.meal_plan.Meal.GetMeal:input_type -> fitSphere.meal_plan.GetMealReq
+	38,  // 140: fitSphere.meal_plan.Meal.GetMeals:input_type -> fitSphere.meal_plan.GetMealsReq
+	41,  // 141: fitSphere.meal_plan.Meal.CreateMeal:input_type -> fitSphere.meal_plan.CreateMealReq
+	43,  // 142: fitSphere.meal_plan.Meal.UpdateMeal:input_type -> fitSphere.meal_plan.UpdateMealReq
+	45,  // 143: fitSphere.meal_plan.Meal.DeleteMeal:input_type -> fitSphere.meal_plan.DeleteMealReq
+	46,  // 144: fitSphere.meal_plan.Meal.AddIngredientToMeal:input_type -> fitSphere.meal_plan.AddIngredientReq
+	47,  // 145: fitSphere.meal_plan.Meal.RemoveIngredientFromMeal:input_type -> fitSphere.meal_plan.DeleteIngredientReq
+	63,  // 146: fitSphere.meal_plan.Meal.UpdateIngredientInMeal:input_type -> fitSphere.meal_plan.UpdateIngredientReq
+	50,  // 147: fitSphere.meal_plan.Meal.GetMealIngredients:input_type -> fitSphere.meal_plan.GetMealIngredientsReq
+	48,  // 148: fitSphere.meal_plan.Meal.GetMealIngredient:input_type -> fitSphere.meal_plan.GetMealIngredientReq
+	57,  // 149: fitSphere.meal_plan.Ingredients.GetIngredients:input_type -> fitSphere.meal_plan.GetIngredientsReq
+	59,  // 150: fitSphere.meal_plan.Ingredients.GetIngredient:input_type -> fitSphere.meal_plan.GetIngredientReq
+	61,  // 151: fitSphere.meal_plan.Ingredients.CreateIngredient:input_type -> fitSphere.meal_plan.CreateIngredientReq
+	63,  // 152: fitSphere.meal_plan.Ingredients.UpdateIngredient:input_type -> fitSphere.meal_plan.UpdateIngredientReq
+	47,  // 153: fitSphere.meal_plan.Ingredients.DeleteIngredient:input_type -> fitSphere.meal_plan.DeleteIngredientReq
+	65,  // 154: fitSphere.meal_plan.MealReminder.CreateReminder:input_type -> fitSphere.meal_plan.CreateReminderReq
+	67,  // 155: fitSphere.meal_plan.MealReminder.GetReminders:input_type -> fitSphere.meal_plan.GetRemindersReq
+	70,  // 156: fitSphere.meal_plan.MealReminder.UpdateReminder:input_type -> fitSphere.meal_plan.UpdateReminderReq
+	69,  // 157: fitSphere.meal_plan.MealReminder.DeleteReminder:input_type -> fitSphere.meal_plan.DeleteReminderReq
+	0,   // 158: fitSphere.meal_plan.GoalRecommendation.RecommendCalorieObjective:input_type -> fitSphere.meal_plan.RecommendCalorieObjectiveReq
+	2,   // 159: fitSphere.meal_plan.GoalRecommendation.AdjustGoals:input_type -> fitSphere.meal_plan.AdjustGoalsReq
+	4,   // 160: fitSphere.meal_plan.GoalRecommendation.GetGoalSuggestions:input_type -> fitSphere.meal_plan.GetGoalSuggestionsReq
+	12,  // 161: fitSphere.meal_plan.FoodLogService.LogFood:input_type -> fitSphere.meal_plan.LogFoodReq
+	14,  // 162: fitSphere.meal_plan.FoodLogService.GetFoodLogs:input_type -> fitSphere.meal_plan.GetFoodLogsReq
+	15,  // 163: fitSphere.meal_plan.FoodLogService.DeleteFoodLog:input_type -> fitSphere.meal_plan.DeleteFoodLogReq
+	18,  // 164: fitSphere.meal_plan.DietPreferenceService.SetDietPreferences:input_type -> fitSphere.meal_plan.UpdateDietPreferencesReq
+	20,  // 165: fitSphere.meal_plan.DietPreferenceService.GetDietPreferences:input_type -> fitSphere.meal_plan.GetDietPreferencesReq
+	7,   // 166: fitSphere.meal_plan.TrackMealProgress.GetUserProgress:output_type -> fitSphere.meal_plan.GetUserProgressRes
+	9,   // 167: fitSphere.meal_plan.TrackMealProgress.GetAllProgress:output_type -> fitSphere.meal_plan.GetAllProgressRes
+	11,  // 168: fitSphere.meal_plan.TrackMealProgress.GetAllStatistics:output_type -> fitSphere.meal_plan.GetAllStatisticsRes
+	27,  // 169: fitSphere.meal_plan.MealPlan.GetMealPlan:output_type -> fitSphere.meal_plan.GetMealPlanRes
+	29,  // 170: fitSphere.meal_plan.MealPlan.GetMealPlans:output_type -> fitSphere.meal_plan.GetMealPlansRes
+	32,  // 171: fitSphere.meal_plan.MealPlan.CreateMealPlan:output_type -> fitSphere.meal_plan.CreateMealPlanRes
+	34,  // 172: fitSphere.meal_plan.MealPlan.UpdateMealPlan:output_type -> fitSphere.meal_plan.UpdateMealPlanRes
+	22,  // 173: fitSphere.meal_plan.MealPlan.DeleteMealPlan:output_type -> fitSphere.meal_plan.NilRes
+	22,  // 174: fitSphere.meal_plan.MealPlan.AddIngredientToMealPlan:output_type -> fitSphere.meal_plan.NilRes
+	22,  // 175: fitSphere.meal_plan.MealPlan.DeleteIngredientFromMealPlan:output_type -> fitSphere.meal_plan.NilRes
+	53,  // 176: fitSphere.meal_plan.MealPlan.CreateCalorieIntakeObjective:output_type -> fitSphere.meal_plan.CreateCalorieIntakeObjectiveRes
+	55,  // 177: fitSphere.meal_plan.MealPlan.UpdateCalorieIntakeObjective:output_type -> fitSphere.meal_plan.UpdateCalorieIntakeObjectiveRes
+	22,  // 178: fitSphere.meal_plan.MealPlan.DeleteCalorieIntakeObjective:output_type -> fitSphere.meal_plan.NilRes
+	37,  // 179: fitSphere.meal_plan.Meal.GetMeal:output_type -> fitSphere.meal_plan.GetMealRes
+	39,  // 180: fitSphere.meal_plan.Meal.GetMeals:output_type -> fitSphere.meal_plan.GetMealsRes
+	42,  // 181: fitSphere.meal_plan.Meal.CreateMeal:output_type -> fitSphere.meal_plan.CreateMealRes
+	44,  // 182: fitSphere.meal_plan.Meal.UpdateMeal:output_type -> fitSphere.meal_plan.UpdateMealRes
+	22,  // 183: fitSphere.meal_plan.Meal.DeleteMeal:output_type -> fitSphere.meal_plan.NilRes
+	22,  // 184: fitSphere.meal_plan.Meal.AddIngredientToMeal:output_type -> fitSphere.meal_plan.NilRes
+	22,  // 185: fitSphere.meal_plan.Meal.RemoveIngredientFromMeal:output_type -> fitSphere.meal_plan.NilRes
+	64,  // 186: fitSphere.meal_plan.Meal.UpdateIngredientInMeal:output_type -> fitSphere.meal_plan.UpdateIngredientRes
+	51,  // 187: fitSphere.meal_plan.Meal.GetMealIngredients:output_type -> fitSphere.meal_plan.GetMealIngredientsRes
+	49,  // 188: fitSphere.meal_plan.Meal.GetMealIngredient:output_type -> fitSphere.meal_plan.GetMealIngredientRes
+	58,  // 189: fitSphere.meal_plan.Ingredients.GetIngredients:output_type -> fitSphere.meal_plan.GetIngredientsRes
+	60,  // 190: fitSphere.meal_plan.Ingredients.GetIngredient:output_type -> fitSphere.meal_plan.GetIngredientRes
+	62,  // 191: fitSphere.meal_plan.Ingredients.CreateIngredient:output_type -> fitSphere.meal_plan.CreateIngredientRes
+	64,  // 192: fitSphere.meal_plan.Ingredients.UpdateIngredient:output_type -> fitSphere.meal_plan.UpdateIngredientRes
+	22,  // 193: fitSphere.meal_plan.Ingredients.DeleteIngredient:output_type -> fitSphere.meal_plan.NilRes
+	66,  // 194: fitSphere.meal_plan.MealReminder.CreateReminder:output_type -> fitSphere.meal_plan.CreateReminderRes
+	68,  // 195: fitSphere.meal_plan.MealReminder.GetReminders:output_type -> fitSphere.meal_plan.GetRemindersRes
+	71,  // 196: fitSphere.meal_plan.MealReminder.UpdateReminder:output_type -> fitSphere.meal_plan.UpdateReminderRes
+	22,  // 197: fitSphere.meal_plan.MealReminder.DeleteReminder:output_type -> fitSphere.meal_plan.NilRes
+	1,   // 198: fitSphere.meal_plan.GoalRecommendation.RecommendCalorieObjective:output_type -> fitSphere.meal_plan.RecommendCalorieObjectiveRes
+	3,   // 199: fitSphere.meal_plan.GoalRecommendation.AdjustGoals:output_type -> fitSphere.meal_plan.AdjustGoalsRes
+	5,   // 200: fitSphere.meal_plan.GoalRecommendation.GetGoalSuggestions:output_type -> fitSphere.meal_plan.GetGoalSuggestionsRes
+	13,  // 201: fitSphere.meal_plan.FoodLogService.LogFood:output_type -> fitSphere.meal_plan.LogFoodRes
+	17,  // 202: fitSphere.meal_plan.FoodLogService.GetFoodLogs:output_type -> fitSphere.meal_plan.GetFoodLogsRes
+	22,  // 203: fitSphere.meal_plan.FoodLogService.DeleteFoodLog:output_type -> fitSphere.meal_plan.NilRes
+	19,  // 204: fitSphere.meal_plan.DietPreferenceService.SetDietPreferences:output_type -> fitSphere.meal_plan.UpdateDietPreferencesRes
+	21,  // 205: fitSphere.meal_plan.DietPreferenceService.GetDietPreferences:output_type -> fitSphere.meal_plan.GetDietPreferencesRes
+	166, // [166:206] is the sub-list for method output_type
+	126, // [126:166] is the sub-list for method input_type
+	126, // [126:126] is the sub-list for extension type_name
+	126, // [126:126] is the sub-list for extension extendee
+	0,   // [0:126] is the sub-list for field type_name
 }
 
 func init() { file_meal_proto_init() }
@@ -7622,7 +7962,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[48].Exporter = func(v any, i int) any {
-			switch v := v.(*CreateCalorieIntakeObjectiveReq); i {
+			switch v := v.(*GetMealIngredientReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7634,7 +7974,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[49].Exporter = func(v any, i int) any {
-			switch v := v.(*CreateCalorieIntakeObjectiveRes); i {
+			switch v := v.(*GetMealIngredientRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7646,7 +7986,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[50].Exporter = func(v any, i int) any {
-			switch v := v.(*UpdateCalorieIntakeObjectiveReq); i {
+			switch v := v.(*GetMealIngredientsReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7658,7 +7998,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[51].Exporter = func(v any, i int) any {
-			switch v := v.(*UpdateCalorieIntakeObjectiveRes); i {
+			switch v := v.(*GetMealIngredientsRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7670,7 +8010,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[52].Exporter = func(v any, i int) any {
-			switch v := v.(*DeleteCalorieIntakeObjectiveReq); i {
+			switch v := v.(*CreateCalorieIntakeObjectiveReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7682,7 +8022,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[53].Exporter = func(v any, i int) any {
-			switch v := v.(*GetIngredientsReq); i {
+			switch v := v.(*CreateCalorieIntakeObjectiveRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7694,7 +8034,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[54].Exporter = func(v any, i int) any {
-			switch v := v.(*GetIngredientsRes); i {
+			switch v := v.(*UpdateCalorieIntakeObjectiveReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7706,7 +8046,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[55].Exporter = func(v any, i int) any {
-			switch v := v.(*GetIngredientReq); i {
+			switch v := v.(*UpdateCalorieIntakeObjectiveRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7718,7 +8058,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[56].Exporter = func(v any, i int) any {
-			switch v := v.(*GetIngredientRes); i {
+			switch v := v.(*DeleteCalorieIntakeObjectiveReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7730,7 +8070,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[57].Exporter = func(v any, i int) any {
-			switch v := v.(*CreateIngredientReq); i {
+			switch v := v.(*GetIngredientsReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7742,7 +8082,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[58].Exporter = func(v any, i int) any {
-			switch v := v.(*CreateIngredientRes); i {
+			switch v := v.(*GetIngredientsRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7754,7 +8094,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[59].Exporter = func(v any, i int) any {
-			switch v := v.(*UpdateIngredientReq); i {
+			switch v := v.(*GetIngredientReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7766,7 +8106,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[60].Exporter = func(v any, i int) any {
-			switch v := v.(*UpdateIngredientRes); i {
+			switch v := v.(*GetIngredientRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7778,7 +8118,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[61].Exporter = func(v any, i int) any {
-			switch v := v.(*CreateReminderReq); i {
+			switch v := v.(*CreateIngredientReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7790,7 +8130,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[62].Exporter = func(v any, i int) any {
-			switch v := v.(*CreateReminderRes); i {
+			switch v := v.(*CreateIngredientRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7802,7 +8142,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[63].Exporter = func(v any, i int) any {
-			switch v := v.(*GetRemindersReq); i {
+			switch v := v.(*UpdateIngredientReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7814,7 +8154,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[64].Exporter = func(v any, i int) any {
-			switch v := v.(*GetRemindersRes); i {
+			switch v := v.(*UpdateIngredientRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7826,7 +8166,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[65].Exporter = func(v any, i int) any {
-			switch v := v.(*DeleteReminderReq); i {
+			switch v := v.(*CreateReminderReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7838,7 +8178,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[66].Exporter = func(v any, i int) any {
-			switch v := v.(*UpdateReminderReq); i {
+			switch v := v.(*CreateReminderRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7850,7 +8190,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[67].Exporter = func(v any, i int) any {
-			switch v := v.(*UpdateReminderRes); i {
+			switch v := v.(*GetRemindersReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7862,7 +8202,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[68].Exporter = func(v any, i int) any {
-			switch v := v.(*XReminder); i {
+			switch v := v.(*GetRemindersRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7874,7 +8214,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[69].Exporter = func(v any, i int) any {
-			switch v := v.(*XIngredient); i {
+			switch v := v.(*DeleteReminderReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7886,7 +8226,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[70].Exporter = func(v any, i int) any {
-			switch v := v.(*XMealPlan); i {
+			switch v := v.(*UpdateReminderReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7898,7 +8238,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[71].Exporter = func(v any, i int) any {
-			switch v := v.(*XMeal); i {
+			switch v := v.(*UpdateReminderRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7910,7 +8250,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[72].Exporter = func(v any, i int) any {
-			switch v := v.(*XMealIngredient); i {
+			switch v := v.(*XReminder); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7922,7 +8262,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[73].Exporter = func(v any, i int) any {
-			switch v := v.(*UserMacroDistribution); i {
+			switch v := v.(*XIngredient); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7934,7 +8274,7 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[74].Exporter = func(v any, i int) any {
-			switch v := v.(*XDietPreference); i {
+			switch v := v.(*XMealPlan); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7946,6 +8286,54 @@ func file_meal_proto_init() {
 			}
 		}
 		file_meal_proto_msgTypes[75].Exporter = func(v any, i int) any {
+			switch v := v.(*XMeal); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_meal_proto_msgTypes[76].Exporter = func(v any, i int) any {
+			switch v := v.(*XMealIngredient); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_meal_proto_msgTypes[77].Exporter = func(v any, i int) any {
+			switch v := v.(*UserMacroDistribution); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_meal_proto_msgTypes[78].Exporter = func(v any, i int) any {
+			switch v := v.(*XDietPreference); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_meal_proto_msgTypes[79].Exporter = func(v any, i int) any {
 			switch v := v.(*XFoodLog); i {
 			case 0:
 				return &v.state
@@ -7964,7 +8352,7 @@ func file_meal_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_meal_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   76,
+			NumMessages:   80,
 			NumExtensions: 0,
 			NumServices:   8,
 		},

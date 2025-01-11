@@ -656,6 +656,9 @@ const (
 	Meal_DeleteMeal_FullMethodName               = "/fitSphere.meal_plan.Meal/DeleteMeal"
 	Meal_AddIngredientToMeal_FullMethodName      = "/fitSphere.meal_plan.Meal/AddIngredientToMeal"
 	Meal_RemoveIngredientFromMeal_FullMethodName = "/fitSphere.meal_plan.Meal/RemoveIngredientFromMeal"
+	Meal_UpdateIngredientInMeal_FullMethodName   = "/fitSphere.meal_plan.Meal/UpdateIngredientInMeal"
+	Meal_GetMealIngredients_FullMethodName       = "/fitSphere.meal_plan.Meal/GetMealIngredients"
+	Meal_GetMealIngredient_FullMethodName        = "/fitSphere.meal_plan.Meal/GetMealIngredient"
 )
 
 // MealClient is the client API for Meal service.
@@ -671,6 +674,9 @@ type MealClient interface {
 	DeleteMeal(ctx context.Context, in *DeleteMealReq, opts ...grpc.CallOption) (*NilRes, error)
 	AddIngredientToMeal(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
 	RemoveIngredientFromMeal(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
+	UpdateIngredientInMeal(ctx context.Context, in *UpdateIngredientReq, opts ...grpc.CallOption) (*UpdateIngredientRes, error)
+	GetMealIngredients(ctx context.Context, in *GetMealIngredientsReq, opts ...grpc.CallOption) (*GetMealIngredientsRes, error)
+	GetMealIngredient(ctx context.Context, in *GetMealIngredientReq, opts ...grpc.CallOption) (*GetMealIngredientRes, error)
 }
 
 type mealClient struct {
@@ -751,6 +757,36 @@ func (c *mealClient) RemoveIngredientFromMeal(ctx context.Context, in *DeleteIng
 	return out, nil
 }
 
+func (c *mealClient) UpdateIngredientInMeal(ctx context.Context, in *UpdateIngredientReq, opts ...grpc.CallOption) (*UpdateIngredientRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateIngredientRes)
+	err := c.cc.Invoke(ctx, Meal_UpdateIngredientInMeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) GetMealIngredients(ctx context.Context, in *GetMealIngredientsReq, opts ...grpc.CallOption) (*GetMealIngredientsRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMealIngredientsRes)
+	err := c.cc.Invoke(ctx, Meal_GetMealIngredients_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mealClient) GetMealIngredient(ctx context.Context, in *GetMealIngredientReq, opts ...grpc.CallOption) (*GetMealIngredientRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMealIngredientRes)
+	err := c.cc.Invoke(ctx, Meal_GetMealIngredient_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MealServer is the server API for Meal service.
 // All implementations must embed UnimplementedMealServer
 // for forward compatibility.
@@ -764,6 +800,9 @@ type MealServer interface {
 	DeleteMeal(context.Context, *DeleteMealReq) (*NilRes, error)
 	AddIngredientToMeal(context.Context, *AddIngredientReq) (*NilRes, error)
 	RemoveIngredientFromMeal(context.Context, *DeleteIngredientReq) (*NilRes, error)
+	UpdateIngredientInMeal(context.Context, *UpdateIngredientReq) (*UpdateIngredientRes, error)
+	GetMealIngredients(context.Context, *GetMealIngredientsReq) (*GetMealIngredientsRes, error)
+	GetMealIngredient(context.Context, *GetMealIngredientReq) (*GetMealIngredientRes, error)
 	mustEmbedUnimplementedMealServer()
 }
 
@@ -794,6 +833,15 @@ func (UnimplementedMealServer) AddIngredientToMeal(context.Context, *AddIngredie
 }
 func (UnimplementedMealServer) RemoveIngredientFromMeal(context.Context, *DeleteIngredientReq) (*NilRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveIngredientFromMeal not implemented")
+}
+func (UnimplementedMealServer) UpdateIngredientInMeal(context.Context, *UpdateIngredientReq) (*UpdateIngredientRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateIngredientInMeal not implemented")
+}
+func (UnimplementedMealServer) GetMealIngredients(context.Context, *GetMealIngredientsReq) (*GetMealIngredientsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMealIngredients not implemented")
+}
+func (UnimplementedMealServer) GetMealIngredient(context.Context, *GetMealIngredientReq) (*GetMealIngredientRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMealIngredient not implemented")
 }
 func (UnimplementedMealServer) mustEmbedUnimplementedMealServer() {}
 func (UnimplementedMealServer) testEmbeddedByValue()              {}
@@ -942,6 +990,60 @@ func _Meal_RemoveIngredientFromMeal_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Meal_UpdateIngredientInMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateIngredientReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).UpdateIngredientInMeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_UpdateIngredientInMeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).UpdateIngredientInMeal(ctx, req.(*UpdateIngredientReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_GetMealIngredients_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMealIngredientsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).GetMealIngredients(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_GetMealIngredients_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).GetMealIngredients(ctx, req.(*GetMealIngredientsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Meal_GetMealIngredient_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMealIngredientReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MealServer).GetMealIngredient(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Meal_GetMealIngredient_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MealServer).GetMealIngredient(ctx, req.(*GetMealIngredientReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Meal_ServiceDesc is the grpc.ServiceDesc for Meal service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -976,6 +1078,18 @@ var Meal_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RemoveIngredientFromMeal",
 			Handler:    _Meal_RemoveIngredientFromMeal_Handler,
+		},
+		{
+			MethodName: "UpdateIngredientInMeal",
+			Handler:    _Meal_UpdateIngredientInMeal_Handler,
+		},
+		{
+			MethodName: "GetMealIngredients",
+			Handler:    _Meal_GetMealIngredients_Handler,
+		},
+		{
+			MethodName: "GetMealIngredient",
+			Handler:    _Meal_GetMealIngredient_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

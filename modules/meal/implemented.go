@@ -139,6 +139,18 @@ func (b *Broker) RemoveIngredientFromMeal(ctx context.Context, in *generated.Del
 	return b.mealClient.RemoveIngredientFromMeal(ctx, in, opts...)
 }
 
+func (b *Broker) UpdateIngredientInMeal(ctx context.Context, in *generated.UpdateIngredientReq, opts ...grpc.CallOption) (*generated.UpdateIngredientRes, error) {
+	return b.mealClient.UpdateIngredientInMeal(ctx, in, opts...)
+}
+
+func (b *Broker) GetMealIngredients(ctx context.Context, in *generated.GetMealIngredientsReq, opts ...grpc.CallOption) (*generated.GetMealIngredientsRes, error) {
+	return b.mealClient.GetMealIngredients(ctx, in, opts...)
+}
+
+func (b *Broker) GetMealIngredient(ctx context.Context, in *generated.GetMealIngredientReq, opts ...grpc.CallOption) (*generated.GetMealIngredientRes, error) {
+	return b.mealClient.GetMealIngredient(ctx, in, opts...)
+}
+
 func (b *Broker) GetIngredients(ctx context.Context, in *generated.GetIngredientsReq, opts ...grpc.CallOption) (*generated.GetIngredientsRes, error) {
 	return b.ingredientsClient.GetIngredients(ctx, in, opts...)
 }

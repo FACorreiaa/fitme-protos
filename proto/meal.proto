@@ -36,6 +36,9 @@ service Meal {
   rpc DeleteMeal(DeleteMealReq) returns (NilRes);
   rpc AddIngredientToMeal(AddIngredientReq) returns (NilRes);
   rpc RemoveIngredientFromMeal(DeleteIngredientReq) returns (NilRes);
+  rpc UpdateIngredientInMeal(UpdateIngredientReq) returns (UpdateIngredientRes);
+  rpc GetMealIngredients(GetMealIngredientsReq) returns (GetMealIngredientsRes);
+  rpc GetMealIngredient(GetMealIngredientReq) returns (GetMealIngredientRes);
 }
 
 // Ingredients Service x
@@ -382,6 +385,33 @@ message DeleteIngredientReq {
   string user_id = 3;
   BaseRequest request = 100;
 }
+
+message GetMealIngredientReq {
+  string meal_id = 1;
+  string user_id = 2;
+  BaseRequest request = 100;
+}
+
+message GetMealIngredientRes {
+  bool success = 1;
+  string message = 2;
+  XMealIngredient meal_ingredients = 3;
+  BaseResponse response = 100;
+}
+
+message GetMealIngredientsReq {
+  string user_id = 1;
+  BaseRequest request = 100;
+}
+
+message GetMealIngredientsRes {
+  bool success = 1;
+  string message = 2;
+  repeated XMealIngredient meal_ingredients = 3;
+  BaseResponse response = 100;
+}
+
+
 
 message CreateCalorieIntakeObjectiveReq {
   sint32 cal_intake_objective = 1;
