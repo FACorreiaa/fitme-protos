@@ -565,14 +565,14 @@ message XMeal {
   string user_id = 2;
   int32 meal_number = 3;
   string meal_description = 4;
-  repeated XIngredient ingredient_id = 5;
+  repeated XMealIngredient meal_ingredient_id = 5;
   google.protobuf.Timestamp created_at = 6;
   google.protobuf.Timestamp updated_at = 7;
 }
 
 message XMealIngredient {
   string ingredient_meal_id = 1;
-  string meal_id = 2;
+  string name = 2;
   string ingredient_id = 3;
   double quantity = 4;
   google.protobuf.Timestamp created_at = 5;
