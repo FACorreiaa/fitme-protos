@@ -36,7 +36,7 @@ service Meal {
   rpc DeleteMeal(DeleteMealReq) returns (NilRes);
   rpc AddIngredientToMeal(AddIngredientReq) returns (NilRes);
   rpc RemoveIngredientFromMeal(DeleteIngredientReq) returns (NilRes);
-  rpc UpdateIngredientInMeal(UpdateIngredientReq) returns (UpdateIngredientRes);
+  rpc UpdateIngredientInMeal(UpdateMealIngredientReq) returns (UpdateIngredientRes);
   rpc GetMealIngredients(GetMealIngredientsReq) returns (GetMealIngredientsRes);
   rpc GetMealIngredient(GetMealIngredientReq) returns (GetMealIngredientRes);
 }
@@ -390,6 +390,14 @@ message DeleteIngredientReq {
   BaseRequest request = 100;
 }
 
+message UpdateMealIngredientReq {
+  string meal_id = 1;
+  string user_id = 2;
+  string ingredient_id = 3;
+  repeated XDiff updates  = 4;
+  BaseRequest request = 100;
+}
+
 message GetMealIngredientReq {
   string meal_id = 1;
   string user_id = 2;
@@ -405,6 +413,7 @@ message GetMealIngredientRes {
 
 message GetMealIngredientsReq {
   string user_id = 1;
+  string meal_id = 2;
   BaseRequest request = 100;
 }
 
