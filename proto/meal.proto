@@ -598,11 +598,24 @@ message XMeal {
   int32 meal_number = 3;
   string meal_description = 4;
   repeated XMealIngredient meal_ingredients = 5; // Use XMealIngredient for computed nutrients
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
+  XTotalMealNutrients total_meal_nutrients = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
 }
 
-// TODO Check if needed
+message XTotalMealNutrients {
+  double calories = 1;
+  double protein = 2;
+  double carbohydrates_total = 3;
+  double fat_total = 4;
+  double fat_saturated = 5;
+  double fiber = 6;
+  double sugar = 7;
+  double sodium = 8;
+  double potassium = 9;
+  double cholesterol = 10;
+}
+
 message XMealIngredient {
   string meal_id = 1;
   repeated string ingredient_id = 2;
