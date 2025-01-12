@@ -79,7 +79,7 @@ func (b *Broker) DeleteMealPlan(ctx context.Context, in *generated.DeleteMealPla
 	return b.mealPlanClient.DeleteMealPlan(ctx, in, opts...)
 }
 
-func (b *Broker) AddIngredientToMealPlan(ctx context.Context, in *generated.AddIngredientReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+func (b *Broker) AddIngredientToMealPlan(ctx context.Context, in *generated.AddIngredientReq, opts ...grpc.CallOption) (*generated.AddIngredientRes, error) {
 	return b.mealPlanClient.AddIngredientToMealPlan(ctx, in, opts...)
 }
 
@@ -131,7 +131,7 @@ func (b *Broker) DeleteMeal(ctx context.Context, in *generated.DeleteMealReq, op
 	return b.mealClient.DeleteMeal(ctx, in, opts...)
 }
 
-func (b *Broker) AddIngredientToMeal(ctx context.Context, in *generated.AddIngredientReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
+func (b *Broker) AddIngredientToMeal(ctx context.Context, in *generated.AddIngredientReq, opts ...grpc.CallOption) (*generated.AddIngredientRes, error) {
 	return b.mealClient.AddIngredientToMeal(ctx, in, opts...)
 }
 
@@ -139,7 +139,7 @@ func (b *Broker) RemoveIngredientFromMeal(ctx context.Context, in *generated.Del
 	return b.mealClient.RemoveIngredientFromMeal(ctx, in, opts...)
 }
 
-func (b *Broker) UpdateIngredientInMeal(ctx context.Context, in *generated.UpdateIngredientReq, opts ...grpc.CallOption) (*generated.UpdateIngredientRes, error) {
+func (b *Broker) UpdateIngredientInMeal(ctx context.Context, in *generated.UpdateMealIngredientReq, opts ...grpc.CallOption) (*generated.UpdateIngredientRes, error) {
 	return b.mealClient.UpdateIngredientInMeal(ctx, in, opts...)
 }
 
