@@ -19,7 +19,7 @@ service MealPlan {
   rpc UpdateMealPlan(UpdateMealPlanReq) returns (UpdateMealPlanRes);
   rpc DeleteMealPlan(DeleteMealPlanReq) returns (NilRes);
 
-  rpc AddIngredientToMealPlan(AddIngredientReq) returns (NilRes);
+  rpc AddIngredientToMealPlan(AddIngredientReq) returns (AddIngredientRes);
   rpc DeleteIngredientFromMealPlan(DeleteIngredientReq) returns (NilRes);
 
   rpc CreateCalorieIntakeObjective(CreateCalorieIntakeObjectiveReq) returns (CreateCalorieIntakeObjectiveRes);
@@ -34,7 +34,7 @@ service Meal {
   rpc CreateMeal(CreateMealReq) returns (CreateMealRes);
   rpc UpdateMeal(UpdateMealReq) returns (UpdateMealRes);
   rpc DeleteMeal(DeleteMealReq) returns (NilRes);
-  rpc AddIngredientToMeal(AddIngredientReq) returns (NilRes);
+  rpc AddIngredientToMeal(AddIngredientReq) returns (AddIngredientRes);
   rpc RemoveIngredientFromMeal(DeleteIngredientReq) returns (NilRes);
   rpc UpdateIngredientInMeal(UpdateMealIngredientReq) returns (UpdateIngredientRes);
   rpc GetMealIngredients(GetMealIngredientsReq) returns (GetMealIngredientsRes);
@@ -380,7 +380,20 @@ message AddIngredientReq {
   string ingredient_id = 2;
   string user_id = 3;
   double quantity = 4;
+  string unit = 5;
+  NewIngredient new_ingredient = 6;
   BaseRequest request = 100;
+}
+
+message AddIngredientRes {
+  bool success = 1;
+  string message = 2;
+  NewIngredient new_ingredient = 3;
+  string meal_plan_id = 4;
+  string status = 5;
+  string quantity = 6;
+  string unit = 7;
+  BaseResponse response = 100;
 }
 
 message DeleteIngredientReq {
@@ -684,4 +697,20 @@ message XFoodLog {
   google.protobuf.Timestamp log_date = 5;
   google.protobuf.Timestamp created_at = 6;
   google.protobuf.Timestamp updated_at = 7;
+}
+
+message NewIngredient {
+  string ingredient_id = 1;
+  string name = 2;
+  double quantity = 3;
+  double calories = 4;
+  double protein = 5;
+  double carbohydrates_total = 6;
+  double fat_total = 7;
+  double fat_saturated = 8;
+  double fiber = 9;
+  double sugar = 10;
+  double sodium = 11;
+  double potassium = 12;
+  double cholesterol = 13;
 }
