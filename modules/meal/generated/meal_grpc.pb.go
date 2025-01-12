@@ -224,6 +224,7 @@ type MealPlanClient interface {
 	CreateMealPlan(ctx context.Context, in *CreateMealPlanReq, opts ...grpc.CallOption) (*CreateMealPlanRes, error)
 	UpdateMealPlan(ctx context.Context, in *UpdateMealPlanReq, opts ...grpc.CallOption) (*UpdateMealPlanRes, error)
 	DeleteMealPlan(ctx context.Context, in *DeleteMealPlanReq, opts ...grpc.CallOption) (*NilRes, error)
+	// maybe delete
 	AddIngredientToMealPlan(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*AddIngredientRes, error)
 	DeleteIngredientFromMealPlan(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
 	CreateCalorieIntakeObjective(ctx context.Context, in *CreateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*CreateCalorieIntakeObjectiveRes, error)
@@ -350,6 +351,7 @@ type MealPlanServer interface {
 	CreateMealPlan(context.Context, *CreateMealPlanReq) (*CreateMealPlanRes, error)
 	UpdateMealPlan(context.Context, *UpdateMealPlanReq) (*UpdateMealPlanRes, error)
 	DeleteMealPlan(context.Context, *DeleteMealPlanReq) (*NilRes, error)
+	// maybe delete
 	AddIngredientToMealPlan(context.Context, *AddIngredientReq) (*AddIngredientRes, error)
 	DeleteIngredientFromMealPlan(context.Context, *DeleteIngredientReq) (*NilRes, error)
 	CreateCalorieIntakeObjective(context.Context, *CreateCalorieIntakeObjectiveReq) (*CreateCalorieIntakeObjectiveRes, error)
