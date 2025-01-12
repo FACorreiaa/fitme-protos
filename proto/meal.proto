@@ -378,6 +378,8 @@ message DeleteMealReq {
 message AddIngredientReq {
   string meal_plan_id = 1;
   string ingredient_id = 2;
+  string user_id = 3;
+  double quantity = 4;
   BaseRequest request = 100;
 }
 
