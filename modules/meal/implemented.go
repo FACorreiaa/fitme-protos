@@ -79,26 +79,6 @@ func (b *Broker) DeleteMealPlan(ctx context.Context, in *generated.DeleteMealPla
 	return b.mealPlanClient.DeleteMealPlan(ctx, in, opts...)
 }
 
-func (b *Broker) AddIngredientToMealPlan(ctx context.Context, in *generated.AddIngredientReq, opts ...grpc.CallOption) (*generated.AddIngredientRes, error) {
-	return b.mealPlanClient.AddIngredientToMealPlan(ctx, in, opts...)
-}
-
-func (b *Broker) DeleteIngredientFromMealPlan(ctx context.Context, in *generated.DeleteIngredientReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
-	return b.mealPlanClient.DeleteIngredientFromMealPlan(ctx, in, opts...)
-}
-
-func (b *Broker) CreateCalorieIntakeObjective(ctx context.Context, in *generated.CreateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*generated.CreateCalorieIntakeObjectiveRes, error) {
-	return b.mealPlanClient.CreateCalorieIntakeObjective(ctx, in, opts...)
-}
-
-func (b *Broker) UpdateCalorieIntakeObjective(ctx context.Context, in *generated.UpdateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*generated.UpdateCalorieIntakeObjectiveRes, error) {
-	return b.mealPlanClient.UpdateCalorieIntakeObjective(ctx, in, opts...)
-}
-
-func (b *Broker) DeleteCalorieIntakeObjective(ctx context.Context, in *generated.DeleteCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
-	return b.mealPlanClient.DeleteCalorieIntakeObjective(ctx, in, opts...)
-}
-
 func (b *Broker) GetUserProgress(ctx context.Context, in *generated.GetUserProgressReq, opts ...grpc.CallOption) (*generated.GetUserProgressRes, error) {
 	return b.mealTrackClient.GetUserProgress(ctx, in, opts...)
 }
@@ -139,7 +119,7 @@ func (b *Broker) RemoveIngredientFromMeal(ctx context.Context, in *generated.Del
 	return b.mealClient.RemoveIngredientFromMeal(ctx, in, opts...)
 }
 
-func (b *Broker) UpdateIngredientInMeal(ctx context.Context, in *generated.UpdateMealIngredientReq, opts ...grpc.CallOption) (*generated.UpdateIngredientRes, error) {
+func (b *Broker) UpdateIngredientInMeal(ctx context.Context, in *generated.UpdateMealIngredientReq, opts ...grpc.CallOption) (*generated.UpdateMealIngredientRes, error) {
 	return b.mealClient.UpdateIngredientInMeal(ctx, in, opts...)
 }
 

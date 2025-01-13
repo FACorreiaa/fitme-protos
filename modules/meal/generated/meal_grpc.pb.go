@@ -201,16 +201,11 @@ var TrackMealProgress_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	MealPlan_GetMealPlan_FullMethodName                  = "/fitSphere.meal_plan.MealPlan/GetMealPlan"
-	MealPlan_GetMealPlans_FullMethodName                 = "/fitSphere.meal_plan.MealPlan/GetMealPlans"
-	MealPlan_CreateMealPlan_FullMethodName               = "/fitSphere.meal_plan.MealPlan/CreateMealPlan"
-	MealPlan_UpdateMealPlan_FullMethodName               = "/fitSphere.meal_plan.MealPlan/UpdateMealPlan"
-	MealPlan_DeleteMealPlan_FullMethodName               = "/fitSphere.meal_plan.MealPlan/DeleteMealPlan"
-	MealPlan_AddIngredientToMealPlan_FullMethodName      = "/fitSphere.meal_plan.MealPlan/AddIngredientToMealPlan"
-	MealPlan_DeleteIngredientFromMealPlan_FullMethodName = "/fitSphere.meal_plan.MealPlan/DeleteIngredientFromMealPlan"
-	MealPlan_CreateCalorieIntakeObjective_FullMethodName = "/fitSphere.meal_plan.MealPlan/CreateCalorieIntakeObjective"
-	MealPlan_UpdateCalorieIntakeObjective_FullMethodName = "/fitSphere.meal_plan.MealPlan/UpdateCalorieIntakeObjective"
-	MealPlan_DeleteCalorieIntakeObjective_FullMethodName = "/fitSphere.meal_plan.MealPlan/DeleteCalorieIntakeObjective"
+	MealPlan_GetMealPlan_FullMethodName    = "/fitSphere.meal_plan.MealPlan/GetMealPlan"
+	MealPlan_GetMealPlans_FullMethodName   = "/fitSphere.meal_plan.MealPlan/GetMealPlans"
+	MealPlan_CreateMealPlan_FullMethodName = "/fitSphere.meal_plan.MealPlan/CreateMealPlan"
+	MealPlan_UpdateMealPlan_FullMethodName = "/fitSphere.meal_plan.MealPlan/UpdateMealPlan"
+	MealPlan_DeleteMealPlan_FullMethodName = "/fitSphere.meal_plan.MealPlan/DeleteMealPlan"
 )
 
 // MealPlanClient is the client API for MealPlan service.
@@ -224,12 +219,6 @@ type MealPlanClient interface {
 	CreateMealPlan(ctx context.Context, in *CreateMealPlanReq, opts ...grpc.CallOption) (*CreateMealPlanRes, error)
 	UpdateMealPlan(ctx context.Context, in *UpdateMealPlanReq, opts ...grpc.CallOption) (*UpdateMealPlanRes, error)
 	DeleteMealPlan(ctx context.Context, in *DeleteMealPlanReq, opts ...grpc.CallOption) (*NilRes, error)
-	// maybe delete
-	AddIngredientToMealPlan(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*AddIngredientRes, error)
-	DeleteIngredientFromMealPlan(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
-	CreateCalorieIntakeObjective(ctx context.Context, in *CreateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*CreateCalorieIntakeObjectiveRes, error)
-	UpdateCalorieIntakeObjective(ctx context.Context, in *UpdateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*UpdateCalorieIntakeObjectiveRes, error)
-	DeleteCalorieIntakeObjective(ctx context.Context, in *DeleteCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*NilRes, error)
 }
 
 type mealPlanClient struct {
@@ -290,56 +279,6 @@ func (c *mealPlanClient) DeleteMealPlan(ctx context.Context, in *DeleteMealPlanR
 	return out, nil
 }
 
-func (c *mealPlanClient) AddIngredientToMealPlan(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*AddIngredientRes, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddIngredientRes)
-	err := c.cc.Invoke(ctx, MealPlan_AddIngredientToMealPlan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *mealPlanClient) DeleteIngredientFromMealPlan(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NilRes)
-	err := c.cc.Invoke(ctx, MealPlan_DeleteIngredientFromMealPlan_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *mealPlanClient) CreateCalorieIntakeObjective(ctx context.Context, in *CreateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*CreateCalorieIntakeObjectiveRes, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateCalorieIntakeObjectiveRes)
-	err := c.cc.Invoke(ctx, MealPlan_CreateCalorieIntakeObjective_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *mealPlanClient) UpdateCalorieIntakeObjective(ctx context.Context, in *UpdateCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*UpdateCalorieIntakeObjectiveRes, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateCalorieIntakeObjectiveRes)
-	err := c.cc.Invoke(ctx, MealPlan_UpdateCalorieIntakeObjective_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *mealPlanClient) DeleteCalorieIntakeObjective(ctx context.Context, in *DeleteCalorieIntakeObjectiveReq, opts ...grpc.CallOption) (*NilRes, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NilRes)
-	err := c.cc.Invoke(ctx, MealPlan_DeleteCalorieIntakeObjective_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // MealPlanServer is the server API for MealPlan service.
 // All implementations must embed UnimplementedMealPlanServer
 // for forward compatibility.
@@ -351,12 +290,6 @@ type MealPlanServer interface {
 	CreateMealPlan(context.Context, *CreateMealPlanReq) (*CreateMealPlanRes, error)
 	UpdateMealPlan(context.Context, *UpdateMealPlanReq) (*UpdateMealPlanRes, error)
 	DeleteMealPlan(context.Context, *DeleteMealPlanReq) (*NilRes, error)
-	// maybe delete
-	AddIngredientToMealPlan(context.Context, *AddIngredientReq) (*AddIngredientRes, error)
-	DeleteIngredientFromMealPlan(context.Context, *DeleteIngredientReq) (*NilRes, error)
-	CreateCalorieIntakeObjective(context.Context, *CreateCalorieIntakeObjectiveReq) (*CreateCalorieIntakeObjectiveRes, error)
-	UpdateCalorieIntakeObjective(context.Context, *UpdateCalorieIntakeObjectiveReq) (*UpdateCalorieIntakeObjectiveRes, error)
-	DeleteCalorieIntakeObjective(context.Context, *DeleteCalorieIntakeObjectiveReq) (*NilRes, error)
 	mustEmbedUnimplementedMealPlanServer()
 }
 
@@ -381,21 +314,6 @@ func (UnimplementedMealPlanServer) UpdateMealPlan(context.Context, *UpdateMealPl
 }
 func (UnimplementedMealPlanServer) DeleteMealPlan(context.Context, *DeleteMealPlanReq) (*NilRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteMealPlan not implemented")
-}
-func (UnimplementedMealPlanServer) AddIngredientToMealPlan(context.Context, *AddIngredientReq) (*AddIngredientRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AddIngredientToMealPlan not implemented")
-}
-func (UnimplementedMealPlanServer) DeleteIngredientFromMealPlan(context.Context, *DeleteIngredientReq) (*NilRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteIngredientFromMealPlan not implemented")
-}
-func (UnimplementedMealPlanServer) CreateCalorieIntakeObjective(context.Context, *CreateCalorieIntakeObjectiveReq) (*CreateCalorieIntakeObjectiveRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCalorieIntakeObjective not implemented")
-}
-func (UnimplementedMealPlanServer) UpdateCalorieIntakeObjective(context.Context, *UpdateCalorieIntakeObjectiveReq) (*UpdateCalorieIntakeObjectiveRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCalorieIntakeObjective not implemented")
-}
-func (UnimplementedMealPlanServer) DeleteCalorieIntakeObjective(context.Context, *DeleteCalorieIntakeObjectiveReq) (*NilRes, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteCalorieIntakeObjective not implemented")
 }
 func (UnimplementedMealPlanServer) mustEmbedUnimplementedMealPlanServer() {}
 func (UnimplementedMealPlanServer) testEmbeddedByValue()                  {}
@@ -508,96 +426,6 @@ func _MealPlan_DeleteMealPlan_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _MealPlan_AddIngredientToMealPlan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddIngredientReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MealPlanServer).AddIngredientToMealPlan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MealPlan_AddIngredientToMealPlan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MealPlanServer).AddIngredientToMealPlan(ctx, req.(*AddIngredientReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MealPlan_DeleteIngredientFromMealPlan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteIngredientReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MealPlanServer).DeleteIngredientFromMealPlan(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MealPlan_DeleteIngredientFromMealPlan_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MealPlanServer).DeleteIngredientFromMealPlan(ctx, req.(*DeleteIngredientReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MealPlan_CreateCalorieIntakeObjective_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCalorieIntakeObjectiveReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MealPlanServer).CreateCalorieIntakeObjective(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MealPlan_CreateCalorieIntakeObjective_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MealPlanServer).CreateCalorieIntakeObjective(ctx, req.(*CreateCalorieIntakeObjectiveReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MealPlan_UpdateCalorieIntakeObjective_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCalorieIntakeObjectiveReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MealPlanServer).UpdateCalorieIntakeObjective(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MealPlan_UpdateCalorieIntakeObjective_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MealPlanServer).UpdateCalorieIntakeObjective(ctx, req.(*UpdateCalorieIntakeObjectiveReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MealPlan_DeleteCalorieIntakeObjective_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteCalorieIntakeObjectiveReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MealPlanServer).DeleteCalorieIntakeObjective(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MealPlan_DeleteCalorieIntakeObjective_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MealPlanServer).DeleteCalorieIntakeObjective(ctx, req.(*DeleteCalorieIntakeObjectiveReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // MealPlan_ServiceDesc is the grpc.ServiceDesc for MealPlan service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -624,26 +452,6 @@ var MealPlan_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteMealPlan",
 			Handler:    _MealPlan_DeleteMealPlan_Handler,
-		},
-		{
-			MethodName: "AddIngredientToMealPlan",
-			Handler:    _MealPlan_AddIngredientToMealPlan_Handler,
-		},
-		{
-			MethodName: "DeleteIngredientFromMealPlan",
-			Handler:    _MealPlan_DeleteIngredientFromMealPlan_Handler,
-		},
-		{
-			MethodName: "CreateCalorieIntakeObjective",
-			Handler:    _MealPlan_CreateCalorieIntakeObjective_Handler,
-		},
-		{
-			MethodName: "UpdateCalorieIntakeObjective",
-			Handler:    _MealPlan_UpdateCalorieIntakeObjective_Handler,
-		},
-		{
-			MethodName: "DeleteCalorieIntakeObjective",
-			Handler:    _MealPlan_DeleteCalorieIntakeObjective_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

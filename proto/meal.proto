@@ -18,13 +18,6 @@ service MealPlan {
   rpc CreateMealPlan(CreateMealPlanReq) returns (CreateMealPlanRes);
   rpc UpdateMealPlan(UpdateMealPlanReq) returns (UpdateMealPlanRes);
   rpc DeleteMealPlan(DeleteMealPlanReq) returns (NilRes);
-
-  // maybe delete
-  rpc AddIngredientToMealPlan(AddIngredientReq) returns (AddIngredientRes);
-  rpc DeleteIngredientFromMealPlan(DeleteIngredientReq) returns (NilRes);
-  rpc CreateCalorieIntakeObjective(CreateCalorieIntakeObjectiveReq) returns (CreateCalorieIntakeObjectiveRes);
-  rpc UpdateCalorieIntakeObjective(UpdateCalorieIntakeObjectiveReq) returns (UpdateCalorieIntakeObjectiveRes);
-  rpc DeleteCalorieIntakeObjective(DeleteCalorieIntakeObjectiveReq) returns (NilRes);
 }
 
 // Meals Service
