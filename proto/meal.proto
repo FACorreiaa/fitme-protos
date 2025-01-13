@@ -414,6 +414,7 @@ message UpdateMealIngredientReq {
 message GetMealIngredientReq {
   string meal_id = 1;
   string user_id = 2;
+  string ingredient_id = 3;
   BaseRequest request = 100;
 }
 
