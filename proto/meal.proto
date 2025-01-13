@@ -376,7 +376,7 @@ message DeleteMealReq {
 }
 
 message AddIngredientReq {
-  string meal_plan_id = 1;
+  string meal_id = 1;
   string ingredient_id = 2;
   string user_id = 3;
   double quantity = 4;
@@ -389,7 +389,7 @@ message AddIngredientRes {
   bool success = 1;
   string message = 2;
   NewIngredient new_ingredient = 3;
-  string meal_plan_id = 4;
+  string meal_id = 4;
   string status = 5;
   string quantity = 6;
   string unit = 7;
@@ -465,6 +465,8 @@ message UpdateCalorieIntakeObjectiveRes {
 }
 message DeleteCalorieIntakeObjectiveReq {
   string user_id = 1;
+  string ingredient_id = 2;
+  string meal_id = 3;
   BaseRequest request = 100;
 }
 
