@@ -676,7 +676,7 @@ type MealClient interface {
 	DeleteMeal(ctx context.Context, in *DeleteMealReq, opts ...grpc.CallOption) (*NilRes, error)
 	AddIngredientToMeal(ctx context.Context, in *AddIngredientReq, opts ...grpc.CallOption) (*AddIngredientRes, error)
 	RemoveIngredientFromMeal(ctx context.Context, in *DeleteIngredientReq, opts ...grpc.CallOption) (*NilRes, error)
-	UpdateIngredientInMeal(ctx context.Context, in *UpdateMealIngredientReq, opts ...grpc.CallOption) (*UpdateIngredientRes, error)
+	UpdateIngredientInMeal(ctx context.Context, in *UpdateMealIngredientReq, opts ...grpc.CallOption) (*UpdateMealIngredientRes, error)
 	GetMealIngredients(ctx context.Context, in *GetMealIngredientsReq, opts ...grpc.CallOption) (*GetMealIngredientsRes, error)
 	GetMealIngredient(ctx context.Context, in *GetMealIngredientReq, opts ...grpc.CallOption) (*GetMealIngredientRes, error)
 }
@@ -759,9 +759,9 @@ func (c *mealClient) RemoveIngredientFromMeal(ctx context.Context, in *DeleteIng
 	return out, nil
 }
 
-func (c *mealClient) UpdateIngredientInMeal(ctx context.Context, in *UpdateMealIngredientReq, opts ...grpc.CallOption) (*UpdateIngredientRes, error) {
+func (c *mealClient) UpdateIngredientInMeal(ctx context.Context, in *UpdateMealIngredientReq, opts ...grpc.CallOption) (*UpdateMealIngredientRes, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateIngredientRes)
+	out := new(UpdateMealIngredientRes)
 	err := c.cc.Invoke(ctx, Meal_UpdateIngredientInMeal_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -802,7 +802,7 @@ type MealServer interface {
 	DeleteMeal(context.Context, *DeleteMealReq) (*NilRes, error)
 	AddIngredientToMeal(context.Context, *AddIngredientReq) (*AddIngredientRes, error)
 	RemoveIngredientFromMeal(context.Context, *DeleteIngredientReq) (*NilRes, error)
-	UpdateIngredientInMeal(context.Context, *UpdateMealIngredientReq) (*UpdateIngredientRes, error)
+	UpdateIngredientInMeal(context.Context, *UpdateMealIngredientReq) (*UpdateMealIngredientRes, error)
 	GetMealIngredients(context.Context, *GetMealIngredientsReq) (*GetMealIngredientsRes, error)
 	GetMealIngredient(context.Context, *GetMealIngredientReq) (*GetMealIngredientRes, error)
 	mustEmbedUnimplementedMealServer()
@@ -836,7 +836,7 @@ func (UnimplementedMealServer) AddIngredientToMeal(context.Context, *AddIngredie
 func (UnimplementedMealServer) RemoveIngredientFromMeal(context.Context, *DeleteIngredientReq) (*NilRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveIngredientFromMeal not implemented")
 }
-func (UnimplementedMealServer) UpdateIngredientInMeal(context.Context, *UpdateMealIngredientReq) (*UpdateIngredientRes, error) {
+func (UnimplementedMealServer) UpdateIngredientInMeal(context.Context, *UpdateMealIngredientReq) (*UpdateMealIngredientRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateIngredientInMeal not implemented")
 }
 func (UnimplementedMealServer) GetMealIngredients(context.Context, *GetMealIngredientsReq) (*GetMealIngredientsRes, error) {
