@@ -292,6 +292,7 @@ message InsertWorkoutPlanReq {
 message BaseResponse {
   string upstream = 998;
   string request_id = 999;
+  string status = 1000;
 }
 
 message WorkoutDayResponse {
