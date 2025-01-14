@@ -475,7 +475,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Meals Service
+// Meals Service done
 type MealClient interface {
 	GetMeal(ctx context.Context, in *GetMealReq, opts ...grpc.CallOption) (*GetMealRes, error)
 	GetMeals(ctx context.Context, in *GetMealsReq, opts ...grpc.CallOption) (*GetMealsRes, error)
@@ -601,7 +601,7 @@ func (c *mealClient) GetMealIngredient(ctx context.Context, in *GetMealIngredien
 // All implementations must embed UnimplementedMealServer
 // for forward compatibility.
 //
-// Meals Service
+// Meals Service done
 type MealServer interface {
 	GetMeal(context.Context, *GetMealReq) (*GetMealRes, error)
 	GetMeals(context.Context, *GetMealsReq) (*GetMealsRes, error)
@@ -918,7 +918,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Ingredients Service x
+// Ingredients Service done
 type IngredientsClient interface {
 	GetIngredients(ctx context.Context, in *GetIngredientsReq, opts ...grpc.CallOption) (*GetIngredientsRes, error)
 	GetIngredient(ctx context.Context, in *GetIngredientReq, opts ...grpc.CallOption) (*GetIngredientRes, error)
@@ -989,7 +989,7 @@ func (c *ingredientsClient) DeleteIngredient(ctx context.Context, in *DeleteIngr
 // All implementations must embed UnimplementedIngredientsServer
 // for forward compatibility.
 //
-// Ingredients Service x
+// Ingredients Service done
 type IngredientsServer interface {
 	GetIngredients(context.Context, *GetIngredientsReq) (*GetIngredientsRes, error)
 	GetIngredient(context.Context, *GetIngredientReq) (*GetIngredientRes, error)

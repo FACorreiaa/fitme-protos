@@ -20,7 +20,7 @@ service MealPlan {
   rpc DeleteMealPlan(DeleteMealPlanReq) returns (NilRes);
 }
 
-// Meals Service
+// Meals Service done
 service Meal {
   rpc GetMeal(GetMealReq) returns (GetMealRes);
   rpc GetMeals(GetMealsReq) returns (GetMealsRes);
@@ -34,7 +34,7 @@ service Meal {
   rpc GetMealIngredient(GetMealIngredientReq) returns (GetMealIngredientRes);
 }
 
-// Ingredients Service x
+// Ingredients Service done
 service Ingredients {
   rpc GetIngredients(GetIngredientsReq) returns (GetIngredientsRes);
   rpc GetIngredient(GetIngredientReq) returns (GetIngredientRes);
@@ -242,12 +242,9 @@ message GetMealPlanReq {
 message GetMealPlanRes {
   bool success = 1;
   string message = 2;
-  string meal_plan_id = 3;
-  string name = 4;
-  repeated XIngredient ingredients = 5;
-  string description = 6;
-  google.protobuf.Timestamp created_at = 7;
-  google.protobuf.Timestamp updated_at = 8;
+  XMealPlan meal_plan = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
   BaseResponse response = 100;
 }
 
@@ -259,7 +256,9 @@ message GetMealPlansReq {
 message GetMealPlansRes {
   bool success = 1;
   string message = 2;
-  repeated MealPlanSummary meal_plans = 3;
+  repeated XMealPlan meal_plan = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
   BaseResponse response = 100;
 }
 
@@ -293,7 +292,7 @@ message UpdateMealPlanReq {
 message UpdateMealPlanRes {
   bool success = 1;
   string message = 2;
-  XMealPlan meal_plan = 3;
+  XMealPlan meal_plans = 3;
   BaseResponse response = 100;
 }
 
@@ -613,10 +612,12 @@ message XMealPlan {
   string user_id = 2;
   string description = 3;
   string notes = 4;
-  double total_calories = 5;
+  XTotalMealNutrients total_meal_nutrients = 5;
   google.protobuf.Timestamp created_at = 6;
   google.protobuf.Timestamp updated_at = 7;
   int32 rating = 8;
+  repeated XMeal meal = 9;
+  string objective = 10;
 }
 
 message XMeal {
