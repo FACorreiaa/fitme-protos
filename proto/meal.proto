@@ -27,6 +27,7 @@ service Meal {
   rpc CreateMeal(CreateMealReq) returns (CreateMealRes);
   rpc UpdateMeal(UpdateMealReq) returns (UpdateMealRes);
   rpc DeleteMeal(DeleteMealReq) returns (NilRes);
+  
   rpc AddIngredientToMeal(AddIngredientReq) returns (AddIngredientRes);
   rpc RemoveIngredientFromMeal(DeleteIngredientReq) returns (NilRes);
   rpc UpdateIngredientInMeal(UpdateMealIngredientReq) returns (UpdateMealIngredientRes);
@@ -627,10 +628,11 @@ message XMeal {
   string user_id = 2;
   int32 meal_number = 3;
   string meal_description = 4;
-  repeated XMealIngredient meal_ingredients = 5; // Use XMealIngredient for computed nutrients
-  XTotalMealNutrients total_meal_nutrients = 6;
-  google.protobuf.Timestamp created_at = 7;
-  google.protobuf.Timestamp updated_at = 8;
+  string name = 5;
+  repeated XMealIngredient meal_ingredients = 6; // Use XMealIngredient for computed nutrients
+  XTotalMealNutrients total_meal_nutrients = 7;
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
 }
 
 message XTotalMealNutrients {
