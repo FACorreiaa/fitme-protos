@@ -30,7 +30,7 @@ type Brokers struct {
 	Activity       activity.ActivityClient
 	Workout        workout.WorkoutClient
 	Measurements   measurement.UserMeasurementsClient
-	Meals          meal.MealClient
+	Meals          meal.MealPlanClient
 	TransportUtils *utils.TransportUtils
 }
 
