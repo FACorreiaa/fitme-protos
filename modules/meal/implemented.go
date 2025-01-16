@@ -16,7 +16,6 @@ type Broker struct {
 	conn                      *grpc.ClientConn
 	mealPlanClient            generated.MealPlanClient
 	mealTrackClient           generated.TrackMealProgressClient
-	mealClient                generated.MealClient
 	ingredientsClient         generated.IngredientsClient
 	mealReminderClient        generated.MealReminderClient
 	goalsRecommendationClient generated.GoalRecommendationClient
@@ -25,7 +24,6 @@ type Broker struct {
 var (
 	_ generated.MealPlanClient           = (*Broker)(nil)
 	_ generated.TrackMealProgressClient  = (*Broker)(nil)
-	_ generated.MealClient               = (*Broker)(nil)
 	_ generated.IngredientsClient        = (*Broker)(nil)
 	_ generated.MealReminderClient       = (*Broker)(nil)
 	_ generated.GoalRecommendationClient = (*Broker)(nil)
@@ -92,43 +90,43 @@ func (b *Broker) GetAllStatistics(ctx context.Context, in *generated.GetAllStati
 }
 
 func (b *Broker) GetMeal(ctx context.Context, in *generated.GetMealReq, opts ...grpc.CallOption) (*generated.GetMealRes, error) {
-	return b.mealClient.GetMeal(ctx, in, opts...)
+	return b.mealPlanClient.GetMeal(ctx, in, opts...)
 }
 
 func (b *Broker) GetMeals(ctx context.Context, in *generated.GetMealsReq, opts ...grpc.CallOption) (*generated.GetMealsRes, error) {
-	return b.mealClient.GetMeals(ctx, in, opts...)
+	return b.mealPlanClient.GetMeals(ctx, in, opts...)
 }
 
 func (b *Broker) CreateMeal(ctx context.Context, in *generated.CreateMealReq, opts ...grpc.CallOption) (*generated.CreateMealRes, error) {
-	return b.mealClient.CreateMeal(ctx, in, opts...)
+	return b.mealPlanClient.CreateMeal(ctx, in, opts...)
 }
 
 func (b *Broker) UpdateMeal(ctx context.Context, in *generated.UpdateMealReq, opts ...grpc.CallOption) (*generated.UpdateMealRes, error) {
-	return b.mealClient.UpdateMeal(ctx, in, opts...)
+	return b.mealPlanClient.UpdateMeal(ctx, in, opts...)
 }
 
 func (b *Broker) DeleteMeal(ctx context.Context, in *generated.DeleteMealReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
-	return b.mealClient.DeleteMeal(ctx, in, opts...)
+	return b.mealPlanClient.DeleteMeal(ctx, in, opts...)
 }
 
 func (b *Broker) AddIngredientToMeal(ctx context.Context, in *generated.AddIngredientReq, opts ...grpc.CallOption) (*generated.AddIngredientRes, error) {
-	return b.mealClient.AddIngredientToMeal(ctx, in, opts...)
+	return b.mealPlanClient.AddIngredientToMeal(ctx, in, opts...)
 }
 
 func (b *Broker) RemoveIngredientFromMeal(ctx context.Context, in *generated.DeleteIngredientReq, opts ...grpc.CallOption) (*generated.NilRes, error) {
-	return b.mealClient.RemoveIngredientFromMeal(ctx, in, opts...)
+	return b.mealPlanClient.RemoveIngredientFromMeal(ctx, in, opts...)
 }
 
 func (b *Broker) UpdateIngredientInMeal(ctx context.Context, in *generated.UpdateMealIngredientReq, opts ...grpc.CallOption) (*generated.UpdateMealIngredientRes, error) {
-	return b.mealClient.UpdateIngredientInMeal(ctx, in, opts...)
+	return b.mealPlanClient.UpdateIngredientInMeal(ctx, in, opts...)
 }
 
 func (b *Broker) GetMealIngredients(ctx context.Context, in *generated.GetMealIngredientsReq, opts ...grpc.CallOption) (*generated.GetMealIngredientsRes, error) {
-	return b.mealClient.GetMealIngredients(ctx, in, opts...)
+	return b.mealPlanClient.GetMealIngredients(ctx, in, opts...)
 }
 
 func (b *Broker) GetMealIngredient(ctx context.Context, in *generated.GetMealIngredientReq, opts ...grpc.CallOption) (*generated.GetMealIngredientRes, error) {
-	return b.mealClient.GetMealIngredient(ctx, in, opts...)
+	return b.mealPlanClient.GetMealIngredient(ctx, in, opts...)
 }
 
 func (b *Broker) GetIngredients(ctx context.Context, in *generated.GetIngredientsReq, opts ...grpc.CallOption) (*generated.GetIngredientsRes, error) {

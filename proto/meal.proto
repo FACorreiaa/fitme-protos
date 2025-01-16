@@ -18,10 +18,8 @@ service MealPlan {
   rpc CreateMealPlan(CreateMealPlanReq) returns (CreateMealPlanRes);
   rpc UpdateMealPlan(UpdateMealPlanReq) returns (UpdateMealPlanRes);
   rpc DeleteMealPlan(DeleteMealPlanReq) returns (NilRes);
-}
 
-// Meals Service done
-service Meal {
+  // Meals
   rpc GetMeal(GetMealReq) returns (GetMealRes);
   rpc GetMeals(GetMealsReq) returns (GetMealsRes);
   rpc CreateMeal(CreateMealReq) returns (CreateMealRes);
