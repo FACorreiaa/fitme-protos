@@ -619,6 +619,7 @@ message XMealPlan {
   int32 rating = 8;
   repeated XMeal meal = 9;
   string objective = 10;
+  string name = 11;
 }
 
 message XMeal {
