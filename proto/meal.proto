@@ -273,6 +273,8 @@ message CreateMealPlanReq {
   string name = 2;
   string description = 3;
   repeated XMeal meal = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
   BaseRequest request = 100;
 }
 
