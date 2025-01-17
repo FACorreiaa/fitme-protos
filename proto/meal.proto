@@ -245,6 +245,7 @@ message GetMealPlanRes {
   XMealPlan meal_plan = 3;
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
+  XTotalMealNutrients total_meal_nutrients = 6;
   BaseResponse response = 100;
 }
 
@@ -259,6 +260,7 @@ message GetMealPlansRes {
   repeated XMealPlan meal_plan = 3;
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
+  XTotalMealNutrients total_meal_nutrients = 6;
   BaseResponse response = 100;
 }
 
