@@ -245,7 +245,7 @@ message GetMealPlanRes {
   XMealPlan meal_plan = 3;
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
-  XTotalMealNutrients total_meal_nutrients = 6;
+  XTotalMealPlanNutrients total_meal_plan_nutrients = 6;
   BaseResponse response = 100;
 }
 
@@ -260,7 +260,7 @@ message GetMealPlansRes {
   repeated XMealPlan meal_plan = 3;
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
-  XTotalMealNutrients total_meal_nutrients = 6;
+  XTotalMealPlanNutrients total_meal_plan_nutrients = 6;
   BaseResponse response = 100;
 }
 
@@ -639,6 +639,19 @@ message XMeal {
 }
 
 message XTotalMealNutrients {
+  double calories = 1;
+  double protein = 2;
+  double carbohydrates_total = 3;
+  double fat_total = 4;
+  double fat_saturated = 5;
+  double fiber = 6;
+  double sugar = 7;
+  double sodium = 8;
+  double potassium = 9;
+  double cholesterol = 10;
+}
+
+message XTotalMealPlanNutrients {
   double calories = 1;
   double protein = 2;
   double carbohydrates_total = 3;
