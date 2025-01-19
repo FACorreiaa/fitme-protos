@@ -20,11 +20,11 @@ message UserMacroDistribution {
   uint32 age = 3;
   uint32 height = 4;
   double weight = 5;
-  string gender = 6;
-  string system = 7;
-  string activity = 8;
+  Gender gender = 6;
+  System system = 7;
+  Activity activity = 8;
   string activity_description = 9;
-  string objective = 10;
+  Objective objective = 10;
   string objective_description = 11;
   string calories_distribution = 12;
   string calories_distribution_description = 13;
@@ -106,4 +106,36 @@ message DeleteUserMacroResponse {
 }
 
 message NilRes {
+}
+
+// Enum for Objective
+enum Objective {
+  OBJECTIVE_UNSPECIFIED = 0; // Default value for unspecified objective
+  MAINTENANCE = 1;          // "Maintenance"
+  BULKING = 2;              // "Bulking"
+  CUTTING = 3;              // "Cutting"
+}
+
+// Enum for Activity
+enum Activity {
+  ACTIVITY_UNSPECIFIED = 0;     // Default value for unspecified activity
+  SEDENTARY = 1;                // "Sedentary"
+  LIGHT = 2;                    // "LightActivity"
+  MODERATE = 3;                 // "Moderate"
+  HEAVY = 4;                    // "Heavy"
+  EXTRA_HEAVY = 5;              // "ExtraHeavy"
+}
+
+// Enum for System
+enum System {
+  SYSTEM_UNSPECIFIED = 0; // Default value for unspecified system
+  METRIC = 1;             // "Metric"
+  IMPERIAL = 2;           // "Imperial"
+}
+
+// Enum for Gender
+enum Gender {
+  GENDER_UNSPECIFIED = 0; // Default value for unspecified gender
+  MALE = 1;               // "Male"
+  FEMALE = 2;             // "Female"
 }

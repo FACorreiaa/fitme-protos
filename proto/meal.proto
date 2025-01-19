@@ -630,8 +630,12 @@ message XMealPlan {
   google.protobuf.Timestamp updated_at = 7;
   int32 rating = 8;
   repeated XMeal meal = 9;
-  string objective = 10;
+  Objective objective = 10;
   string name = 11;
+  Activity activity = 12;
+  Gender gender = 13;
+  QuantityUnit quantity_unit = 14;
+  //System system = 14;
 }
 
 message XMeal {
@@ -745,4 +749,49 @@ message NewIngredient {
   double sodium = 11;
   double potassium = 12;
   double cholesterol = 13;
+}
+
+// Enum for Objective
+enum Objective {
+  OBJECTIVE_UNSPECIFIED = 0; // Default value for unspecified objective
+  MAINTENANCE = 1;          // "Maintenance"
+  BULKING = 2;              // "Bulking"
+  CUTTING = 3;              // "Cutting"
+}
+
+// Enum for Activity
+enum Activity {
+  ACTIVITY_UNSPECIFIED = 0;     // Default value for unspecified activity
+  SEDENTARY = 1;                // "Sedentary"
+  LIGHT = 2;                    // "LightActivity"
+  MODERATE = 3;                 // "Moderate"
+  HEAVY = 4;                    // "Heavy"
+  EXTRA_HEAVY = 5;              // "ExtraHeavy"
+}
+
+// Enum for System
+enum System {
+  SYSTEM_UNSPECIFIED = 0; // Default value for unspecified system
+  METRIC = 1;             // "Metric"
+  IMPERIAL = 2;           // "Imperial"
+}
+
+// Enum for Gender
+enum Gender {
+  GENDER_UNSPECIFIED = 0; // Default value for unspecified gender
+  MALE = 1;               // "Male"
+  FEMALE = 2;             // "Female"
+}
+
+enum QuantityUnit {
+  UNIT_UNSPECIFIED = 0; // Default value for unspecified unit
+  GRAM = 1;            // Grams
+  KILOGRAM = 2;        // Kilograms
+  MILLILITER = 3;      // Milliliters
+  LITER = 4;           // Liters
+  OUNCE = 5;           // Ounces
+  POUND = 6;           // Pounds
+  CUP = 7;             // Cups
+  TEASPOON = 8;        // Teaspoons
+  TABLESPOON = 9;      // Tablespoons
 }
