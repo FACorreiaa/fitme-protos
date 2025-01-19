@@ -291,7 +291,8 @@ message CreateMealPlanRes {
 
 message UpdateMealPlanReq {
   string meal_plan_id = 1;
-  repeated XDiff updates  = 2;
+  string user_id = 2;
+  repeated XDiff updates  = 3;
   BaseRequest request = 100;
 }
 
