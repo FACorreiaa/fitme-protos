@@ -271,20 +271,25 @@ message MealPlanSummary {
   string description = 3;
 }
 
+//message CreateMealPlanReq {
+//  string user_id = 1;
+//  string name = 2;
+//  string description = 3;
+//  repeated XMeal meal = 4;
+//  google.protobuf.Timestamp created_at = 5;
+//  google.protobuf.Timestamp updated_at = 6;
+//  BaseRequest request = 100;
+//}
+
 message CreateMealPlanReq {
-  string user_id = 1;
-  string name = 2;
-  string description = 3;
-  repeated XMeal meal = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  XMealPlan meal_plan = 1;
   BaseRequest request = 100;
 }
 
 message CreateMealPlanRes {
   bool success = 1;
   string message = 2;
-  string meal_plan_id = 3;
+  XMealPlan meal_plan = 3;
   string status = 4;
   BaseResponse response = 100;
 }
