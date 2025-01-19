@@ -299,7 +299,7 @@ message UpdateMealPlanReq {
 message UpdateMealPlanRes {
   bool success = 1;
   string message = 2;
-  XMealPlan meal_plans = 3;
+  XMealPlan meal_plan = 3;
   BaseResponse response = 100;
 }
 
