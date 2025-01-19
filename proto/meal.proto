@@ -236,6 +236,7 @@ message BaseResponse {
 
 message GetMealPlanReq {
   string meal_plan_id = 1;
+  string user_id = 2;
   BaseRequest request = 100;
 }
 
