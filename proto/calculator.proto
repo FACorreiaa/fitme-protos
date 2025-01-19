@@ -26,7 +26,7 @@ message UserMacroDistribution {
   string activity_description = 9;
   Objective objective = 10;
   string objective_description = 11;
-  string calories_distribution = 12;
+  CaloriesDistribution calories_distribution = 12;
   string calories_distribution_description = 13;
   uint32 protein = 14;
   uint32 fats = 15;
@@ -83,7 +83,7 @@ message OfflineUserMacroDistribution {
   string activity_description = 7;
   string objective = 8;
   string objective_description = 9;
-  string calories_distribution = 10;
+  CaloriesDistribution calories_distribution = 10;
   string calories_distribution_description = 11;
   uint32 protein = 12;
   uint32 fats = 13;
@@ -138,4 +138,11 @@ enum Gender {
   GENDER_UNSPECIFIED = 0; // Default value for unspecified gender
   MALE = 1;               // "Male"
   FEMALE = 2;             // "Female"
+}
+
+enum CaloriesDistribution {
+  CD_UNSPECIFIED = 0;
+  HIGH_CALORIE = 1;
+  MODERATE_CALORIE = 2;
+  LOW_CALORIE = 3;
 }
