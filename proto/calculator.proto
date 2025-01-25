@@ -40,6 +40,7 @@ message UserMacroDistribution {
 // Request and response messages for the Create operation
 message CreateUserMacroRequest {
   UserMacroDistribution user_macro = 1;
+  bool is_current = 2;
 }
 
 message CreateUserMacroResponse {
