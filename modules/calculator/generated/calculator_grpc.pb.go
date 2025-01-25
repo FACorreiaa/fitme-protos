@@ -24,6 +24,7 @@ const (
 	Calculator_GetUserMacros_FullMethodName          = "/fitSphere.calculator.Calculator/GetUserMacros"
 	Calculator_CreateOfflineUserMacro_FullMethodName = "/fitSphere.calculator.Calculator/CreateOfflineUserMacro"
 	Calculator_DeleteUserMacro_FullMethodName        = "/fitSphere.calculator.Calculator/DeleteUserMacro"
+	Calculator_SetActiveUserMacro_FullMethodName     = "/fitSphere.calculator.Calculator/SetActiveUserMacro"
 )
 
 // CalculatorClient is the client API for Calculator service.
@@ -37,6 +38,7 @@ type CalculatorClient interface {
 	GetUserMacros(ctx context.Context, in *GetUserMacroRequest, opts ...grpc.CallOption) (*GetUserMacroResponse, error)
 	CreateOfflineUserMacro(ctx context.Context, in *CreateOfflineUserMacroRequest, opts ...grpc.CallOption) (*CreateOfflineUserMacroResponse, error)
 	DeleteUserMacro(ctx context.Context, in *DeleteUserMacroRequest, opts ...grpc.CallOption) (*DeleteUserMacroResponse, error)
+	SetActiveUserMacro(ctx context.Context, in *SetActiveUserMacroRequest, opts ...grpc.CallOption) (*SetActiveUserMacroResponse, error)
 }
 
 type calculatorClient struct {
@@ -97,6 +99,16 @@ func (c *calculatorClient) DeleteUserMacro(ctx context.Context, in *DeleteUserMa
 	return out, nil
 }
 
+func (c *calculatorClient) SetActiveUserMacro(ctx context.Context, in *SetActiveUserMacroRequest, opts ...grpc.CallOption) (*SetActiveUserMacroResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetActiveUserMacroResponse)
+	err := c.cc.Invoke(ctx, Calculator_SetActiveUserMacro_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CalculatorServer is the server API for Calculator service.
 // All implementations must embed UnimplementedCalculatorServer
 // for forward compatibility.
@@ -108,6 +120,7 @@ type CalculatorServer interface {
 	GetUserMacros(context.Context, *GetUserMacroRequest) (*GetUserMacroResponse, error)
 	CreateOfflineUserMacro(context.Context, *CreateOfflineUserMacroRequest) (*CreateOfflineUserMacroResponse, error)
 	DeleteUserMacro(context.Context, *DeleteUserMacroRequest) (*DeleteUserMacroResponse, error)
+	SetActiveUserMacro(context.Context, *SetActiveUserMacroRequest) (*SetActiveUserMacroResponse, error)
 	mustEmbedUnimplementedCalculatorServer()
 }
 
@@ -132,6 +145,9 @@ func (UnimplementedCalculatorServer) CreateOfflineUserMacro(context.Context, *Cr
 }
 func (UnimplementedCalculatorServer) DeleteUserMacro(context.Context, *DeleteUserMacroRequest) (*DeleteUserMacroResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteUserMacro not implemented")
+}
+func (UnimplementedCalculatorServer) SetActiveUserMacro(context.Context, *SetActiveUserMacroRequest) (*SetActiveUserMacroResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetActiveUserMacro not implemented")
 }
 func (UnimplementedCalculatorServer) mustEmbedUnimplementedCalculatorServer() {}
 func (UnimplementedCalculatorServer) testEmbeddedByValue()                    {}
@@ -244,6 +260,24 @@ func _Calculator_DeleteUserMacro_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Calculator_SetActiveUserMacro_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetActiveUserMacroRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CalculatorServer).SetActiveUserMacro(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Calculator_SetActiveUserMacro_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CalculatorServer).SetActiveUserMacro(ctx, req.(*SetActiveUserMacroRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Calculator_ServiceDesc is the grpc.ServiceDesc for Calculator service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -270,6 +304,10 @@ var Calculator_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteUserMacro",
 			Handler:    _Calculator_DeleteUserMacro_Handler,
+		},
+		{
+			MethodName: "SetActiveUserMacro",
+			Handler:    _Calculator_SetActiveUserMacro_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

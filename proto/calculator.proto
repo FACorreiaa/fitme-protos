@@ -11,8 +11,19 @@ service Calculator {
   rpc GetUserMacros(GetUserMacroRequest) returns (GetUserMacroResponse);
   rpc CreateOfflineUserMacro(CreateOfflineUserMacroRequest) returns (CreateOfflineUserMacroResponse);
   rpc DeleteUserMacro(DeleteUserMacroRequest) returns (DeleteUserMacroResponse);
+
+  rpc SetActiveUserMacro(SetActiveUserMacroRequest) returns (SetActiveUserMacroResponse);
+
 }
 
+message SetActiveUserMacroRequest {
+  string user_id = 1;
+  string macro_id = 2;
+}
+
+message SetActiveUserMacroResponse {
+  UserMacroDistribution current_macro = 1;
+}
 
 message UserMacroDistribution {
   string id = 1;
