@@ -291,6 +291,7 @@ message CreateMealPlanRes {
   string message = 2;
   XMealPlan meal_plan = 3;
   string status = 4;
+  string warning = 5;
   BaseResponse response = 100;
 }
 
