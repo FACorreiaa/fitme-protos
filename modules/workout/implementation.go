@@ -109,6 +109,10 @@ func (b *Broker) InsertWorkoutPlan(ctx context.Context, in *generated.InsertWork
 	return b.client.InsertWorkoutPlan(ctx, in, opts...)
 }
 
+func (b *Broker) DownloadWorkoutPlan(ctx context.Context, in *generated.DownloadWorkoutPlanRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[generated.FileChunk], error) {
+	return b.client.DownloadWorkoutPlan(ctx, in, opts...)
+}
+
 func (b *Broker) GetAddress() string {
 	return b.serverAddr
 }

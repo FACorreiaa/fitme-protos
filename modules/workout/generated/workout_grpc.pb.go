@@ -34,6 +34,7 @@ const (
 	Workout_DeleteWorkoutPlan_FullMethodName             = "/fitSphere.workout.Workout/DeleteWorkoutPlan"
 	Workout_UpdateWorkoutPlan_FullMethodName             = "/fitSphere.workout.Workout/UpdateWorkoutPlan"
 	Workout_InsertWorkoutPlan_FullMethodName             = "/fitSphere.workout.Workout/InsertWorkoutPlan"
+	Workout_DownloadWorkoutPlan_FullMethodName           = "/fitSphere.workout.Workout/DownloadWorkoutPlan"
 )
 
 // WorkoutClient is the client API for Workout service.
@@ -58,6 +59,7 @@ type WorkoutClient interface {
 	DeleteWorkoutPlan(ctx context.Context, in *DeleteWorkoutPlanReq, opts ...grpc.CallOption) (*NilRes, error)
 	UpdateWorkoutPlan(ctx context.Context, in *UpdateWorkoutPlanReq, opts ...grpc.CallOption) (*UpdateWorkoutPlanRes, error)
 	InsertWorkoutPlan(ctx context.Context, in *InsertWorkoutPlanReq, opts ...grpc.CallOption) (*InsertWorkoutPlanRes, error)
+	DownloadWorkoutPlan(ctx context.Context, in *DownloadWorkoutPlanRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FileChunk], error)
 }
 
 type workoutClient struct {
@@ -218,6 +220,25 @@ func (c *workoutClient) InsertWorkoutPlan(ctx context.Context, in *InsertWorkout
 	return out, nil
 }
 
+func (c *workoutClient) DownloadWorkoutPlan(ctx context.Context, in *DownloadWorkoutPlanRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[FileChunk], error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	stream, err := c.cc.NewStream(ctx, &Workout_ServiceDesc.Streams[0], Workout_DownloadWorkoutPlan_FullMethodName, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &grpc.GenericClientStream[DownloadWorkoutPlanRequest, FileChunk]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type Workout_DownloadWorkoutPlanClient = grpc.ServerStreamingClient[FileChunk]
+
 // WorkoutServer is the server API for Workout service.
 // All implementations must embed UnimplementedWorkoutServer
 // for forward compatibility.
@@ -240,6 +261,7 @@ type WorkoutServer interface {
 	DeleteWorkoutPlan(context.Context, *DeleteWorkoutPlanReq) (*NilRes, error)
 	UpdateWorkoutPlan(context.Context, *UpdateWorkoutPlanReq) (*UpdateWorkoutPlanRes, error)
 	InsertWorkoutPlan(context.Context, *InsertWorkoutPlanReq) (*InsertWorkoutPlanRes, error)
+	DownloadWorkoutPlan(*DownloadWorkoutPlanRequest, grpc.ServerStreamingServer[FileChunk]) error
 	mustEmbedUnimplementedWorkoutServer()
 }
 
@@ -294,6 +316,9 @@ func (UnimplementedWorkoutServer) UpdateWorkoutPlan(context.Context, *UpdateWork
 }
 func (UnimplementedWorkoutServer) InsertWorkoutPlan(context.Context, *InsertWorkoutPlanReq) (*InsertWorkoutPlanRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertWorkoutPlan not implemented")
+}
+func (UnimplementedWorkoutServer) DownloadWorkoutPlan(*DownloadWorkoutPlanRequest, grpc.ServerStreamingServer[FileChunk]) error {
+	return status.Errorf(codes.Unimplemented, "method DownloadWorkoutPlan not implemented")
 }
 func (UnimplementedWorkoutServer) mustEmbedUnimplementedWorkoutServer() {}
 func (UnimplementedWorkoutServer) testEmbeddedByValue()                 {}
@@ -586,6 +611,17 @@ func _Workout_InsertWorkoutPlan_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Workout_DownloadWorkoutPlan_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(DownloadWorkoutPlanRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(WorkoutServer).DownloadWorkoutPlan(m, &grpc.GenericServerStream[DownloadWorkoutPlanRequest, FileChunk]{ServerStream: stream})
+}
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type Workout_DownloadWorkoutPlanServer = grpc.ServerStreamingServer[FileChunk]
+
 // Workout_ServiceDesc is the grpc.ServiceDesc for Workout service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -654,6 +690,12 @@ var Workout_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Workout_InsertWorkoutPlan_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "DownloadWorkoutPlan",
+			Handler:       _Workout_DownloadWorkoutPlan_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "workout.proto",
 }
