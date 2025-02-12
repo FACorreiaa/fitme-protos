@@ -335,6 +335,7 @@ enum FileFormat {
 message DownloadWorkoutPlanRequest {
   string workout_plan_id = 1;
   FileFormat format = 2;
+  BaseRequest request = 100;
 }
 
 message FileChunk {
@@ -350,5 +351,6 @@ message FileChunk {
   // "text/csv"
   // "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   // "application/pdf"
+  BaseResponse response = 100;
 }
 
