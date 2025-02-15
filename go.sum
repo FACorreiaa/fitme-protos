@@ -10,6 +10,8 @@ github.com/FACorreiaa/fitme-grpc v0.0.0-20250211230154-7deb2eaaad85 h1:DdmaDE6aF
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250211230154-7deb2eaaad85/go.mod h1:6G8ytngvQfwy3dDXZzNAv+XxWOuaKQNWbQn+NRhO3nk=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250213232045-b8071e8a4e3c h1:ablQaXLY65ppPUHx+Tq04IwhCkjhYWKFFM8thfXdcdg=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250213232045-b8071e8a4e3c/go.mod h1:GKqsVi4gkTDe1WK4m3ZNontDtAYdHaE6ED8M5lQWUJk=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20250214223330-8f66f52a11ef h1:8OuzJ8unwqhscp5CKMAvfBH9o4S2zrZviMiFKIuGYs4=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20250214223330-8f66f52a11ef/go.mod h1:gFytJtCjO+V3qLho835bEEsL87R2Mowxl3+opLhytFo=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
