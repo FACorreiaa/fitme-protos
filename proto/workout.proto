@@ -290,7 +290,8 @@ message BaseRequest {
 message InsertWorkoutPlanReq {
   XWorkoutPlan workout = 1;
   repeated XPlanDay plan_day = 2;
-  BaseRequest request = 3;
+  string user_id = 3;
+  BaseRequest request = 100;
 }
 message BaseResponse {
   string upstream = 998;
@@ -355,7 +356,7 @@ message FileChunk {
 }
 
 message XExerciseInput {
-  string exercise_id = 1;        // optional
+  string exercise_id = 1;
   string name = 2;
   string exercise_type = 3;
   string muscle_group = 4;
@@ -363,6 +364,6 @@ message XExerciseInput {
   string difficulty = 6;
   string instruction = 7;
   string video = 8;
-  google.protobuf.Timestamp created_at = 9; // optional
+  google.protobuf.Timestamp created_at = 9;
 }
 
