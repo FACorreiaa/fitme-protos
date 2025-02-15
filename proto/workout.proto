@@ -305,7 +305,7 @@ message WorkoutDayResponse {
 
 message XPlanDay {
   string day = 1;
-  repeated string exercise_id = 2;
+  repeated XExerciseInput exercises = 2;
 }
 
 message XWorkoutDay {
@@ -352,5 +352,17 @@ message FileChunk {
   // "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   // "application/pdf"
   BaseResponse response = 100;
+}
+
+message XExerciseInput {
+  string exercise_id = 1;        // optional
+  string name = 2;
+  string exercise_type = 3;
+  string muscle_group = 4;
+  string equipment = 5;
+  string difficulty = 6;
+  string instruction = 7;
+  string video = 8;
+  google.protobuf.Timestamp created_at = 9; // optional
 }
 
