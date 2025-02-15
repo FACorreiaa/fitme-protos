@@ -301,7 +301,7 @@ message BaseResponse {
 
 message WorkoutDayResponse {
   string day = 1;
-  repeated string exercises = 2;
+  repeated XExercises exercises = 2;
 }
 
 message XPlanDay {
