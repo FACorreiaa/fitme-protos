@@ -12,6 +12,8 @@ github.com/FACorreiaa/fitme-grpc v0.0.0-20250213232045-b8071e8a4e3c h1:ablQaXLY6
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250213232045-b8071e8a4e3c/go.mod h1:GKqsVi4gkTDe1WK4m3ZNontDtAYdHaE6ED8M5lQWUJk=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250214223330-8f66f52a11ef h1:8OuzJ8unwqhscp5CKMAvfBH9o4S2zrZviMiFKIuGYs4=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250214223330-8f66f52a11ef/go.mod h1:gFytJtCjO+V3qLho835bEEsL87R2Mowxl3+opLhytFo=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20250216114640-26569d6f561e h1:Fz69WgDuCNZroXb8mIcynb00wM9imNji3SHQt8afzOU=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20250216114640-26569d6f561e/go.mod h1:6U2i4THEgsEus5UvYSbN9eket5y4XAsnNWYrPjLjtjQ=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
@@ -206,6 +208,7 @@ golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL
 golang.org/x/exp v0.0.0-20250106191152-7588d65b2ba8 h1:yqrTHse8TCMW1M1ZCP+VAR/l0kKxwaAIqN/il7x4voA=
 golang.org/x/exp v0.0.0-20250106191152-7588d65b2ba8/go.mod h1:tujkw807nyEEAamNbDrEGzRav+ilXA7PCRAd6xsmwiU=
 golang.org/x/exp v0.0.0-20250210185358-939b2ce775ac/go.mod h1:hH+7mtFmImwwcMvScyxUhjuVHR3HGaDPMn9rMSUUbxo=
+golang.org/x/exp v0.0.0-20250215185904-eff6e970281f/go.mod h1:BHOTPb3L19zxehTsLoJXVaTktb06DFgmdW6Wb9s8jqk=
 golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3/go.mod h1:UVdnD1Gm6xHRNCYTkRU2/jEulfH38KcIWyp/GAMgvoE=
 golang.org/x/lint v0.0.0-20190227174305-5b3e6a55c961/go.mod h1:wehouNa3lNwaWXcvxsM5YxQ5yQlVC4a0KAMCusXpPoU=
 golang.org/x/lint v0.0.0-20190313153728-d0100b6bd8b3/go.mod h1:6SW0HCj/g11FgYtHlgUYUwCkIfeOF89ocIRzGO/8vkc=
