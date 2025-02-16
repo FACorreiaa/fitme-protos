@@ -238,7 +238,8 @@ message XWorkoutPlan {
 
 message XWorkoutPlanDay {
   string day = 1;
-  repeated XExercises exercises = 2;
+  string exercise_type = 2;
+  repeated XExercises exercises = 3;
 }
 
 message XExercises {
