@@ -251,8 +251,10 @@ message XExercises {
   string instruction = 7;
   string video = 8;
   bool custom_created = 9;
-  google.protobuf.Timestamp created_at = 10;
-  google.protobuf.Timestamp updated_at = 11;
+  uint32 series = 10;
+  string reps = 11;
+  google.protobuf.Timestamp created_at = 12;
+  google.protobuf.Timestamp updated_at = 13;
 }
 
 message XWorkoutExerciseDay {
@@ -293,6 +295,7 @@ message InsertWorkoutPlanReq {
   string user_id = 3;
   BaseRequest request = 100;
 }
+
 message BaseResponse {
   string upstream = 998;
   string request_id = 999;
