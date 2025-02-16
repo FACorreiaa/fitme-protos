@@ -309,7 +309,8 @@ message WorkoutDayResponse {
 
 message XPlanDay {
   string day = 1;
-  repeated XExerciseInput exercises = 2;
+  string exercise_type = 2;
+  repeated XExerciseInput exercises = 3;
 }
 
 message XWorkoutDay {
@@ -367,6 +368,8 @@ message XExerciseInput {
   string difficulty = 6;
   string instruction = 7;
   string video = 8;
-  google.protobuf.Timestamp created_at = 9;
+  string repetitions = 9;
+  uint32 series = 10;
+  google.protobuf.Timestamp created_at =11;
 }
 
