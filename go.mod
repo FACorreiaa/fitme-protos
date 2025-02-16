@@ -5,7 +5,7 @@ go 1.24
 toolchain go1.24.0
 
 require (
-	github.com/FACorreiaa/fitme-grpc v0.0.0-20250216114640-26569d6f561e
+	github.com/FACorreiaa/fitme-grpc v0.0.0-20250216165246-ece950766e62
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.20.5
 	go.opentelemetry.io/otel/trace v1.34.0
