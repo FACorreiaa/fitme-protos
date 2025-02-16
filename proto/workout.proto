@@ -252,7 +252,7 @@ message XExercises {
   string video = 8;
   bool custom_created = 9;
   uint32 series = 10;
-  string reps = 11;
+  string repetitions = 11;
   google.protobuf.Timestamp created_at = 12;
   google.protobuf.Timestamp updated_at = 13;
 }
