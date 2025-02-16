@@ -291,7 +291,7 @@ message BaseRequest {
 }
 message InsertWorkoutPlanReq {
   XWorkoutPlan workout = 1;
-  repeated XPlanDay plan_day = 2;
+  //repeated XPlanDay plan_day = 2;
   string user_id = 3;
   BaseRequest request = 100;
 }
