@@ -16,6 +16,8 @@ github.com/FACorreiaa/fitme-grpc v0.0.0-20250216114640-26569d6f561e h1:Fz69WgDuC
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250216114640-26569d6f561e/go.mod h1:6U2i4THEgsEus5UvYSbN9eket5y4XAsnNWYrPjLjtjQ=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250216165246-ece950766e62 h1:/jOHrMeNFANFSwsKfaggB3hhBKkMT2alv/L8Zv13rQk=
 github.com/FACorreiaa/fitme-grpc v0.0.0-20250216165246-ece950766e62/go.mod h1:YH+j3yvqZXrNELkstxKRmatH+UMqTS20CeGEcLWF9Q4=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20250218122918-329bec8d85ce h1:RdKVfF2ARr8aqM2iI5lOpxH6R7atXqhXjuGKRGcfE58=
+github.com/FACorreiaa/fitme-grpc v0.0.0-20250218122918-329bec8d85ce/go.mod h1:5iRkWSdVOqE+ZtIYrEy/xWHaiC1so8SBX/3PVJFTXuE=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
@@ -72,6 +74,8 @@ github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus v1.0.1 h1:qnpS
 github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus v1.0.1/go.mod h1:lXGCsh6c22WGtjr+qGHj1otzZpV/1kwTMAqkwZsnWRU=
 github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.2.0 h1:kQ0NI7W1B3HwiN5gAYtY+XFItDPbLBwYRxAqbFTyDes=
 github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.2.0/go.mod h1:zrT2dxOAjNFPRGjTUe2Xmb4q4YdUwVvQFV6xiCSf+z0=
+github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.3.0 h1:FbSCl+KggFl+Ocym490i/EyXF4lPgLoUtcSWquBM0Rs=
+github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.3.0/go.mod h1:qOchhhIlmRcqk/O9uCo/puJlyo07YINaIqdZfZG3Jkc=
 github.com/grpc-ecosystem/grpc-gateway/v2 v2.25.1 h1:VNqngBF40hVlDloBruUehVYC3ArSgIyScOAyMRqBxRg=
 github.com/grpc-ecosystem/grpc-gateway/v2 v2.25.1/go.mod h1:RBRO7fro65R6tjKzYgLAFo0t1QEXY1Dp+i/bvpRiqiQ=
 github.com/grpc-ecosystem/grpc-gateway/v2 v2.26.0 h1:VD1gqscl4nYs1YxVuSdemTrSgTKrwOWDK0FVFMqm+Cg=
